@@ -3,6 +3,20 @@ from datetime import datetime
 import subprocess
 from lcd import lcd_init, lcd_text, LCD_LINE_1, LCD_LINE_2
 from utils import setup_pins, sleep, HOUR_BUTTON_PIN, MINUTE_BUTTON_PIN
+from config import BYPASS_INSTRUCTIONS
+
+def print_lcd_instructions():
+    lcd_text("   PLEASE SET   ", LCD_LINE_1)
+    lcd_text("    THE TIME    ", LCD_LINE_2)
+    sleep(3)
+
+    lcd_text("'MINUTE' button:", LCD_LINE_1)
+    lcd_text("Change the value", LCD_LINE_2)
+    sleep(3)
+
+    lcd_text("'HOUR' button:  ", LCD_LINE_1)
+    lcd_text(" Sets the value ", LCD_LINE_2)
+    sleep(3)
 
 
 def get_user_date(date_int, label, min, max):
@@ -10,11 +24,12 @@ def get_user_date(date_int, label, min, max):
 
     while move_on == False:
                  #1234567890123456
-        lcd_text("SET:MIN ENTER:HR", LCD_LINE_1)
+        lcd_text("chng:MIN set:HR", LCD_LINE_1)
         lcd_text(f"  {label}?: {date_int}", LCD_LINE_2)
 
         if GPIO.input(MINUTE_BUTTON_PIN) == False:
             date_int = date_int + 1
+            sleep(0.1)
 
         if date_int > max:
             date_int = min
@@ -23,12 +38,6 @@ def get_user_date(date_int, label, min, max):
             sleep(0.2)
             return date_int
         
-
-def get_test_time():
-    now = datetime.now()
-    
-    print(f"TEST TIME: {now}")
-    return now
 
 def create_date_string(year, month, date, hour, minute):
 
@@ -45,7 +54,6 @@ def create_date_string(year, month, date, hour, minute):
     # "02301010000.00"
     #date_string = f"{month}{date}{hour}{minute}{year}.00"
 
-    print(f"Date String: {date_string}")
     return date_string
 
 def modify_single_digit_time(digit):
@@ -56,13 +64,7 @@ def modify_single_digit_time(digit):
     
     return (new_digit)
 
-def press_enter_to_continue():
-
-    print("Press Enter...")
-    input("")
-
-if __name__ == "__main__":
-    setup_pins()
+def set_system_time():
 
     year = 2023
     month = 1
@@ -72,7 +74,10 @@ if __name__ == "__main__":
 
     print("USE BUTTONS AND SCREEN")
 
-    year = get_user_date(year, "YEAR", 2023, 2030)
+    if BYPASS_INSTRUCTIONS == False:
+        print_lcd_instructions()
+
+    year = get_user_date(year, "YEAR", 2023, 2050)
     month = get_user_date(month, "MONTH", 1, 12)
     day = get_user_date(date, "DAY", 1, 31)
     hour = get_user_date(hour, "HOUR", 0, 23)
@@ -82,8 +87,15 @@ if __name__ == "__main__":
 
     subprocess.run(["sudo", "date", "-s", system_time_string])
 
-    get_test_time()
-
-    press_enter_to_continue()
-
     lcd_init()
+
+
+# def press_enter_to_continue():
+
+#     print("Press Enter...")
+#     input("")
+
+# def get_test_time():
+#     now = datetime.now()
+
+#     return now

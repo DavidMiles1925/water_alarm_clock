@@ -241,25 +241,15 @@ Contents:
 
 ---
 
-#### Current Version: 0.7  
->&emsp;- added snooze feature  
->&emsp;- tweaked snooze output  
->&emsp;- adjusted lcd performance  
->&emsp;- README:  
->&emsp;&emsp;- add overview video  
->&emsp;&emsp;- add technical notes section  
->&emsp;&emsp;- general fixes  
+#### Current Version: 1.0  
+&emsp;- created set_system_time() function  
+&emsp;- added set time logic  
+&emsp;- README:
+&emsp;&emsp;- add set time instructions
 
 ---
 
 #### Future Versions:
-
-##### Version 1.0
-&emsp;- create set_current_time() function  
-&emsp;- add set time logic  
-&emsp;- add set time button  
-&emsp;- add reset logic  
-&emsp;- add reset button  
 
 ##### Version P: A device port to Raspberry Pi Pico.
 &emsp;- Port to Raspberry Pi Pico:  
@@ -287,6 +277,15 @@ Port plan created during version iteration 0.6:
 
 <details>
     <summary>Click to expand...</summary>
+
+##### Version: 0.7  
+>&emsp;- added snooze feature  
+>&emsp;- tweaked snooze output  
+>&emsp;- adjusted lcd performance  
+>&emsp;- README:  
+>&emsp;&emsp;- added overview video  
+>&emsp;&emsp;- added technical notes section  
+>&emsp;&emsp;- general fixes  
 
 ##### Version 0.6  
 >&emsp;- configured to run on startup  
