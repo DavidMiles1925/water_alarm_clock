@@ -18,7 +18,12 @@ Coming Soon
 
 ### Software:
 
-#### Current Version: 0.1
+#### Current Version: 0.2
+    - Beginning production
+
+#### Previous Versions: 
+
+**Version 0.1**
     - Created main function
     - Created basic utilities library
     - Created configuration file
