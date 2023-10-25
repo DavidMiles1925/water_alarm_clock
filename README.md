@@ -32,6 +32,12 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 
 ### Software:
 
+In this section:  
+[Dependencies](#dependencies)
+[Current Version](#current-version-03)  
+[Previous Versions](#previous-versions)  
+[Future Versions](#future-versions)  
+
 #### Dependencies
 
 **Python**
@@ -42,6 +48,7 @@ Jumper Wires (many assorted m-f, f-f, m-m)
     - console debug formatting adjustments  
     - README:  
         - add hardware links  
+        - add table of contents
 
 #### Previous Versions: 
 
