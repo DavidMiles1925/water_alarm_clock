@@ -98,10 +98,10 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 ## Project Credits
 
 ### Jonathan Hoffman - Product Owner
-    Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
+Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
 
 ### Tom Ryan - Consulting Engineer
-    Tom has been an instrumental part of product testing, market research, and general consulting. 
+Tom has been an instrumental part of product testing, market research, and general consulting. 
 
 ### David Miles - Software Developer
-    David is responsible for the software and small electronics portion of the project. 
+David is responsible for the software and small electronics portion of the project. He is also the one maintaining the project documentation.
