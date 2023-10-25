@@ -4,12 +4,26 @@ import platform
 import time
 
 try:
-    from config import ALARM_TIME, ALARM_SET
+    import RPi.GPIO as GPIO
+except:
+    print("ERROR LOADING GPIO")
+
+try:
+    from config import ALARM_MINUTE, ALARM_HOUR, ALARM_SET
 except:
     print("ERROR LOADING CONFIG")
 
-VERSION = 0.1
+VERSION = 0.3
 AUTHOR = "David Miles"
+
+# GPIO Pin Variables (excluding screen)
+LED_PIN = 19
+RELAY_PIN = 16
+SET_BUTTON_PIN = 13
+ALARM_BUTTON_PIN = 26
+HOUR_BUTTON_PIN = 5
+MINUTE_BUTTON_PIN = 6
+
 
 def clear():
     os_info = get_os_info()
@@ -69,12 +83,21 @@ def get_os_info():
     return {"name": name, "message": clear_message}
 
 def print_debug_output(time_stamp):
-    time_to_display = time_stamp.strftime("%H:%M %m/%d/%Y")
-    
-    print("0123456789012345")
-    print(time_to_display)
+    ALARM_TIME = create_alarm_string(ALARM_HOUR, ALARM_MINUTE)
+
     if ALARM_SET == True:
-        print(f"ALARM: ON {ALARM_TIME}")
+         alarm_to_display = f"Line 2:   |ALARM:ON {ALARM_TIME}MM|"
+    else:
+         alarm_to_display = "Line 2:   |ALARM: OFF      |"
+    time_to_display = time_stamp.strftime("%H:%MMM %m/%d/%y")
+   
+    
+    print("\n\n##### SCREEN OUTPUT #####\n")
+    print("Position:  0123456789012345")
+    print("          ------------------")
+    print(f"Line 1:   |{time_to_display}|")
+    print(alarm_to_display)
+    print("          ------------------")
 
 
 
@@ -88,14 +111,80 @@ def run_clock(os_name, loop_bool):
             print(f"The current time is: {current_time}")
 
             print_debug_output(current_time)
+
+            # Check to see if set alarm button is pressed
+            if GPIO.input(SET_BUTTON_PIN) == False:
+                print("Set Button Held")
+
+                # Add an hour when the button is pressed
+                if GPIO.input(HOUR_BUTTON_PIN) == False:
+                    print("hour")
+                    global ALARM_HOUR
+                    ALARM_HOUR = ALARM_HOUR + 1
+                    if ALARM_HOUR == 24:
+                        ALARM_HOUR = 0
+                    sleep(0.2)
+                
+                # Add a minute when the button is pressed
+                if GPIO.input(MINUTE_BUTTON_PIN) == False:
+                    print("minute")
+                    global ALARM_MINUTE
+                    ALARM_MINUTE = ALARM_MINUTE + 1
+                    if ALARM_MINUTE == 60:
+                        ALARM_MINUTE = 0
+                    sleep(0.2)
+
+            # Turn alarm on/off when button is pressed
+            if GPIO.input(ALARM_BUTTON_PIN) == False:
+                global ALARM_SET
+                ALARM_SET = not ALARM_SET
+                sleep(0.2)
             
-            sleep(0.2)
+            sleep(0.05)
     except KeyboardInterrupt:
         clear
 
 
 def sleep(num):
     time.sleep(num)
+
+def setup_pins():
+
+    # Hour button
+    GPIO.setup(HOUR_BUTTON_PIN, GPIO.IN)
+
+    # Minute button
+    GPIO.setup(MINUTE_BUTTON_PIN, GPIO.IN)
+
+    # Set Alarm Button
+    GPIO.setup(SET_BUTTON_PIN, GPIO.IN)
+
+    # Alarm ON/OFF Button
+    GPIO.setup(ALARM_BUTTON_PIN, GPIO.IN)
+
+    # LED
+    GPIO.setup(LED_PIN, GPIO.OUT)
+    GPIO.output(LED_PIN, GPIO.LOW)
+
+def create_alarm_string(hour, minute):
+
+    if hour < 10:
+        hour_string = "0" + str(hour)
+    elif hour == 24:
+        hour_string = "00"
+    else:
+        hour_string = str(hour)
+
+    if minute < 10:
+        minute_string = "0" + str(minute)
+    elif minute == 60:
+        minute_string = "00"
+    else:
+        minute_string = str(minute)
+
+    alarm_string = hour_string + ":" + minute_string
+
+    return alarm_string
 
 
 '''

@@ -1,5 +1,12 @@
 # Water Alarm Clock
 
+## Table of Contents
+**- [Project Description](#project-description-1)**  
+**- [Documentation](#documentation-1)**  
+    -- [Hardware](#hardware)  
+    -- [Software](#software)  
+**- [Project Credits](#project-credits)**  
+
 ## Project Description
 
 ### About the Product
@@ -8,12 +15,14 @@ This is a project in development to create an alarm clock that will spray you wi
 
 ### Inspiration
 
-This idea was ceonceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
+This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
 
 ## Documentation:
 
 ### Hardware:
 
+Pump info needed  
+Converter info needed  
 Raspberry Pi 4 (Pico in future versions)  
 Screen  
 1-10K Ohm Potentiometer  
@@ -25,12 +34,37 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 
 ### Software:
 
-#### Current Version: 0.2
-    - adjusted time output formatting  
-    - created debug output to console  
-    - README update: hardware and future versioning  
+In this section:  
+    - [Dependencies](#dependencies)  
+    - [Current Version](#current-version-03)  
+    - [Previous Versions](#previous-versions)  
+    - [Future Versions](#future-versions)  
+
+#### Dependencies:
+
+**- Python**  
+Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
+
+#### Current Version: 0.3
+    - Set up GPIO pins  
+    - integrate buttons:  
+        -- alarm on/off  
+        -- set alarm  
+        -- hour  
+        -- minute  
+    - configure button logic  
+    - console debug formatting adjustments  
+    - README:  
+        -- add table of contents
 
 #### Previous Versions: 
+
+**Version 0.2**
+    - adjusted time output formatting  
+    - created debug output to console  
+    - README update:  
+        -- hardware  
+        -- future versioning  
 
 **Version 0.1**
     - Created main function  
@@ -42,30 +76,34 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 
 #### Future Versions:
 
-**Version 0.3**  
-    - Set up GPIO pins  
-    - Create basic alarm logic  
-    - README: add hardware links  
-
 **Version 0.4**  
-    - integrate "alarm on/off" button  
-    - integrate "set alarm" button  
-    - integrate "hour" button  
-    - integrate "minute" button  
-    - configure button logic  
+    - Create basic alarm logic  
+    - integrate indicator LED  
+    - integrate relay circuit  
+    - README:  
+        -- add hardware links 
 
 **Version 0.5**  
-    - integrate indicator LED  
-    - integrate array circuit  
-
-**Version 0.6**  
     - integrate screen  
     - calibrate potentiometer  
     - generate screen output to match debug output  
+    - README:  
+        -- add screen wiring diagram
 
 **Version 0.7**  
-    - configure to start on run  
+    - configure to run on startup  
     - Port to Raspberry Pi Pico  
 
 **Version 1.0**  
     **This will be the full realease of software, designed to run on the final product.**
+
+## Project Credits
+
+### Jonathan Hoffman - Product Owner
+Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
+
+### Tom Ryan - Consulting Engineer
+Tom has been an instrumental part of product testing, solution design, and general consulting. 
+
+### David Miles - Software Developer
+David is responsible for the software and small electronics portion of the project. He is also the one maintaining the project documentation.

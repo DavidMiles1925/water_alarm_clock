@@ -1,4 +1,9 @@
 try:
+    import RPi.GPIO as GPIO
+except:
+    print("ERROR LOADING GPIO")
+
+try:
     from utils import \
         DEFAULT_ERROR,\
         EXIT_MESSAGE,\
@@ -6,17 +11,23 @@ try:
         get_os_info,\
         print_error,\
         run_clock,\
-        sleep
+        sleep,\
+        setup_pins
 except:
     print("ERROR LOADING UTILITIES")
 
 try:
-    from config import ALARM_TIME
+    from config import ALARM_MINUTE
 except:
     print("ERROR LOADING CONFIG")
 
 if __name__ == "__main__":
     try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+
+        setup_pins()
+
         start_time = get_current_time()
         
         os_info = get_os_info()
@@ -28,8 +39,10 @@ if __name__ == "__main__":
     except:
         print_error(DEFAULT_ERROR)
         sleep(3)
+        GPIO.cleanup()
 
     finally:
+        GPIO.cleanup()
         stop_time = get_current_time()
         stop_time_display = "Stop Time: " + stop_time.strftime("%H:%M:%S")
         start_time_display = "Start Time: " + start_time.strftime("%H:%M:%S")
