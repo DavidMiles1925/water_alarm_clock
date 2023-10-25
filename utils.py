@@ -11,6 +11,15 @@ except:
 VERSION = 0.3
 AUTHOR = "David Miles"
 
+# GPIO Pin Variables (excluding screen)
+LED_PIN = 19
+RELAY_PIN = 16
+SET_BUTTON_PIN = 13
+ALARM_BUTTON_PIN = 26
+HOUR_BUTTON_PIN = 5
+MINUTE_BUTTON_PIN = 6
+
+
 def clear():
     os_info = get_os_info()
 

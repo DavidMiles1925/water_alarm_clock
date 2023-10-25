@@ -45,11 +45,16 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 
 #### Current Version: 0.3
     - Set up GPIO pins  
-    - Create basic alarm logic  
+    - integrate buttons:  
+        -- alarm on/off  
+        -- set alarm  
+        -- hour  
+        -- minute  
+    - configure button logic  
     - console debug formatting adjustments  
     - README:  
-        - add hardware links  
-        - add table of contents
+        -- add hardware links  
+        -- add table of contents
 
 #### Previous Versions: 
 
@@ -57,8 +62,8 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - adjusted time output formatting  
     - created debug output to console  
     - README update:  
-        - hardware  
-        - future versioning  
+        -- hardware  
+        -- future versioning  
 
 **Version 0.1**
     - Created main function  
@@ -71,25 +76,19 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 #### Future Versions:
 
 **Version 0.4**  
-    - integrate "alarm on/off" button  
-    - integrate "set alarm" button  
-    - integrate "hour" button  
-    - integrate "minute" button  
-    - configure button logic  
-
-**Version 0.5**  
+    - Create basic alarm logic  
     - integrate indicator LED  
     - integrate relay circuit  
 
-**Version 0.6**  
+**Version 0.5**  
     - integrate screen  
     - calibrate potentiometer  
     - generate screen output to match debug output  
     - README:  
-        - add screen wiring diagram
+        -- add screen wiring diagram
 
 **Version 0.7**  
-    - configure to start on run  
+    - configure to run on startup  
     - Port to Raspberry Pi Pico  
 
 **Version 1.0**  

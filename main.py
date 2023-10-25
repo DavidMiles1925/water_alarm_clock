@@ -1,4 +1,9 @@
 try:
+    import RPi.GPIO as GPIO
+except:
+    print("ERROR LOADING GPIO")
+
+try:
     from utils import \
         DEFAULT_ERROR,\
         EXIT_MESSAGE,\
@@ -17,6 +22,8 @@ except:
 
 if __name__ == "__main__":
     try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
         start_time = get_current_time()
         
         os_info = get_os_info()
