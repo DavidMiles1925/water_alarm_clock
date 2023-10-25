@@ -3,6 +3,11 @@ import os
 import platform
 import time
 
+try:
+    from config import ALARM_TIME, ALARM_SET
+except:
+    print("ERROR LOADING CONFIG")
+
 VERSION = 0.1
 AUTHOR = "David Miles"
 
@@ -63,6 +68,15 @@ def get_os_info():
     
     return {"name": name, "message": clear_message}
 
+def print_debug_output(time_stamp):
+    time_to_display = time_stamp.strftime("%H:%M %m/%d/%Y")
+    
+    print("0123456789012345")
+    print(time_to_display)
+    if ALARM_SET == True:
+        print(f"ALARM: ON {ALARM_TIME}")
+
+
 
 def run_clock(os_name, loop_bool):
     try:
@@ -70,9 +84,12 @@ def run_clock(os_name, loop_bool):
             display_welcome(os_name, loop_bool)
 
             current_time = get_current_time()
+            
+            print(f"The current time is: {current_time}")
 
-            print(current_time)
-            sleep(0.1)
+            print_debug_output(current_time)
+            
+            sleep(0.2)
     except KeyboardInterrupt:
         clear
 

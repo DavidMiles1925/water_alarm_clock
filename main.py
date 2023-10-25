@@ -8,7 +8,12 @@ try:
         run_clock,\
         sleep
 except:
-    print("ERROR LOADING IMPORTS")
+    print("ERROR LOADING UTILITIES")
+
+try:
+    from config import ALARM_TIME
+except:
+    print("ERROR LOADING CONFIG")
 
 if __name__ == "__main__":
     try:
@@ -26,7 +31,6 @@ if __name__ == "__main__":
 
     finally:
         stop_time = get_current_time()
-        stop_time_display = "Stop Time:" + stop_time.strftime("%H:%M:%S")
-        start_time_display = "Start Time:" + start_time.strftime("%H:%M:%S")
+        stop_time_display = "Stop Time: " + stop_time.strftime("%H:%M:%S")
+        start_time_display = "Start Time: " + start_time.strftime("%H:%M:%S")
         print_error(EXIT_MESSAGE, start_time_display, stop_time_display)
-
