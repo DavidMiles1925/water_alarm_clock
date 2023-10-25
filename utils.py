@@ -8,7 +8,7 @@ try:
 except:
     print("ERROR LOADING CONFIG")
 
-VERSION = 0.1
+VERSION = 0.3
 AUTHOR = "David Miles"
 
 def clear():
@@ -69,12 +69,19 @@ def get_os_info():
     return {"name": name, "message": clear_message}
 
 def print_debug_output(time_stamp):
-    time_to_display = time_stamp.strftime("%H:%M %m/%d/%Y")
-    
-    print("0123456789012345")
-    print(time_to_display)
     if ALARM_SET == True:
-        print(f"ALARM: ON {ALARM_TIME}")
+         alarm_to_display = f"Line 2:   |ALARM:ON {ALARM_TIME}MM|"
+    else:
+         alarm_to_display = "Line 2:   |ALARM: OFF      |"
+    time_to_display = time_stamp.strftime("%H:%M %m/%d/%Y")
+   
+    
+    print("\n\n##### SCREEN OUTPUT #####\n")
+    print("Position:  0123456789012345")
+    print("          ------------------")
+    print(f"Line 1:   |{time_to_display}|")
+    print(alarm_to_display)
+    print("          ------------------")
 
 
 

@@ -25,12 +25,21 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 
 ### Software:
 
-#### Current Version: 0.2
-    - adjusted time output formatting  
-    - created debug output to console  
-    - README update: hardware and future versioning  
+#### Current Version: 0.3
+    - Set up GPIO pins  
+    - Create basic alarm logic  
+    - console debug formatting adjustments  
+    - README:  
+        - add hardware links  
 
 #### Previous Versions: 
+
+**Version 0.2**
+    - adjusted time output formatting  
+    - created debug output to console  
+    - README update:  
+        - hardware  
+        - future versioning  
 
 **Version 0.1**
     - Created main function  
@@ -41,11 +50,6 @@ Jumper Wires (many assorted m-f, f-f, m-m)
     - Started README  
 
 #### Future Versions:
-
-**Version 0.3**  
-    - Set up GPIO pins  
-    - Create basic alarm logic  
-    - README: add hardware links  
 
 **Version 0.4**  
     - integrate "alarm on/off" button  
