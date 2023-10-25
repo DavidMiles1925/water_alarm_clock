@@ -1,9 +1,11 @@
 # Water Alarm Clock
 
 ## Table of Contents
-###  - [Project Description](#project-description-1)
-###  - [Documentation](#documentation-1)
-###  - [Project Credits](#project-credits-1)
+**- [Project Description](#project-description-1)**
+**- [Documentation](#documentation-1)**
+    -- [Hardware](#hardware)
+    -- [Software](#software)
+**- [Project Credits](#project-credits-1)**
 
 ## Project Description
 
@@ -29,6 +31,10 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 10K Ohm Resistors x3  
 
 ### Software:
+
+#### Dependencies
+
+**Python**
 
 #### Current Version: 0.3
     - Set up GPIO pins  
