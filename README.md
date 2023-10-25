@@ -21,6 +21,8 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 
 ### Hardware:
 
+Pump info needed  
+Converter info needed  
 Raspberry Pi 4 (Pico in future versions)  
 Screen  
 1-10K Ohm Potentiometer  
@@ -53,7 +55,6 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - configure button logic  
     - console debug formatting adjustments  
     - README:  
-        -- add hardware links  
         -- add table of contents
 
 #### Previous Versions: 
@@ -79,6 +80,8 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - Create basic alarm logic  
     - integrate indicator LED  
     - integrate relay circuit  
+    - README:  
+        -- add hardware links 
 
 **Version 0.5**  
     - integrate screen  
@@ -100,7 +103,7 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
 
 ### Tom Ryan - Consulting Engineer
-Tom has been an instrumental part of product testing, market research, and general consulting. 
+Tom has been an instrumental part of product testing, solution design, and general consulting. 
 
 ### David Miles - Software Developer
 David is responsible for the software and small electronics portion of the project. He is also the one maintaining the project documentation.

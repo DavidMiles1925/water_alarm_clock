@@ -17,7 +17,7 @@ except:
     print("ERROR LOADING UTILITIES")
 
 try:
-    from config import ALARM_TIME
+    from config import ALARM_MINUTE
 except:
     print("ERROR LOADING CONFIG")
 
