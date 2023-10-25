@@ -1,1 +1,2 @@
-ALARM_TIME = {}
+ALARM_TIME = "00:00"
+ALARM_SET = True

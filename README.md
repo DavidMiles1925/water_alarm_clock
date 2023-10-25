@@ -19,7 +19,8 @@ Coming Soon
 ### Software:
 
 #### Current Version: 0.2
-    - Beginning production
+    - adjusted time output formatting
+    - created debug output to console
 
 #### Previous Versions: 
 
