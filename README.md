@@ -1,5 +1,9 @@
 # Water Alarm Clock
 
+# Table of Contents
+##  [Project Description](#project-description-1)
+##  [Documentation](#documentation-1)
+
 ## Project Description
 
 ### About the Product
@@ -8,7 +12,7 @@ This is a project in development to create an alarm clock that will spray you wi
 
 ### Inspiration
 
-This idea was ceonceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
+This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
 
 ## Documentation:
 
@@ -60,12 +64,14 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 
 **Version 0.5**  
     - integrate indicator LED  
-    - integrate array circuit  
+    - integrate relay circuit  
 
 **Version 0.6**  
     - integrate screen  
     - calibrate potentiometer  
     - generate screen output to match debug output  
+    - README:  
+        - add screen wiring diagram
 
 **Version 0.7**  
     - configure to start on run  
@@ -73,3 +79,11 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 
 **Version 1.0**  
     **This will be the full realease of software, designed to run on the final product.**
+
+## Project Credits
+
+### Jonathan Hoffman - Product Owner
+
+### Tom Ryan - Consulting Engineer
+
+### David Miles - Software Developer
