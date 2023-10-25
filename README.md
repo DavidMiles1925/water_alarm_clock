@@ -5,7 +5,7 @@
 **- [Documentation](#documentation-1)**  
     -- [Hardware](#hardware)  
     -- [Software](#software)  
-**- [Project Credits](#project-credits-1)**  
+**- [Project Credits](#project-credits)**  
 
 ## Project Description
 
@@ -33,10 +33,10 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 ### Software:
 
 In this section:  
-[Dependencies](#dependencies)  
-[Current Version](#current-version-03)  
-[Previous Versions](#previous-versions)  
-[Future Versions](#future-versions)  
+    - [Dependencies](#dependencies)  
+    - [Current Version](#current-version-03)  
+    - [Previous Versions](#previous-versions)  
+    - [Future Versions](#future-versions)  
 
 #### Dependencies:
 
