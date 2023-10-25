@@ -1,11 +1,11 @@
 # Water Alarm Clock
 
 ## Table of Contents
-**- [Project Description](#project-description-1)**
-**- [Documentation](#documentation-1)**
-    -- [Hardware](#hardware)
-    -- [Software](#software)
-**- [Project Credits](#project-credits-1)**
+**- [Project Description](#project-description-1)**  
+**- [Documentation](#documentation-1)**  
+    -- [Hardware](#hardware)  
+    -- [Software](#software)  
+**- [Project Credits](#project-credits-1)**  
 
 ## Project Description
 
