@@ -4,6 +4,11 @@ import platform
 import time
 
 try:
+    import RPi.GPIO as GPIO
+except:
+    print("ERROR LOADING GPIO")
+
+try:
     from config import ALARM_TIME, ALARM_SET
 except:
     print("ERROR LOADING CONFIG")
@@ -104,14 +109,40 @@ def run_clock(os_name, loop_bool):
             print(f"The current time is: {current_time}")
 
             print_debug_output(current_time)
+
+            if GPIO.input(SET_BUTTON_PIN) == False:
+                print("Set Button Held")
+
+            if GPIO.input(ALARM_BUTTON_PIN) == False:
+                global ALARM_SET
+                ALARM_SET = not ALARM_SET
+                sleep(0.2)
             
-            sleep(0.2)
+            sleep(0.05)
     except KeyboardInterrupt:
         clear
 
 
 def sleep(num):
     time.sleep(num)
+
+def setup_pins():
+
+    # Hour button
+    GPIO.setup(HOUR_BUTTON_PIN, GPIO.IN)
+
+    # Minute button
+    GPIO.setup(MINUTE_BUTTON_PIN, GPIO.IN)
+
+    # Set Alarm Button
+    GPIO.setup(SET_BUTTON_PIN, GPIO.IN)
+
+    # Alarm ON/OFF Button
+    GPIO.setup(ALARM_BUTTON_PIN, GPIO.IN)
+
+    # LED
+    GPIO.setup(LED_PIN, GPIO.OUT)
+    GPIO.output(LED_PIN, GPIO.LOW)
 
 
 '''
