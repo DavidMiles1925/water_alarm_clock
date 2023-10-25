@@ -33,14 +33,15 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 ### Software:
 
 In this section:  
-[Dependencies](#dependencies)
+[Dependencies](#dependencies)  
 [Current Version](#current-version-03)  
 [Previous Versions](#previous-versions)  
 [Future Versions](#future-versions)  
 
-#### Dependencies
+#### Dependencies:
 
-**Python**
+**- Python**  
+Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
 
 #### Current Version: 0.3
     - Set up GPIO pins  
