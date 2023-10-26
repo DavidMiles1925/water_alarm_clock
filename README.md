@@ -3,8 +3,8 @@
 ## Table of Contents
 **- [Project Description](#project-description-1)**  
 **- [Documentation](#documentation-1)**  
-    -- [Hardware](#hardware)  
-    -- [Software](#software)  
+    &emsp;- [Hardware](#hardware)  
+    &emsp;- [Software](#software)  
 **- [Project Credits](#project-credits)**  
 
 ## Project Description
@@ -50,8 +50,8 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - calibrate potentiometer  
     - generate screen output to match debug output  
     - README:  
-        -- add hardware links  
-        -- add screen wiring diagram  
+        &emsp;- add hardware links  
+        &emsp;- add screen wiring diagram  
 
 #### Previous Versions: 
 
@@ -64,21 +64,21 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 **Version 0.3**  
     - Set up GPIO pins  
     - integrate buttons:  
-        -- alarm on/off  
-        -- set alarm  
-        -- hour  
-        -- minute  
+        &emsp;- alarm on/off  
+        &emsp;- set alarm  
+        &emsp;- hour  
+        &emsp;- minute  
     - configure button logic  
     - console debug formatting adjustments  
     - README:  
-        -- add table of contents  
+        &emsp;- add table of contents  
 
 **Version 0.2**  
     - adjusted time output formatting  
     - created debug output to console  
     - README update:  
-        -- hardware  
-        -- future versioning  
+        &emsp;- hardware  
+        &emsp;- future versioning  
 
 **Version 0.1**  
     - Created main function  
@@ -93,8 +93,8 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 **Version 0.7**  
     - configure to run on startup  
     - Port to Raspberry Pi Pico  
-        -- Remove console outputs  
-        -- Remove OS specific components  
+        &emsp;- Remove console outputs  
+        &emsp;- Remove OS specific components  
     - README:  
         &emsp;- Project recap  
         &emsp;- Videos/images  
