@@ -57,7 +57,7 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 
 #### Future Versions:
 
-**Version 0.7**  
+**Version 0.6**  
     - configure to run on startup  
     - Port to Raspberry Pi Pico  
         &emsp;- Remove console outputs  
