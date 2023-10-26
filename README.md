@@ -93,11 +93,11 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 **Version 0.7**  
     - configure to run on startup  
     - Port to Raspberry Pi Pico  
-        -- Remove console outputs
-        -- Remove OS specific components
-    - README:
-        &emsp;- Project recap
-        &emsp;- Videos/images
+        -- Remove console outputs  
+        -- Remove OS specific components  
+    - README:  
+        &emsp;- Project recap  
+        &emsp;- Videos/images  
 
 **Version 1.0**  
     **This will be the full realease of software, designed to run on the final product.**
