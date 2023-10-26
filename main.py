@@ -1,7 +1,7 @@
 try:
     import RPi.GPIO as GPIO
 except:
-    print("ERROR LOADING GPIO")
+    print("ERROR LOADING GPIO: main.py")
 
 try:
     from utils import \
@@ -14,12 +14,9 @@ try:
         sleep,\
         setup_pins
 except:
-    print("ERROR LOADING UTILITIES")
+    print("ERROR LOADING UTILITIES: main.py")
+    exit()
 
-try:
-    from config import ALARM_MINUTE
-except:
-    print("ERROR LOADING CONFIG")
 
 if __name__ == "__main__":
     try:
