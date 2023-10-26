@@ -46,12 +46,12 @@ In this section:
 Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
 
 #### Current Version: 0.5  
+    - add AM/PM logic
+    - format output for AM/PM
     - integrate screen  
     - calibrate potentiometer  
     - generate screen output to match debug output  
-    - README:  
-        &emsp;- add hardware links  
-        &emsp;- add screen wiring diagram  
+
 
 #### Previous Versions: 
 
@@ -60,6 +60,9 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - integrate indicator LED  
     - integrate relay circuit  
     - test all components
+    - README:  
+        &emsp;- add hardware links  
+        &emsp;- add screen wiring diagram  
 
 **Version 0.3**  
     - Set up GPIO pins  

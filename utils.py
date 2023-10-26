@@ -152,9 +152,8 @@ def run_clock(os_name, loop_bool):
                 GPIO.output(LED_PIN, GPIO.LOW)
                 GPIO.output(RELAY_PIN, GPIO.LOW)
                 set_recently_sounded()
-                #global RECENTLY_SOUNDED
-                #RECENTLY_SOUNDED = True
-                Timer(60, set_recently_sounded).start()
+                recently_sounded_timer = Timer(60, set_recently_sounded)
+                recently_sounded_timer.start()
 
             sleep(0.05)
     except KeyboardInterrupt:
@@ -170,22 +169,32 @@ def run_clock(os_name, loop_bool):
 ########################
 
 def create_alarm_string(hour, minute):
+    am_pm = "AM"
 
-    if hour < 10:
-        hour_string = "0" + str(hour)
-    elif hour == 24:
-        hour_string = "00"
-    else:
+    if hour == 0:
+        hour_string = "12"
+    elif hour == 12:
         hour_string = str(hour)
+        am_pm = "PM"
+    elif hour < 10:
+        hour_string = " " + str(hour)
+    elif hour < 12:
+        hour_string = str(hour)
+    elif hour > 12 and hour < 22:
+        hour = hour - 12
+        hour_string = " " + str(hour)
+        am_pm = "PM"
+    else:
+        hour = hour - 12
+        hour_string = str(hour)
+        am_pm = "PM"
 
     if minute < 10:
         minute_string = "0" + str(minute)
-    elif minute == 60:
-        minute_string = "00"
     else:
         minute_string = str(minute)
 
-    alarm_string = hour_string + ":" + minute_string
+    alarm_string = hour_string + ":" + minute_string + am_pm
 
     return alarm_string
 
@@ -218,10 +227,17 @@ def print_debug_output(time_stamp):
     ALARM_TIME = create_alarm_string(ALARM_HOUR, ALARM_MINUTE)
 
     if ALARM_SET == True:
-         alarm_to_display = f"Line 2:   |ALARM:ON {ALARM_TIME}xx|"
+         alarm_to_display = f"Line 2:   |ALARM:ON {ALARM_TIME}|"
     else:
          alarm_to_display = "Line 2:   |ALARM: OFF      |"
-    time_to_display = time_stamp.strftime("%H:%Mxx %m/%d/%y")
+    time_to_display = time_stamp.strftime("%I:%M%p %a%m/%d")
+
+    if time_to_display[0] == "0":
+        time_list = list(time_to_display)
+        time_list[0] = ""
+        time_to_display = ''.join(time_list)
+        time_to_display = time_to_display[:10] + " " + time_to_display[10:]
+        print(time_to_display)
    
     
     print("\n\n##### SCREEN OUTPUT #####\n")
