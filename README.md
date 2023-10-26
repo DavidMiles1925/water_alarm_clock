@@ -45,7 +45,15 @@ In this section:
 **- Python**  
 Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
 
-#### Current Version: 0.3
+#### Current Version: 0.4
+    - Create basic alarm logic  
+    - integrate indicator LED  
+    - integrate relay circuit  
+    - test all components
+
+#### Previous Versions: 
+
+**Version 0.3**
     - Set up GPIO pins  
     - integrate buttons:  
         -- alarm on/off  
@@ -55,9 +63,7 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - configure button logic  
     - console debug formatting adjustments  
     - README:  
-        -- add table of contents
-
-#### Previous Versions: 
+        -- add table of contents  
 
 **Version 0.2**
     - adjusted time output formatting  
@@ -76,19 +82,13 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 
 #### Future Versions:
 
-**Version 0.4**  
-    - Create basic alarm logic  
-    - integrate indicator LED  
-    - integrate relay circuit  
-    - README:  
-        -- add hardware links 
-
 **Version 0.5**  
     - integrate screen  
     - calibrate potentiometer  
     - generate screen output to match debug output  
     - README:  
-        -- add screen wiring diagram
+        -- add hardware links  
+        -- add screen wiring diagram  
 
 **Version 0.7**  
     - configure to run on startup  
