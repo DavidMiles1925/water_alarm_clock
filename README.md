@@ -1,11 +1,20 @@
 # Water Alarm Clock
 
-## Table of Contents
+## Table of Contents  
 **- [Project Description](#project-description-1)**  
+    &emsp;- [About the Product](#about-the-product)  
+    &emsp;- [Inspiration](#inspiration)  
 **- [Documentation](#documentation-1)**  
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Software](#software)  
+    &emsp;&emsp;- [Dependencies](#dependencies)  
+    &emsp;&emsp;- [Current Version](#current-version-05)  
+    &emsp;&emsp;- [Previous Versions](#previous-versions)  
+    &emsp;&emsp;- [Future Versions](#future-versions)  
 **- [Project Credits](#project-credits)**  
+    &emsp;- [Jonathan Hoffman](#jonathan-hoffman---product-owner)  
+    &emsp;- [Tom Ryan](#tom-ryan---consulting-engineer)  
+    &emsp;- [David Miles](#david-miles---software-developer)  
 
 ## Project Description
 
@@ -36,7 +45,7 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 
 In this section:  
     - [Dependencies](#dependencies)  
-    - [Current Version](#current-version-03)  
+    - [Current Version](#current-version-05)  
     - [Previous Versions](#previous-versions)  
     - [Future Versions](#future-versions)  
 
@@ -59,7 +68,7 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - Create basic alarm logic  
     - integrate indicator LED  
     - integrate relay circuit  
-    - test all components
+    - test all components  
     - README:  
         &emsp;- add hardware links  
         &emsp;- add screen wiring diagram  
