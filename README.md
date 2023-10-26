@@ -9,8 +9,8 @@
     &emsp;- [Software](#software)  
     &emsp;&emsp;- [Dependencies](#dependencies)  
     &emsp;&emsp;- [Current Version](#current-version-05)  
-    &emsp;&emsp;- [Previous Versions](#previous-versions)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
+    &emsp;&emsp;- [Previous Versions](#previous-versions)  
 **- [Project Credits](#project-credits)**  
     &emsp;- [Jonathan Hoffman](#jonathan-hoffman---product-owner)  
     &emsp;- [Tom Ryan](#tom-ryan---consulting-engineer)  
@@ -43,12 +43,6 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 
 ### Software:
 
-In this section:  
-    - [Dependencies](#dependencies)  
-    - [Current Version](#current-version-05)  
-    - [Previous Versions](#previous-versions)  
-    - [Future Versions](#future-versions)  
-
 #### Dependencies:
 
 **- Python**  
@@ -61,6 +55,19 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - calibrate potentiometer  
     - generate screen output to match debug output  
 
+#### Future Versions:
+
+**Version 0.7**  
+    - configure to run on startup  
+    - Port to Raspberry Pi Pico  
+        &emsp;- Remove console outputs  
+        &emsp;- Remove OS specific components  
+    - README:  
+        &emsp;- Project recap  
+        &emsp;- Videos/images  
+
+**Version 1.0**  
+    **This will be the full realease of software, designed to run on the final product.**
 
 #### Previous Versions: 
 
@@ -100,19 +107,6 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - Incorporated bare-bones error handling  
     - Started README  
 
-#### Future Versions:
-
-**Version 0.7**  
-    - configure to run on startup  
-    - Port to Raspberry Pi Pico  
-        &emsp;- Remove console outputs  
-        &emsp;- Remove OS specific components  
-    - README:  
-        &emsp;- Project recap  
-        &emsp;- Videos/images  
-
-**Version 1.0**  
-    **This will be the full realease of software, designed to run on the final product.**
 
 ## Project Credits
 
