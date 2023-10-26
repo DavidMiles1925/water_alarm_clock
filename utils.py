@@ -25,7 +25,7 @@ try:
 except:
     print("ERROR LOADING CONFIG: utils.py")
 
-VERSION = 0.4
+VERSION = 0.5
 AUTHOR = "David Miles"
 
 ########################
