@@ -148,7 +148,7 @@ def run_clock(os_name, loop_bool):
 
             # Activate Pump if alarm is sounding
             if ALARM_SOUNDING == True:
-                sleep(2)
+                sleep(3)
                 GPIO.output(LED_PIN, GPIO.LOW)
                 GPIO.output(RELAY_PIN, GPIO.LOW)
                 set_recently_sounded()
