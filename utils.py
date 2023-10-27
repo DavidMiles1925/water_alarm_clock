@@ -113,9 +113,12 @@ RECENTLY_SOUNDED = False
 
 def run_clock(os_name, loop_bool):
 
+    display_welcome_lcd()
+
     try:
         while True:
             display_welcome(os_name, loop_bool)
+
 
             current_time = get_current_time()
             
@@ -300,6 +303,18 @@ def print_clock_output(time_stamp):
 def set_recently_sounded():
     global RECENTLY_SOUNDED
     RECENTLY_SOUNDED = not RECENTLY_SOUNDED
+
+
+def display_welcome_lcd():
+    lcd_text("*   Welcome    *", LCD_LINE_1)
+    lcd_text("--Water Alarm-- ", LCD_LINE_2)
+
+    print("*   Welcome    *")
+    print("--Water Alarm-- ")
+
+    sleep(3)
+
+    lcd_init()
 
 
 ########################

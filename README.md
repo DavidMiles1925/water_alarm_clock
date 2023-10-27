@@ -39,7 +39,8 @@ Raspberry Pi 4 (Pico in future versions)
 [4-pin buttons x4](https://components101.com/switches/push-button)  
 Jumper Wires (many assorted m-f, f-f, m-m)  
 220 Ohm Resistor  
-10K Ohm Resistors x3  
+10K Ohm Resistors x4
+LED  
 
 ### Software:
 
