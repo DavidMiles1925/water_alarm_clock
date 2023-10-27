@@ -17,6 +17,11 @@ except:
     print("ERROR LOADING UTILITIES: main.py")
     exit()
 
+try:
+    from lcd import lcd_init
+except:
+    print("ERROR LOADING LCD RESOURCES")
+
 
 if __name__ == "__main__":
     try:
@@ -36,10 +41,14 @@ if __name__ == "__main__":
         sleep(3)
 
     finally:
-        GPIO.cleanup()
         stop_time = get_current_time()
         stop_time_display = "Stop Time: " + stop_time.strftime("%H:%M:%S")
         start_time_display = "Start Time: " + start_time.strftime("%H:%M:%S")
 
         # Display exit message
         print_error(EXIT_MESSAGE, start_time_display, stop_time_display)
+
+        lcd_init()
+        GPIO.cleanup()
+
+        exit()

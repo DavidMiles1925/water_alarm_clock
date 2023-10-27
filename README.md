@@ -8,7 +8,7 @@
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Software](#software)  
     &emsp;&emsp;- [Dependencies](#dependencies)  
-    &emsp;&emsp;- [Current Version](#current-version-05)  
+    &emsp;&emsp;- [Current Version](#current-version-06)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
     &emsp;&emsp;- [Previous Versions](#previous-versions)  
 **- [Project Credits](#project-credits)**  
@@ -51,14 +51,18 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 
 #### Current Version: 0.6  
     - configure to run on startup  
-    - Port to Raspberry Pi Pico  
-        &emsp;- Remove console outputs  
-        &emsp;- Remove OS specific components  
+    - Port to Raspberry Pi Pico:  
+        - Remove console outputs  
+        - Remove OS specific components  
+    - Minor improvements:  
+        - optimize sleep times
+        - add exit message on lcd
+        -re-introduce debugging for porting
     - README:  
-        &emsp;- Project recap  
-        &emsp;- Videos/images  
-        &emsp;- add hardware links  
-        &emsp;- add screen wiring diagram  
+        - Project recap  
+        - Videos/images  
+        - add hardware links  
+        - add screen wiring diagram  
 
 <img src="./media/version_0.5_set_up.jpg" width="400" alt="v0.5">
 

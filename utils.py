@@ -21,7 +21,11 @@ except:
     print("ERROR LOADING GPIO: utils.py")
 
 try:
-    from config import ALARM_MINUTE, ALARM_HOUR, ALARM_SET
+    from config import \
+        ALARM_MINUTE,\
+        ALARM_HOUR,\
+        ALARM_SET,\
+        ALARM_DURATION
 except:
     print("ERROR LOADING CONFIG: utils.py")
 
@@ -39,7 +43,7 @@ try:
 except:
     print("ERROR LOADING LCD RESOURCES: utils.py")
 
-VERSION = 0.5
+VERSION = 0.6
 AUTHOR = "David Miles"
 
 ########################
@@ -119,14 +123,15 @@ def run_clock(os_name, loop_bool):
         while True:
             display_welcome(os_name, loop_bool)
 
-
             current_time = get_current_time()
             
             print(f"The current time is: {current_time}")
 
-            print_clock_output(current_time)
-
             check_button_press()
+
+            print_debug_button_output()
+
+            print_clock_output(current_time)
 
             check_sound_alarm(current_time)
 
@@ -157,7 +162,7 @@ def check_button_press():
             ALARM_HOUR = ALARM_HOUR + 1
             if ALARM_HOUR == 24:
                 ALARM_HOUR = 0
-            sleep(0.2)
+            sleep(0.05)
         
         # Add a minute when the button is pressed
         if GPIO.input(MINUTE_BUTTON_PIN) == False:
@@ -165,7 +170,6 @@ def check_button_press():
             ALARM_MINUTE = ALARM_MINUTE + 1
             if ALARM_MINUTE == 60:
                 ALARM_MINUTE = 0
-            sleep(0.2)
 
     # Turn alarm on/off when button is pressed
     if GPIO.input(ALARM_BUTTON_PIN) == False:
@@ -176,6 +180,7 @@ def check_button_press():
 
 # Check to see if alarm needs to sound.
 def check_sound_alarm(current_time):
+    
     # This variable is set to True when
     # the pump needs to be activated.
     ALARM_SOUNDING = False
@@ -201,11 +206,15 @@ def check_sound_alarm(current_time):
 
     # Activate Pump if alarm is sounding
     if ALARM_SOUNDING == True:
-        sleep(3)
+        sleep(ALARM_DURATION)
+
         GPIO.output(LED_PIN, GPIO.LOW)
         GPIO.output(RELAY_PIN, GPIO.LOW)
+
         lcd_init()
+
         set_recently_sounded()
+
         recently_sounded_timer = Timer(60, set_recently_sounded)
         recently_sounded_timer.start()
 
@@ -285,8 +294,6 @@ def print_clock_output(time_stamp):
         time_list[0] = ""
         time_to_display = ''.join(time_list)
         time_to_display = time_to_display[:10] + " " + time_to_display[10:]
-        print(time_to_display)
-   
     
     print("\n\n##### SCREEN OUTPUT #####\n")
     print("Position:  0123456789012345")
@@ -365,6 +372,18 @@ def get_os_info():
     return {"name": name, "message": clear_message}
 
 
+def print_debug_button_output():
+    if GPIO.input(SET_BUTTON_PIN) == False:
+        print("Set Button Held")
+    
+    if GPIO.input(HOUR_BUTTON_PIN) == False:
+        print("Hour")
+
+    if GPIO.input(MINUTE_BUTTON_PIN) == False:
+        print("Minute")
+
+
+
 ########################
 ########################
 ###                  ###
@@ -381,6 +400,11 @@ OS_ERROR = "ERROR:\nOS not supported.\nCurrently supported operating systems:\n\
 
 def print_error(err, msg1="", msg2=""):
     clear()
+
+    if err == EXIT_MESSAGE:
+        lcd_text("  WHY DID YOU  ", LCD_LINE_1)
+        lcd_text("KILL ME??? jerk ", LCD_LINE_2)
+
     print("\n")
     print("**********************************************************************")
     print("\n")
@@ -397,4 +421,3 @@ def print_error(err, msg1="", msg2=""):
     print("Press ENTER to exit...")
     input("")
     clear()
-    exit()
