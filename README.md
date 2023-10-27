@@ -1,11 +1,20 @@
 # Water Alarm Clock
 
-## Table of Contents
+## Table of Contents  
 **- [Project Description](#project-description-1)**  
+    &emsp;- [About the Product](#about-the-product)  
+    &emsp;- [Inspiration](#inspiration)  
 **- [Documentation](#documentation-1)**  
-    -- [Hardware](#hardware)  
-    -- [Software](#software)  
+    &emsp;- [Hardware](#hardware)  
+    &emsp;- [Software](#software)  
+    &emsp;&emsp;- [Dependencies](#dependencies)  
+    &emsp;&emsp;- [Current Version](#current-version-05)  
+    &emsp;&emsp;- [Future Versions](#future-versions)  
+    &emsp;&emsp;- [Previous Versions](#previous-versions)  
 **- [Project Credits](#project-credits)**  
+    &emsp;- [Jonathan Hoffman](#jonathan-hoffman---product-owner)  
+    &emsp;- [Tom Ryan](#tom-ryan---consulting-engineer)  
+    &emsp;- [David Miles](#david-miles---software-developer)  
 
 ## Project Description
 
@@ -34,45 +43,63 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 
 ### Software:
 
-In this section:  
-    - [Dependencies](#dependencies)  
-    - [Current Version](#current-version-03)  
-    - [Previous Versions](#previous-versions)  
-    - [Future Versions](#future-versions)  
-
 #### Dependencies:
 
 **- Python**  
 Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
 
-#### Current Version: 0.4
-    - Create basic alarm logic  
-    - integrate indicator LED  
-    - integrate relay circuit  
-    - test all components
+#### Current Version: 0.5  
+    - add AM/PM logic
+    - format output for AM/PM
+    - integrate screen  
+    - calibrate potentiometer  
+    - generate screen output to match debug output  
+
+#### Future Versions:
+
+**Version 0.6**  
+    - configure to run on startup  
+    - Port to Raspberry Pi Pico  
+        &emsp;- Remove console outputs  
+        &emsp;- Remove OS specific components  
+    - README:  
+        &emsp;- Project recap  
+        &emsp;- Videos/images  
+
+**Version 1.0**  
+    **This will be the full realease of software, designed to run on the final product.**
 
 #### Previous Versions: 
 
-**Version 0.3**
+**Version 0.4**  
+    - Create basic alarm logic  
+    - integrate indicator LED  
+    - integrate relay circuit  
+    - test all components  
+    - README:  
+        &emsp;- add hardware links  
+        &emsp;- add screen wiring diagram  
+
+**Version 0.3**  
     - Set up GPIO pins  
     - integrate buttons:  
-        -- alarm on/off  
-        -- set alarm  
-        -- hour  
-        -- minute  
+        &emsp;- alarm on/off  
+        &emsp;- set alarm  
+        &emsp;- hour  
+        &emsp;- minute  
     - configure button logic  
     - console debug formatting adjustments  
     - README:  
-        -- add table of contents  
+        &emsp;- add table of contents  
 
-**Version 0.2**
+**Version 0.2**  
     - adjusted time output formatting  
     - created debug output to console  
     - README update:  
-        -- hardware  
-        -- future versioning  
+        &emsp;- hardware  
+        &emsp;- future versioning  
 
-**Version 0.1**
+**Version 0.1**  
     - Created main function  
     - Created basic utilities library  
     - Created configuration file  
@@ -80,22 +107,6 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - Incorporated bare-bones error handling  
     - Started README  
 
-#### Future Versions:
-
-**Version 0.5**  
-    - integrate screen  
-    - calibrate potentiometer  
-    - generate screen output to match debug output  
-    - README:  
-        -- add hardware links  
-        -- add screen wiring diagram  
-
-**Version 0.7**  
-    - configure to run on startup  
-    - Port to Raspberry Pi Pico  
-
-**Version 1.0**  
-    **This will be the full realease of software, designed to run on the final product.**
 
 ## Project Credits
 
