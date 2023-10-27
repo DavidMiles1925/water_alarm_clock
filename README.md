@@ -33,10 +33,10 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 Pump info needed  
 Converter info needed  
 Raspberry Pi 4 (Pico in future versions)  
-Screen  
-1-10K Ohm Potentiometer  
-5V SL-C Relay  
-Buttons x3  
+[1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
+[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
+[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
+[4-pin buttons x4](https://components101.com/switches/push-button)  
 Jumper Wires (many assorted m-f, f-f, m-m)  
 220 Ohm Resistor  
 10K Ohm Resistors x3  
@@ -66,6 +66,8 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - README:  
         &emsp;- Project recap  
         &emsp;- Videos/images  
+        &emsp;- add hardware links  
+        &emsp;- add screen wiring diagram  
 
 **Version 1.0**  
     **This will be the full realease of software, designed to run on the final product.**
@@ -77,9 +79,7 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
     - integrate indicator LED  
     - integrate relay circuit  
     - test all components  
-    - README:  
-        &emsp;- add hardware links  
-        &emsp;- add screen wiring diagram  
+
 
 **Version 0.3**  
     - Set up GPIO pins  
