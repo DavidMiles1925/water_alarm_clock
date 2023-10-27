@@ -25,6 +25,20 @@ try:
 except:
     print("ERROR LOADING CONFIG: utils.py")
 
+try:
+    from lcd import lcd_init,\
+        lcd_text,\
+        LCD_E,\
+        LCD_RS,\
+        LCD_D4,\
+        LCD_D5,\
+        LCD_D6,\
+        LCD_D7,\
+        LCD_LINE_1,\
+        LCD_LINE_2
+except:
+    print("ERROR LOADING LCD RESOURCES: utils.py")
+
 VERSION = 0.5
 AUTHOR = "David Miles"
 
@@ -36,6 +50,7 @@ AUTHOR = "David Miles"
 ########################
 ########################
 
+# Conponent Pins
 LED_PIN = 27
 RELAY_PIN = 21
 SET_BUTTON_PIN = 13
@@ -49,6 +64,16 @@ def setup_pins():
 
     # Disable Warnings
     GPIO.setwarnings(False)
+
+    # LCD Pins
+    GPIO.setup(LCD_E, GPIO.OUT)
+    GPIO.setup(LCD_RS, GPIO.OUT)
+    GPIO.setup(LCD_D4, GPIO.OUT)
+    GPIO.setup(LCD_D5, GPIO.OUT)
+    GPIO.setup(LCD_D6, GPIO.OUT)
+    GPIO.setup(LCD_D7, GPIO.OUT)
+
+    lcd_init()
 
     # Hour button
     GPIO.setup(HOUR_BUTTON_PIN, GPIO.IN)
@@ -94,14 +119,11 @@ def run_clock(os_name, loop_bool):
 
             print_debug_output(current_time)
 
-
             # Check to see if set alarm button is pressed
             if GPIO.input(SET_BUTTON_PIN) == False:
-                print("Set Button Held")
 
                 # Add an hour when the button is pressed
                 if GPIO.input(HOUR_BUTTON_PIN) == False:
-                    print("hour")
                     global ALARM_HOUR
                     ALARM_HOUR = ALARM_HOUR + 1
                     if ALARM_HOUR == 24:
@@ -110,7 +132,6 @@ def run_clock(os_name, loop_bool):
                 
                 # Add a minute when the button is pressed
                 if GPIO.input(MINUTE_BUTTON_PIN) == False:
-                    print("minute")
                     global ALARM_MINUTE
                     ALARM_MINUTE = ALARM_MINUTE + 1
                     if ALARM_MINUTE == 60:
@@ -128,9 +149,6 @@ def run_clock(os_name, loop_bool):
                 if current_time.hour == ALARM_HOUR and current_time.minute == ALARM_MINUTE:
                     if GPIO.input(SET_BUTTON_PIN):
                         ALARM_SOUNDING = True
-
-                        # Output to console
-                        print("ALARM!!!")
 
                         # Turn on LED
                         GPIO.output(LED_PIN, GPIO.HIGH)
@@ -158,6 +176,7 @@ def run_clock(os_name, loop_bool):
             sleep(0.05)
     except KeyboardInterrupt:
         clear
+        lcd_init()
 
 
 ########################
@@ -227,9 +246,9 @@ def print_debug_output(time_stamp):
     ALARM_TIME = create_alarm_string(ALARM_HOUR, ALARM_MINUTE)
 
     if ALARM_SET == True:
-         alarm_to_display = f"Line 2:   |ALARM:ON {ALARM_TIME}|"
+         alarm_to_display = f"ALARM:ON {ALARM_TIME}"
     else:
-         alarm_to_display = "Line 2:   |ALARM: OFF      |"
+         alarm_to_display = "ALARM: OFF      "
     time_to_display = time_stamp.strftime("%I:%M%p %a%m/%d")
 
     if time_to_display[0] == "0":
@@ -244,8 +263,11 @@ def print_debug_output(time_stamp):
     print("Position:  0123456789012345")
     print("          ------------------")
     print(f"Line 1:   |{time_to_display}|")
-    print(alarm_to_display)
+    print(f"Line 2:   |{alarm_to_display}")
     print("          ------------------")
+
+    lcd_text(time_to_display, LCD_LINE_1)
+    lcd_text(alarm_to_display, LCD_LINE_2)
 
 def set_recently_sounded():
     global RECENTLY_SOUNDED

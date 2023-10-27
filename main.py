@@ -20,9 +20,6 @@ except:
 
 if __name__ == "__main__":
     try:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setwarnings(False)
-
         setup_pins()
 
         start_time = get_current_time()
