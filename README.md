@@ -49,11 +49,12 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
 
 #### Current Version: 0.5  
-    - add AM/PM logic
-    - format output for AM/PM
-    - integrate screen  
-    - calibrate potentiometer  
-    - generate screen output to match debug output  
+    - added AM/PM logic
+    - formated output for AM/PM
+    - integrated screen  
+    - calibrated potentiometer  
+    - generated screen output to match debug output  
+    - reformatted code for easier reading
 
 #### Future Versions:
 
