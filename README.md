@@ -48,17 +48,7 @@ Jumper Wires (many assorted m-f, f-f, m-m)
 **- Python**  
 Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
 
-#### Current Version: 0.5  
-    - added AM/PM logic
-    - formated output for AM/PM
-    - integrated screen  
-    - calibrated potentiometer  
-    - generated screen output to match debug output  
-    - reformatted code for easier reading
-
-#### Future Versions:
-
-**Version 0.6**  
+#### Current Version: 0.6  
     - configure to run on startup  
     - Port to Raspberry Pi Pico  
         &emsp;- Remove console outputs  
@@ -69,10 +59,26 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
         &emsp;- add hardware links  
         &emsp;- add screen wiring diagram  
 
+<img src="./media/version_0.5_set_up.jpg" width="400" alt="v0.5">
+
+#### Future Versions:
+
+**Version 0.7**  
+    - Project tuning
+
+
 **Version 1.0**  
     **This will be the full realease of software, designed to run on the final product.**
 
-#### Previous Versions: 
+#### Previous Versions:
+
+**Version 0.5**
+    - added AM/PM logic
+    - formated output for AM/PM
+    - integrated screen  
+    - calibrated potentiometer  
+    - generated screen output to match debug output  
+    - reformatted code for easier reading
 
 **Version 0.4**  
     - Create basic alarm logic  
