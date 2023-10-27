@@ -58,8 +58,9 @@ ALARM_BUTTON_PIN = 26
 HOUR_BUTTON_PIN = 5
 MINUTE_BUTTON_PIN = 6
 
+# Set up pins for all components
 def setup_pins():
-    # Board Mode BCM
+    # Board Mode: BCM
     GPIO.setmode(GPIO.BCM)
 
     # Disable Warnings
@@ -73,6 +74,7 @@ def setup_pins():
     GPIO.setup(LCD_D6, GPIO.OUT)
     GPIO.setup(LCD_D7, GPIO.OUT)
 
+    # Initialize LCD screen
     lcd_init()
 
     # Hour button
@@ -104,10 +106,12 @@ def setup_pins():
 #############################
 #############################
 
+# This variable becomes true when the alarm sounds, 
+# and remains true for 60 seconds. This prevents the
+# alarm from sounding again during the same minute.
 RECENTLY_SOUNDED = False
 
 def run_clock(os_name, loop_bool):
-    ALARM_SOUNDING = False
 
     try:
         while True:
@@ -117,61 +121,11 @@ def run_clock(os_name, loop_bool):
             
             print(f"The current time is: {current_time}")
 
-            print_debug_output(current_time)
+            print_clock_output(current_time)
 
-            # Check to see if set alarm button is pressed
-            if GPIO.input(SET_BUTTON_PIN) == False:
+            check_button_press()
 
-                # Add an hour when the button is pressed
-                if GPIO.input(HOUR_BUTTON_PIN) == False:
-                    global ALARM_HOUR
-                    ALARM_HOUR = ALARM_HOUR + 1
-                    if ALARM_HOUR == 24:
-                        ALARM_HOUR = 0
-                    sleep(0.2)
-                
-                # Add a minute when the button is pressed
-                if GPIO.input(MINUTE_BUTTON_PIN) == False:
-                    global ALARM_MINUTE
-                    ALARM_MINUTE = ALARM_MINUTE + 1
-                    if ALARM_MINUTE == 60:
-                        ALARM_MINUTE = 0
-                    sleep(0.2)
-
-            # Turn alarm on/off when button is pressed
-            if GPIO.input(ALARM_BUTTON_PIN) == False:
-                global ALARM_SET
-                ALARM_SET = not ALARM_SET
-                sleep(0.2)
-
-            # Check to see if alarm needs to sound
-            if ALARM_SET == True and RECENTLY_SOUNDED == False:
-                if current_time.hour == ALARM_HOUR and current_time.minute == ALARM_MINUTE:
-                    if GPIO.input(SET_BUTTON_PIN):
-                        ALARM_SOUNDING = True
-
-                        # Turn on LED
-                        GPIO.output(LED_PIN, GPIO.HIGH)
-
-                        # Turn on Relay
-                        GPIO.output(RELAY_PIN, GPIO.HIGH)
-                else:
-                    ALARM_SOUNDING = False
-                    GPIO.output(LED_PIN, GPIO.LOW)
-                    GPIO.output(RELAY_PIN, GPIO.LOW)
-            else:
-                ALARM_SOUNDING = False
-                GPIO.output(LED_PIN, GPIO.LOW)
-                GPIO.output(RELAY_PIN, GPIO.LOW)
-
-            # Activate Pump if alarm is sounding
-            if ALARM_SOUNDING == True:
-                sleep(3)
-                GPIO.output(LED_PIN, GPIO.LOW)
-                GPIO.output(RELAY_PIN, GPIO.LOW)
-                set_recently_sounded()
-                recently_sounded_timer = Timer(60, set_recently_sounded)
-                recently_sounded_timer.start()
+            check_sound_alarm(current_time)
 
             sleep(0.05)
     except KeyboardInterrupt:
@@ -187,6 +141,74 @@ def run_clock(os_name, loop_bool):
 ########################
 ########################
 
+
+# Check if the 'set' button is being pressed.
+def check_button_press():
+
+    # Check to see if 'set alarm' button is pressed
+    if GPIO.input(SET_BUTTON_PIN) == False:
+
+        # Add an hour when the button is pressed
+        if GPIO.input(HOUR_BUTTON_PIN) == False:
+            global ALARM_HOUR
+            ALARM_HOUR = ALARM_HOUR + 1
+            if ALARM_HOUR == 24:
+                ALARM_HOUR = 0
+            sleep(0.2)
+        
+        # Add a minute when the button is pressed
+        if GPIO.input(MINUTE_BUTTON_PIN) == False:
+            global ALARM_MINUTE
+            ALARM_MINUTE = ALARM_MINUTE + 1
+            if ALARM_MINUTE == 60:
+                ALARM_MINUTE = 0
+            sleep(0.2)
+
+    # Turn alarm on/off when button is pressed
+    if GPIO.input(ALARM_BUTTON_PIN) == False:
+        global ALARM_SET
+        ALARM_SET = not ALARM_SET
+        sleep(0.2)
+
+
+# Check to see if alarm needs to sound.
+def check_sound_alarm(current_time):
+    # This variable is set to True when
+    # the pump needs to be activated.
+    ALARM_SOUNDING = False
+
+    if ALARM_SET == True and RECENTLY_SOUNDED == False:
+        if current_time.hour == ALARM_HOUR and current_time.minute == ALARM_MINUTE:
+            if GPIO.input(SET_BUTTON_PIN):
+                ALARM_SOUNDING = True
+
+                # Turn on LED
+                GPIO.output(LED_PIN, GPIO.HIGH)
+
+                # Turn on Relay
+                GPIO.output(RELAY_PIN, GPIO.HIGH)
+        else:
+            ALARM_SOUNDING = False
+            GPIO.output(LED_PIN, GPIO.LOW)
+            GPIO.output(RELAY_PIN, GPIO.LOW)
+    else:
+        ALARM_SOUNDING = False
+        GPIO.output(LED_PIN, GPIO.LOW)
+        GPIO.output(RELAY_PIN, GPIO.LOW)
+
+    # Activate Pump if alarm is sounding
+    if ALARM_SOUNDING == True:
+        sleep(3)
+        GPIO.output(LED_PIN, GPIO.LOW)
+        GPIO.output(RELAY_PIN, GPIO.LOW)
+        lcd_init()
+        set_recently_sounded()
+        recently_sounded_timer = Timer(60, set_recently_sounded)
+        recently_sounded_timer.start()
+
+
+# Build the string that will be displayed
+# on the second line of the LCD screen.
 def create_alarm_string(hour, minute):
     am_pm = "AM"
 
@@ -218,6 +240,7 @@ def create_alarm_string(hour, minute):
     return alarm_string
 
 
+# Welcome message for console.
 def display_welcome(os_name, loop_bool):
     clear()
     print(f"System is running: {os_name}")
@@ -242,11 +265,14 @@ def display_welcome(os_name, loop_bool):
         print("\n")
 
 
-def print_debug_output(time_stamp):
+# Output to console and LCD screen
+def print_clock_output(time_stamp):
     ALARM_TIME = create_alarm_string(ALARM_HOUR, ALARM_MINUTE)
 
-    if ALARM_SET == True:
-         alarm_to_display = f"ALARM:ON {ALARM_TIME}"
+    if ALARM_SET == True and GPIO.input(SET_BUTTON_PIN) == False:
+        alarm_to_display = f"ALARM:ON {ALARM_TIME}"
+    elif ALARM_SET == True:
+         alarm_to_display = f"ALARM:ON        "
     else:
          alarm_to_display = "ALARM: OFF      "
     time_to_display = time_stamp.strftime("%I:%M%p %a%m/%d")
@@ -263,12 +289,14 @@ def print_debug_output(time_stamp):
     print("Position:  0123456789012345")
     print("          ------------------")
     print(f"Line 1:   |{time_to_display}|")
-    print(f"Line 2:   |{alarm_to_display}")
+    print(f"Line 2:   |{alarm_to_display}|")
     print("          ------------------")
 
     lcd_text(time_to_display, LCD_LINE_1)
     lcd_text(alarm_to_display, LCD_LINE_2)
 
+
+# Toggles the RECENTLY_SOUNDED variable
 def set_recently_sounded():
     global RECENTLY_SOUNDED
     RECENTLY_SOUNDED = not RECENTLY_SOUNDED
@@ -285,6 +313,7 @@ def set_recently_sounded():
 def sleep(num):
     time.sleep(num)
 
+
 def clear():
     os_info = get_os_info()
 
@@ -298,6 +327,7 @@ def get_current_time():
     return current_time
 
 
+# Determines the 'clear' command for the OS
 def get_os_info():
     OS_platform = platform.system()
 
@@ -314,16 +344,11 @@ def get_os_info():
         clear_message = "clear"
         name = "MacOS"
     else:
-        print_error(OS_ERROR)
+        clear_message = "clear"
+        name = "Unknown"
     
     return {"name": name, "message": clear_message}
 
-
-'''
-def convert_am_pm(the_time):
-    if the_time.hour > 12:
-        new_hour = the_time.hour - 12
-'''
 
 ########################
 ########################
@@ -333,9 +358,11 @@ def convert_am_pm(the_time):
 ########################
 ########################
 
+
 DEFAULT_ERROR = "An unexpected error occured. Fuck."
 EXIT_MESSAGE = "Thank you for using!"
 OS_ERROR = "ERROR:\nOS not supported.\nCurrently supported operating systems:\n\t*Windos\n\t*MacOS\n\t*Linux"
+
 
 def print_error(err, msg1="", msg2=""):
     clear()

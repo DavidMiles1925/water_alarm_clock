@@ -31,13 +31,15 @@ if __name__ == "__main__":
         run_clock(os_name, True)
 
     except:
+        GPIO.cleanup()
         print_error(DEFAULT_ERROR)
         sleep(3)
-        GPIO.cleanup()
 
     finally:
         GPIO.cleanup()
         stop_time = get_current_time()
         stop_time_display = "Stop Time: " + stop_time.strftime("%H:%M:%S")
         start_time_display = "Start Time: " + start_time.strftime("%H:%M:%S")
+
+        # Display exit message
         print_error(EXIT_MESSAGE, start_time_display, stop_time_display)
