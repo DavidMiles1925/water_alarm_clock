@@ -24,7 +24,7 @@ def lcd_init():
   lcd_write(0x0C,LCD_CMD) # Turn cursor off
   lcd_write(0x28,LCD_CMD) # 2 line display
   lcd_write(0x01,LCD_CMD) # Clear display
-  time.sleep(0.0005)     # Delay to allow commands to process
+  time.sleep(0.0003)     # Delay to allow commands to process
 
 def lcd_write(bits, mode):
 # High bits
@@ -64,11 +64,11 @@ def lcd_write(bits, mode):
   lcd_toggle_enable()
 
 def lcd_toggle_enable():
-  time.sleep(0.0005)
+  time.sleep(0.0003)
   GPIO.output(LCD_E, True)
-  time.sleep(0.0005)
+  time.sleep(0.0003)
   GPIO.output(LCD_E, False)
-  time.sleep(0.0005)
+  time.sleep(0.0003)
 
 def lcd_text(message,line):
   # Send text to display
