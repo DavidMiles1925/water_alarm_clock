@@ -47,12 +47,17 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 >10K Ohm Resistors x4
 >LED  
 
+---
 ### Software:
+
+---
 
 #### Dependencies:
 
 >**- Python**  
 >Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
+
+---
 
 #### Current Version: 0.6  
     - configured to run on startup  
@@ -84,6 +89,7 @@ kill -TERM ###
 ```  
 &emsp;*replace "###" with the number from step 3.  
 
+---
 
 #### Future Versions:
 
