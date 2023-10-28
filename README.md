@@ -1,8 +1,6 @@
 
 # Water Alarm Clock
 
----
-
 ## Table of Contents  
 **- [Project Description](#project-description-1)**  
     &emsp;- [About the Product](#about-the-product)  
@@ -26,8 +24,6 @@
 
 ## Project Description
 
----
-
 ### About the Product
 
 This is a project in development to create an alarm clock that will spray you with water to help heavy sleepers get out of bed in the morning.
@@ -47,9 +43,6 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 ---
 
 ## Documentation:
-
----
----
 
 ### Hardware:
 
@@ -137,47 +130,47 @@ kill -TERM ###
 
 #### Previous Versions:
 
-**Version 0.5**
-    &emsp;- added AM/PM logic  
-    &emsp;- formated output for AM/PM  
-    &emsp;- integrated screen  
-    &emsp;- calibrated potentiometer  
-    &emsp;- generated screen output to match debug output  
-    &emsp;- reformatted code for easier reading
+##### Version 0.5  
+&emsp;- added AM/PM logic  
+&emsp;- formated output for AM/PM  
+&emsp;- integrated screen  
+&emsp;- calibrated potentiometer  
+&emsp;- generated screen output to match debug output  
+&emsp;- reformatted code for easier reading
 
-**Version 0.4**  
-    &emsp;- Created basic alarm logic  
-    &emsp;- integrated indicator LED  
-    &emsp;- integrated relay circuit  
-    &emsp;- test all components  
+##### Version 0.4  
+&emsp;- Created basic alarm logic  
+&emsp;- integrated indicator LED  
+&emsp;- integrated relay circuit  
+&emsp;- test all components  
 
 
-**Version 0.3**  
-    &emsp;- Set up GPIO pins  
-    &emsp;- integrated buttons:  
-        &emsp;- alarm on/off  
-        &emsp;- set alarm  
-        &emsp;- hour  
-        &emsp;- minute  
-    &emsp;- configured button logic  
-    &emsp;- console debug formatting adjustments  
-    &emsp;- README:  
-        &emsp;- added table of contents  
+##### Version 0.3  
+&emsp;- Set up GPIO pins  
+&emsp;- integrated buttons:  
+&emsp;&emsp;- alarm on/off  
+&emsp;&emsp;- set alarm  
+&emsp;&emsp;- hour  
+&emsp;&emsp;- minute  
+&emsp;- configured button logic  
+&emsp;- console debug formatting adjustments  
+&emsp;- README:  
+&emsp;&emsp;- added table of contents  
 
-**Version 0.2**  
-    &emsp;- adjusted time output formatting  
-    &emsp;- created debug output to console  
-    &emsp;- README update:  
-        &emsp;- hardware  
-        &emsp;- future versioning  
+##### Version 0.2  
+&emsp;- adjusted time output formatting  
+&emsp;- created debug output to console  
+&emsp;- README update:  
+&emsp;&emsp;- hardware  
+&emsp;&emsp;- future versioning  
 
-**Version 0.1**  
-    &emsp;- Created main function  
-    &emsp;- Created basic utilities library  
-    &emsp;- Created configuration file  
-    &emsp;- Initialized repository  
-    &emsp;- Incorporated bare-bones error handling  
-    &emsp;- Started README  
+##### Version 0.1  
+&emsp;- Created main function  
+&emsp;- Created basic utilities library  
+&emsp;- Created configuration file  
+&emsp;- Initialized repository  
+&emsp;- Incorporated bare-bones error handling  
+&emsp;- Started README  
 
 
 ## Project Credits
