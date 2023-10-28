@@ -4,7 +4,7 @@
 **- [Project Description](#project-description-1)**  
     &emsp;- [About the Product](#about-the-product)  
     &emsp;- [Inspiration](#inspiration)  
-    &emsp;- [Project Showcase](#project-showcase)
+    &emsp;- [Project Showcase](#project-showcase)  
 **- [Documentation](#documentation-1)**  
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Software](#software)  
@@ -55,11 +55,12 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 >Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
 
 #### Current Version: 0.6  
-    - configure to run on startup  
+    - configured to run on startup  
     - Minor improvements:  
-        - optimize sleep times
-        - add exit message on lcd
-        -re-introduce debugging for porting
+        - optimized sleep times
+        - added exit message on lcd
+        -re-introduced debugging for porting
+    - Reformated board layout for efficiency
     - README:  
         - Project recap  
         - Videos/images  
@@ -76,23 +77,24 @@ sudo python /home/pi/Desktop/alarm_clock/main.py &
 ps aux | grep "main.py"  
 ```  
 3. Note the number in the second column.  
+
 4. Terminate process:  
 ```bash
 kill -TERM ###  
 ```  
-*replace "###" with the number from step 3.  
+&emsp;*replace "###" with the number from step 3.  
 
 
 #### Future Versions:
 
 ##### Version 0.7  
-    &emsp;- Port to Raspberry Pi Pico:  
-        &emsp;- Remove console outputs  
-        &emsp;- Remove OS specific components  
-        &emsp;- add "no internet" mode
-            &emsp;- create set_current_time() function
-            &emsp;- set configuration variable
-    &emsp;- Project tuning
+&emsp;- Port to Raspberry Pi Pico:  
+&emsp;- Remove console outputs  
+&emsp;- Remove OS specific components  
+&emsp;- add "no internet" mode
+&emsp;&emsp;- create set_current_time() function
+&emsp;&emsp;- set configuration variable
+&emsp;- Project tuning
 
 >**Notes on porting to Pico:**  
 >   - Need to test with MicroPython  
@@ -109,31 +111,31 @@ kill -TERM ###
 #### Previous Versions:
 
 **Version 0.5**
-    &emsp;- added AM/PM logic
-    &emsp;- formated output for AM/PM
+    &emsp;- added AM/PM logic  
+    &emsp;- formated output for AM/PM  
     &emsp;- integrated screen  
     &emsp;- calibrated potentiometer  
     &emsp;- generated screen output to match debug output  
     &emsp;- reformatted code for easier reading
 
 **Version 0.4**  
-    &emsp;- Create basic alarm logic  
-    &emsp;- integrate indicator LED  
-    &emsp;- integrate relay circuit  
+    &emsp;- Created basic alarm logic  
+    &emsp;- integrated indicator LED  
+    &emsp;- integrated relay circuit  
     &emsp;- test all components  
 
 
 **Version 0.3**  
     &emsp;- Set up GPIO pins  
-    &emsp;- integrate buttons:  
+    &emsp;- integrated buttons:  
         &emsp;- alarm on/off  
         &emsp;- set alarm  
         &emsp;- hour  
         &emsp;- minute  
-    &emsp;- configure button logic  
+    &emsp;- configured button logic  
     &emsp;- console debug formatting adjustments  
     &emsp;- README:  
-        &emsp;- add table of contents  
+        &emsp;- added table of contents  
 
 **Version 0.2**  
     &emsp;- adjusted time output formatting  
@@ -154,10 +156,10 @@ kill -TERM ###
 ## Project Credits
 
 ### Jonathan Hoffman - Product Owner
-Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
+>Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
 
 ### Tom Ryan - Consulting Engineer
-Tom has been an instrumental part of product testing, solution design, and general consulting. 
+>Tom has been an instrumental part of product testing, solution design, and general consulting. 
 
 ### David Miles - Software Developer
-David is responsible for the software and small electronics portion of the project. He is also the one maintaining the project documentation.
+>David is responsible for the software and small electronics portion of the project. He is also the one maintaining the project documentation.
