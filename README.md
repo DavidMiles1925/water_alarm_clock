@@ -38,7 +38,13 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 
 ### Project Showcase
 
-<img src="./media/version_0.5_set_up.jpg" width="400" alt="v0.5">
+The alarm clock as of version 0.5:
+
+<img src="./media/version_0.5_set_up.jpg" width="300" alt="v0.5">
+
+The debug interface as of version 0.6:
+
+<img src="./media/v0.6_debug_interface.png" width="300" alt="v0.5">
 
 ---
 
