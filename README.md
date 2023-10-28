@@ -1,10 +1,14 @@
+
 # Water Alarm Clock
+
+---
 
 ## Table of Contents  
 **- [Project Description](#project-description-1)**  
     &emsp;- [About the Product](#about-the-product)  
     &emsp;- [Inspiration](#inspiration)  
     &emsp;- [Project Showcase](#project-showcase)  
+
 **- [Documentation](#documentation-1)**  
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Software](#software)  
@@ -12,28 +16,44 @@
     &emsp;&emsp;- [Current Version](#current-version-06)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
     &emsp;&emsp;- [Previous Versions](#previous-versions)  
+
 **- [Project Credits](#project-credits)**  
     &emsp;- [Jonathan Hoffman](#jonathan-hoffman---product-owner)  
     &emsp;- [Tom Ryan](#tom-ryan---consulting-engineer)  
     &emsp;- [David Miles](#david-miles---software-developer)  
 
+---
+
 ## Project Description
+
+---
 
 ### About the Product
 
 This is a project in development to create an alarm clock that will spray you with water to help heavy sleepers get out of bed in the morning.
 
+---
+
 ### Inspiration
 
 This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
+
+---
 
 ### Project Showcase
 
 <img src="./media/version_0.5_set_up.jpg" width="400" alt="v0.5">
 
+---
+
 ## Documentation:
 
+---
+---
+
 ### Hardware:
+
+---
 
 >Pump info needed  
 >Converter info needed  
@@ -48,6 +68,7 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 >LED  
 
 ---
+
 ### Software:
 
 ---
