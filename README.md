@@ -46,6 +46,14 @@ The debug interface as of version 0.6:
 
 <img src="./media/v0.6_debug_interface.png" width="300" alt="v0.5">
 
+>This interface was used to:
+>>**Test individual components of the project.** For example, when testing the buttons I would print a message to the screen when each button was depressed.
+>
+>>**Display the values of important variables.** When debugging, it was invaluable to know how my variables were set.
+>
+>>**Display the expected LCD output.** I sent the same string to the console as to the LCD. As I was getting the screen working, this was helpful because I knew if I didn't get the correct output, it was probably an error in my wiring.
+>
+
 ---
 
 ## Documentation:
