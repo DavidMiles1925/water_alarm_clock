@@ -7,6 +7,11 @@
     &emsp;- [Inspiration](#inspiration)  
     &emsp;- [Project Showcase](#project-showcase)  
 
+**- [Project Credits](#project-credits)**  
+    &emsp;- [Jonathan Hoffman](#jonathan-hoffman---product-owner)  
+    &emsp;- [Tom Ryan](#tom-ryan---consulting-engineer)  
+    &emsp;- [David Miles](#david-miles---software-developer)  
+
 **- [Documentation](#documentation-1)**  
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Software](#software)  
@@ -14,11 +19,6 @@
     &emsp;&emsp;- [Current Version](#current-version-06)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
     &emsp;&emsp;- [Previous Versions](#previous-versions)  
-
-**- [Project Credits](#project-credits)**  
-    &emsp;- [Jonathan Hoffman](#jonathan-hoffman---product-owner)  
-    &emsp;- [Tom Ryan](#tom-ryan---consulting-engineer)  
-    &emsp;- [David Miles](#david-miles---software-developer)  
 
 ---
 
@@ -53,6 +53,19 @@ The debug interface as of version 0.6:
 >
 >>**Display the expected LCD output.** I sent the same string to the console as to the LCD. As I was getting the screen working, this was helpful because I knew if I didn't get the correct output, it was probably an error in my wiring.
 >
+
+---
+
+## Project Credits
+
+### Jonathan Hoffman - Product Owner
+>Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
+
+### Tom Ryan - Consulting Engineer
+>Tom has been an instrumental part of product testing, solution design, and general consulting. 
+
+### David Miles - Software Developer
+>David is responsible for the software and small electronics portion of the project. He is also the one maintaining the project documentation.
 
 ---
 
@@ -188,15 +201,3 @@ Port plan created during version iteration 0.6:
 &emsp;- Initialized repository  
 &emsp;- Incorporated bare-bones error handling  
 &emsp;- Started README  
-
-
-## Project Credits
-
-### Jonathan Hoffman - Product Owner
->Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
-
-### Tom Ryan - Consulting Engineer
->Tom has been an instrumental part of product testing, solution design, and general consulting. 
-
-### David Miles - Software Developer
->David is responsible for the software and small electronics portion of the project. He is also the one maintaining the project documentation.
