@@ -51,9 +51,6 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 
 #### Current Version: 0.6  
     - configure to run on startup  
-    - Port to Raspberry Pi Pico:  
-        - Remove console outputs  
-        - Remove OS specific components  
     - Minor improvements:  
         - optimize sleep times
         - add exit message on lcd
@@ -69,55 +66,68 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
 #### Future Versions:
 
 **Version 0.7**  
-    - Project tuning
+    &emsp;- Port to Raspberry Pi Pico:  
+        &emsp;- Remove console outputs  
+        &emsp;- Remove OS specific components  
+        &emsp;- add "no internet" mode
+            &emsp;- create set_current_time() function
+            &emsp;- set configuration variable
+    &emsp;- Project tuning
+
+**Notes on porting to Pico:**  
+    - Need to test with MicroPython
+    - Need to write code for setting clock
+            **OR**
+    - Need to find a way to ping for internet
+    
 
 
 **Version 1.0**  
-    **This will be the full realease of software, designed to run on the final product.**
+    &emsp;**This will be the full realease of software, designed to run on the final product.**
 
 #### Previous Versions:
 
 **Version 0.5**
-    - added AM/PM logic
-    - formated output for AM/PM
-    - integrated screen  
-    - calibrated potentiometer  
-    - generated screen output to match debug output  
-    - reformatted code for easier reading
+    &emsp;- added AM/PM logic
+    &emsp;- formated output for AM/PM
+    &emsp;- integrated screen  
+    &emsp;- calibrated potentiometer  
+    &emsp;- generated screen output to match debug output  
+    &emsp;- reformatted code for easier reading
 
 **Version 0.4**  
-    - Create basic alarm logic  
-    - integrate indicator LED  
-    - integrate relay circuit  
-    - test all components  
+    &emsp;- Create basic alarm logic  
+    &emsp;- integrate indicator LED  
+    &emsp;- integrate relay circuit  
+    &emsp;- test all components  
 
 
 **Version 0.3**  
-    - Set up GPIO pins  
-    - integrate buttons:  
+    &emsp;- Set up GPIO pins  
+    &emsp;- integrate buttons:  
         &emsp;- alarm on/off  
         &emsp;- set alarm  
         &emsp;- hour  
         &emsp;- minute  
-    - configure button logic  
-    - console debug formatting adjustments  
-    - README:  
+    &emsp;- configure button logic  
+    &emsp;- console debug formatting adjustments  
+    &emsp;- README:  
         &emsp;- add table of contents  
 
 **Version 0.2**  
-    - adjusted time output formatting  
-    - created debug output to console  
-    - README update:  
+    &emsp;- adjusted time output formatting  
+    &emsp;- created debug output to console  
+    &emsp;- README update:  
         &emsp;- hardware  
         &emsp;- future versioning  
 
 **Version 0.1**  
-    - Created main function  
-    - Created basic utilities library  
-    - Created configuration file  
-    - Initialized repository  
-    - Incorporated bare-bones error handling  
-    - Started README  
+    &emsp;- Created main function  
+    &emsp;- Created basic utilities library  
+    &emsp;- Created configuration file  
+    &emsp;- Initialized repository  
+    &emsp;- Incorporated bare-bones error handling  
+    &emsp;- Started README  
 
 
 ## Project Credits

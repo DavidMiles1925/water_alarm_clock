@@ -117,8 +117,6 @@ RECENTLY_SOUNDED = False
 
 def run_clock(os_name, loop_bool):
 
-    display_welcome_lcd()
-
     try:
         while True:
             display_welcome(os_name, loop_bool)
@@ -180,7 +178,7 @@ def check_button_press():
 
 # Check to see if alarm needs to sound.
 def check_sound_alarm(current_time):
-    
+
     # This variable is set to True when
     # the pump needs to be activated.
     ALARM_SOUNDING = False
@@ -206,6 +204,8 @@ def check_sound_alarm(current_time):
 
     # Activate Pump if alarm is sounding
     if ALARM_SOUNDING == True:
+        lcd_init()
+        lcd_text("    WAKE UP!    ", LCD_LINE_1)
         sleep(ALARM_DURATION)
 
         GPIO.output(LED_PIN, GPIO.LOW)
@@ -251,9 +251,12 @@ def create_alarm_string(hour, minute):
 
     return alarm_string
 
+IS_TURNING_ON = True
 
 # Welcome message for console.
 def display_welcome(os_name, loop_bool):
+    global IS_TURNING_ON
+
     clear()
     print(f"System is running: {os_name}")
     print("***************************************")
@@ -275,6 +278,11 @@ def display_welcome(os_name, loop_bool):
         print("* PRESS CTRL+C TO EXIT *")
         print("************************")
         print("\n")
+    
+    if IS_TURNING_ON == True:
+        display_welcome_lcd()
+        IS_TURNING_ON = False
+
 
 
 # Output to console and LCD screen
@@ -402,6 +410,9 @@ def print_error(err, msg1="", msg2=""):
     clear()
 
     if err == EXIT_MESSAGE:
+        # lcd_text("  WHY DID YOU  ", LCD_LINE_1)
+        # lcd_text("KILL ME??? jerk ", LCD_LINE_2)
+
         lcd_text("  WHY DID YOU  ", LCD_LINE_1)
         lcd_text("KILL ME??? jerk ", LCD_LINE_2)
 
