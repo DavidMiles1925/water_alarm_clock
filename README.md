@@ -113,7 +113,7 @@ ps aux | grep "main.py"
 
 4. Terminate process:  
 ```bash
-kill -TERM ###  
+sudo kill -TERM ###  
 ```  
 &emsp;*replace "###" with the number from step 3.  
 
@@ -136,6 +136,9 @@ kill -TERM ###
 >               **OR**  
 >   - Need to find a way to ping for internet  
 
+Port plan created during version iteration 0.6:
+
+<img src="./media/portplan.png" width="400" alt="v0.6 port plan">
 
 ##### Version 1.0   
 **This will be the full realease of software, designed to run on the final product.**
