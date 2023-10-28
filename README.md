@@ -4,6 +4,7 @@
 **- [Project Description](#project-description-1)**  
     &emsp;- [About the Product](#about-the-product)  
     &emsp;- [Inspiration](#inspiration)  
+    &emsp;- [Project Showcase](#project-showcase)
 **- [Documentation](#documentation-1)**  
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Software](#software)  
@@ -26,28 +27,32 @@ This is a project in development to create an alarm clock that will spray you wi
 
 This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
 
+### Project Showcase
+
+<img src="./media/version_0.5_set_up.jpg" width="400" alt="v0.5">
+
 ## Documentation:
 
 ### Hardware:
 
-Pump info needed  
-Converter info needed  
-Raspberry Pi 4 (Pico in future versions)  
-[1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
-[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
-[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
-[4-pin buttons x4](https://components101.com/switches/push-button)  
-Jumper Wires (many assorted m-f, f-f, m-m)  
-220 Ohm Resistor  
-10K Ohm Resistors x4
-LED  
+>Pump info needed  
+>Converter info needed  
+>Raspberry Pi 4 (Pico in future versions)  
+>[1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
+>[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
+>[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
+>[4-pin buttons x4](https://components101.com/switches/push-button)  
+>Jumper Wires (many assorted m-f, f-f, m-m)  
+>220 Ohm Resistor  
+>10K Ohm Resistors x4
+>LED  
 
 ### Software:
 
 #### Dependencies:
 
-**- Python**  
-Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
+>**- Python**  
+>Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
 
 #### Current Version: 0.6  
     - configure to run on startup  
@@ -61,11 +66,26 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
         - add hardware links  
         - add screen wiring diagram  
 
-<img src="./media/version_0.5_set_up.jpg" width="400" alt="v0.5">
+**Configured startup:**  
+1. Added this line to /etc/rc.local:  
+```bash  
+sudo python /home/pi/Desktop/alarm_clock/main.py &  
+```    
+2. To stop process, first find pid:  
+```bash  
+ps aux | grep "main.py"  
+```  
+3. Note the number in the second column.  
+4. Terminate process:  
+```bash
+kill -TERM ###  
+```  
+*replace "###" with the number from step 3.  
+
 
 #### Future Versions:
 
-**Version 0.7**  
+##### Version 0.7  
     &emsp;- Port to Raspberry Pi Pico:  
         &emsp;- Remove console outputs  
         &emsp;- Remove OS specific components  
@@ -74,16 +94,17 @@ Python is natively installed on the Raspberry Pi Pico that will be used in Versi
             &emsp;- set configuration variable
     &emsp;- Project tuning
 
-**Notes on porting to Pico:**  
-    - Need to test with MicroPython
-    - Need to write code for setting clock
-            **OR**
-    - Need to find a way to ping for internet
-    
+>**Notes on porting to Pico:**  
+>   - Need to test with MicroPython  
+>   - Need to write code for setting clock  
+>               **OR**  
+>   - Need to find a way to ping for internet  
 
 
-**Version 1.0**  
-    &emsp;**This will be the full realease of software, designed to run on the final product.**
+##### Version 1.0   
+**This will be the full realease of software, designed to run on the final product.**
+
+---
 
 #### Previous Versions:
 
