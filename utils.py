@@ -356,6 +356,8 @@ def print_clock_output(time_stamp):
 
     if ALARM_SET == True and GPIO.input(SET_BUTTON_PIN) == False:
         alarm_to_display = f"ALARM:ON {ALARM_TIME}"
+    elif SNOOZING == True:
+        alarm_to_display = f"ALARM:ON  HURRY!"
     elif ALARM_SET == True:
          alarm_to_display = f"ALARM:ON        "
     else:
