@@ -177,17 +177,17 @@ Port plan created during version iteration 0.6:
 ##### Version 0.6  
 &emsp;- configured to run on startup  
 &emsp;- Minor improvements:  
-&emsp;&emsp;- optimized sleep times
-&emsp;&emsp;- added exit message on lcd
-&emsp;&emsp;-re-introduced debugging for porting
-&emsp;- Reformated board layout for efficiency
+&emsp;&emsp;- optimized sleep times  
+&emsp;&emsp;- added exit message on lcd  
+&emsp;&emsp;-re-introduced debugging for porting  
+&emsp;- Reformated board layout for efficiency  
 &emsp;- README:  
 &emsp;&emsp;- Project recap  
 &emsp;&emsp;- Videos/images  
 &emsp;&emsp;- add hardware links  
 &emsp;&emsp;- add screen wiring diagram  
 
-</detals>
+
 
 ##### Version 0.5  
 &emsp;- added AM/PM logic  
@@ -202,7 +202,6 @@ Port plan created during version iteration 0.6:
 &emsp;- integrated indicator LED  
 &emsp;- integrated relay circuit  
 &emsp;- test all components  
-
 
 ##### Version 0.3  
 &emsp;- Set up GPIO pins  
@@ -230,3 +229,7 @@ Port plan created during version iteration 0.6:
 &emsp;- Initialized repository  
 &emsp;- Incorporated bare-bones error handling  
 &emsp;- Started README  
+
+</details>
+
+---
