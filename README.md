@@ -14,9 +14,11 @@
 
 **- [Documentation](#documentation-1)**  
     &emsp;- [Hardware](#hardware)  
+    &emsp;- [Design](#design)  
     &emsp;- [Software](#software)  
+    &emsp;&emsp;- [Technical Notes](#dependencies)  
     &emsp;&emsp;- [Dependencies](#dependencies)  
-    &emsp;&emsp;- [Current Version](#current-version-06)  
+    &emsp;&emsp;- [Current Version](#current-version-07)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
     &emsp;&emsp;- [Previous Versions](#previous-versions)  
 
@@ -44,7 +46,7 @@ The alarm clock as of version 0.5:
 
 The debug interface as of version 0.6:
 
-<img src="./media/v0.6_debug_interface.png" width="300" alt="v0.5">
+<img src="./media/v0.6_debug_interface.png" width="300" alt="debug v0.6">
 
 >This interface was used to:
 >>**Test individual components of the project.** For example, when testing the buttons I would print a message to the screen when each button was depressed.
@@ -89,7 +91,41 @@ The debug interface as of version 0.6:
 
 ---
 
+### Design
+
+---
+
+<img src="./media/QPASS_Screenshot.png" width="300" alt="setup diagram">
+
+---
+
 ### Software:
+
+---
+
+#### Technical Notes
+
+---
+
+>**Configured startup:**  
+>>1. Added this line to /etc/rc.local:  
+>>```bash  
+>>sudo python /home/pi/Desktop/alarm_clock/main.py &  
+>>```  
+>  
+>>2. To stop process, first find pid:  
+>>```bash  
+>>ps aux | grep "main.py"  
+>>```  
+>  
+>>3. Note the number in the second column.  
+>  
+>>4. Terminate process:  
+>>```bash
+>>sudo kill -TERM ###  
+>>```  
+>>&emsp;*replace "###" with the number from step 3.  
+>  
 
 ---
 
@@ -111,30 +147,6 @@ The debug interface as of version 0.6:
 &emsp;&emsp;- set configuration variable
 &emsp;- Project tuning
 
-**Configured startup:**  
-1. Added this line to /etc/rc.local:  
-```bash  
-sudo python /home/pi/Desktop/alarm_clock/main.py &  
-```    
-2. To stop process, first find pid:  
-```bash  
-ps aux | grep "main.py"  
-```  
-3. Note the number in the second column.  
-
-4. Terminate process:  
-```bash
-sudo kill -TERM ###  
-```  
-&emsp;*replace "###" with the number from step 3.  
-
----
-
-#### Future Versions:
-
-
-
-
 >**Notes on porting to Pico:**  
 >   - Need to test with MicroPython  
 >   - Need to write code for setting clock  
@@ -144,6 +156,13 @@ sudo kill -TERM ###
 Port plan created during version iteration 0.6:
 
 <img src="./media/portplan.png" width="400" alt="v0.6 port plan">
+
+
+
+---
+
+#### Future Versions:
+
 
 ##### Version 1.0   
 **This will be the full realease of software, designed to run on the final product.**
