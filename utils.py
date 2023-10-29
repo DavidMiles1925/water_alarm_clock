@@ -115,6 +115,7 @@ def setup_pins():
 # and remains true for 60 seconds. This prevents the
 # alarm from sounding again during the same minute.
 RECENTLY_SOUNDED = False
+SNOOZING = False
 
 def run_clock(os_name, loop_bool):
 
@@ -151,6 +152,7 @@ def run_clock(os_name, loop_bool):
 
 # Check if the 'set' button is being pressed.
 def check_button_press():
+    
 
     if (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
 
@@ -176,6 +178,8 @@ def check_button_press():
 
     # Check to see if 'set alarm' button is pressed
     if GPIO.input(SET_BUTTON_PIN) == False:
+        global SNOOZING
+        SNOOZING = False
 
         # Add an hour when the button is pressed
         if GPIO.input(HOUR_BUTTON_PIN) == False:
@@ -207,6 +211,7 @@ def check_sound_alarm(current_time):
     ALARM_SOUNDING = False
 
     global RECENTLY_SOUNDED
+    global SNOOZING
 
     if ALARM_SET == True and RECENTLY_SOUNDED == False:
         if current_time.hour == ALARM_HOUR and current_time.minute == ALARM_MINUTE:
@@ -240,12 +245,29 @@ def check_sound_alarm(current_time):
         GPIO.output(LED_PIN, GPIO.LOW)
         GPIO.output(RELAY_PIN, GPIO.LOW)
 
+        SNOOZING = True
+
+        # print("snoozeing set to true")
+        # sleep(2)
+        
+        snooze_timer = Timer(DELAY_TIME, snooze_check)
+        snooze_timer.start()
+
         # Set recently_sounded to True
         RECENTLY_SOUNDED = True
 
         # Start timer to prevent pump from activating again immediately.
-        recently_sounded_timer = Timer(DELAY_TIME, set_recently_sounded)
+        recently_sounded_timer = Timer(60, set_recently_sounded)
         recently_sounded_timer.start()
+
+
+
+        # print("timer set")
+        # print(snooze_timer)
+        # sleep(2)
+
+
+
 
         # Give the circuit time to recover before initializing screen.
         sleep(0.1)
@@ -292,7 +314,15 @@ IS_TURNING_ON = True
 def display_welcome(os_name, loop_bool):
     global IS_TURNING_ON
 
+    global SNOOZING
+    global RECENTLY_SOUNDED
+
     clear()
+
+    print(f"SNOOZING: {SNOOZING}")
+    print(f"RECENT: {RECENTLY_SOUNDED}")
+
+
     print(f"System is running: {os_name}")
     print("***************************************")
     print("*    /\    |       /\    |``\  |\  /| *")
@@ -352,7 +382,16 @@ def print_clock_output(time_stamp):
 # Toggles the RECENTLY_SOUNDED variable
 def set_recently_sounded():
     global RECENTLY_SOUNDED
-    RECENTLY_SOUNDED = not RECENTLY_SOUNDED
+    RECENTLY_SOUNDED = False
+
+def snooze_check():
+    global SNOOZING
+    global RECENTLY_SOUNDED
+    
+    if SNOOZING == True:
+        RECENTLY_SOUNDED = False
+    else:
+        SNOOZING = False
 
 
 def display_welcome_lcd():

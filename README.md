@@ -100,18 +100,16 @@ The debug interface as of version 0.6:
 
 ---
 
-#### Current Version: 0.6  
-    - configured to run on startup  
-    - Minor improvements:  
-        - optimized sleep times
-        - added exit message on lcd
-        -re-introduced debugging for porting
-    - Reformated board layout for efficiency
-    - README:  
-        - Project recap  
-        - Videos/images  
-        - add hardware links  
-        - add screen wiring diagram  
+#### Current Version: 0.7  
+&emsp;- added snooze feature  
+
+&emsp;- Port to Raspberry Pi Pico:  
+&emsp;- Remove console outputs  
+&emsp;- Remove OS specific components  
+&emsp;- add "no internet" mode
+&emsp;&emsp;- create set_current_time() function
+&emsp;&emsp;- set configuration variable
+&emsp;- Project tuning
 
 **Configured startup:**  
 1. Added this line to /etc/rc.local:  
@@ -134,14 +132,8 @@ sudo kill -TERM ###
 
 #### Future Versions:
 
-##### Version 0.7  
-&emsp;- Port to Raspberry Pi Pico:  
-&emsp;- Remove console outputs  
-&emsp;- Remove OS specific components  
-&emsp;- add "no internet" mode
-&emsp;&emsp;- create set_current_time() function
-&emsp;&emsp;- set configuration variable
-&emsp;- Project tuning
+
+
 
 >**Notes on porting to Pico:**  
 >   - Need to test with MicroPython  
@@ -159,6 +151,19 @@ Port plan created during version iteration 0.6:
 ---
 
 #### Previous Versions:
+
+##### Version 0.6  
+&emsp;- configured to run on startup  
+&emsp;- Minor improvements:  
+&emsp;&emsp;- optimized sleep times
+&emsp;&emsp;- added exit message on lcd
+&emsp;&emsp;-re-introduced debugging for porting
+&emsp;- Reformated board layout for efficiency
+&emsp;- README:  
+&emsp;&emsp;- Project recap  
+&emsp;&emsp;- Videos/images  
+&emsp;&emsp;- add hardware links  
+&emsp;&emsp;- add screen wiring diagram  
 
 ##### Version 0.5  
 &emsp;- added AM/PM logic  
