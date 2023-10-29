@@ -95,7 +95,7 @@ The debug interface as of version 0.6:
 
 ---
 
-<img src="./media/QPASS_Screenshot.png" width="400" alt="setup diagram">
+<img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
 
 ---
 
