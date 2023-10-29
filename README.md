@@ -95,7 +95,7 @@ The debug interface as of version 0.6:
 
 ---
 
-<img src="./media/QPASS_Screenshot.png" width="600" height="400" alt="setup diagram">
+<img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
 
 ---
 
@@ -138,14 +138,21 @@ The debug interface as of version 0.6:
 
 #### Current Version: 0.7  
 &emsp;- added snooze feature  
+&emsp;- add set time logic  
+&emsp;- add set time button  
 
+---
+
+#### Future Versions:
+
+##### Version 0.8
 &emsp;- Port to Raspberry Pi Pico:  
 &emsp;- Remove console outputs  
 &emsp;- Remove OS specific components  
-&emsp;- add "no internet" mode
-&emsp;&emsp;- create set_current_time() function
-&emsp;&emsp;- set configuration variable
-&emsp;- Project tuning
+&emsp;- add "no internet" mode  
+&emsp;&emsp;- create set_current_time() function  
+&emsp;&emsp;- set configuration variable  
+&emsp;- Project tuning  
 
 >**Notes on porting to Pico:**  
 >   - Need to test with MicroPython  
@@ -157,19 +164,15 @@ Port plan created during version iteration 0.6:
 
 <img src="./media/portplan.png" width="400" alt="v0.6 port plan">
 
-
-
----
-
-#### Future Versions:
-
-
 ##### Version 1.0   
 **This will be the full realease of software, designed to run on the final product.**
 
 ---
 
 #### Previous Versions:
+
+<details>
+    <summary>Previous versions</summary>
 
 ##### Version 0.6  
 &emsp;- configured to run on startup  
@@ -183,6 +186,8 @@ Port plan created during version iteration 0.6:
 &emsp;&emsp;- Videos/images  
 &emsp;&emsp;- add hardware links  
 &emsp;&emsp;- add screen wiring diagram  
+
+</detals>
 
 ##### Version 0.5  
 &emsp;- added AM/PM logic  
