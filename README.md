@@ -1,6 +1,8 @@
 
 
 # Water Alarm Clock
+<details>
+    <summary>Click to expand...</summary>
 
 ## Table of Contents  
 **- [Project Description](#project-description-1)**  
@@ -24,6 +26,7 @@
     &emsp;&emsp;- [Current Version](#current-version-07)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
     &emsp;&emsp;- [Previous Versions](#previous-versions)  
+</detals>
 
 ---
 
@@ -246,7 +249,7 @@ Port plan created during version iteration 0.6:
 #### Previous Versions:
 
 <details>
-    <summary>Previous versions</summary>
+    <summary>Click to expand...</summary>
 
 ##### Version 0.6  
 &emsp;- configured to run on startup  
