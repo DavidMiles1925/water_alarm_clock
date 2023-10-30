@@ -34,46 +34,8 @@ This is a project in development to create an alarm clock that will spray you wi
 
 ---
 
----
-
 ### Inspiration
 
-This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
-
----
-
-### Project Showcase
-
-The alarm clock as of version 0.5:
-
-<img src="./media/version_0.5_set_up.jpg" width="300" alt="v0.5">
-
-The debug interface as of version 0.6:
-
-<img src="./media/v0.6_debug_interface.png" width="300" alt="debug v0.6">
-
->This interface was used to:
->>**Test individual components of the project.** For example, when testing the buttons I would print a message to the screen when each button was depressed.
->
->>**Display the values of important variables.** When debugging, it was invaluable to know how my variables were set.
->
->>**Display the expected LCD output.** I sent the same string to the console as to the LCD. As I was getting the screen working, this was helpful because I knew if I didn't get the correct output, it was probably an error in my wiring.
->
-
----
-
-## Project Credits
-
-### Jonathan Hoffman - Product Owner
->Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
-
-### Tom Ryan - Consulting Engineer
->Tom has been an instrumental part of product testing, solution design, and general consulting. 
-
-### David Miles - Software Developer
->David is responsible for the software and small electronics portion of the project. He is also the one maintaining the project documentation.
-
----
 This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
 
 ---
@@ -142,37 +104,12 @@ The debug interface as of version 0.6:
 <img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
 
 ---
----
-
->Pump info needed  
->Converter info needed  
->Raspberry Pi 4 (Pico in future versions)  
->[1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
->[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
->[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
->[4-pin buttons x4](https://components101.com/switches/push-button)  
->Jumper Wires (many assorted m-f, f-f, m-m)  
->220 Ohm Resistor  
->10K Ohm Resistors x4
->LED  
-
----
-
-### Design
-
----
-
-<img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
-
----
 
 ### Software:
 
 ---
 
 #### Technical Notes
-
----
 
 >**Configured startup:**  
 >>1. Added this line to /etc/rc.local:  

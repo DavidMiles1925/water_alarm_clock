@@ -423,7 +423,10 @@ def print_clock_output(time_stamp):
 # Toggles the RECENTLY_SOUNDED variable
 def set_recently_sounded():
     global RECENTLY_SOUNDED
+    global SNOOZING
+
     RECENTLY_SOUNDED = False
+    SNOOZING = False
 
 def snooze_check():
     global SNOOZING
