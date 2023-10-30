@@ -38,6 +38,8 @@ This is a project in development to create an alarm clock that will spray you wi
 
 ---
 
+---
+
 ### Inspiration
 
 This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
@@ -198,6 +200,30 @@ Contents: [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) -
 <img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
 
 ---
+<<<<<<< HEAD
+---
+
+>Pump info needed  
+>Converter info needed  
+>Raspberry Pi 4 (Pico in future versions)  
+>[1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
+>[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
+>[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
+>[4-pin buttons x4](https://components101.com/switches/push-button)  
+>Jumper Wires (many assorted m-f, f-f, m-m)  
+>220 Ohm Resistor  
+>10K Ohm Resistors x4
+>LED  
+
+---
+
+### Design
+
+<img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
+
+---
+=======
+>>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
 
 ### Software:
 
@@ -223,6 +249,30 @@ Contents: [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) -
 #### Future Versions:
 
 ##### Version 0.8
+<<<<<<< HEAD
+&emsp;- Port to Raspberry Pi Pico:  
+&emsp;- Remove console outputs  
+&emsp;- Remove OS specific components  
+&emsp;- add "no internet" mode  
+&emsp;&emsp;- create set_current_time() function  
+&emsp;&emsp;- set configuration variable  
+&emsp;- Project tuning  
+
+>**Notes on porting to Pico:**  
+>   - Need to test with MicroPython  
+>   - Need to write code for setting clock  
+>               **OR**  
+>   - Need to find a way to ping for internet  
+
+Port plan created during version iteration 0.6:
+
+<img src="./media/portplan.png" width="400" alt="v0.6 port plan">
+
+##### Version 1.0   
+**This will be the full realease of software, designed to run on the final product.**
+##### Version 0.8
+=======
+>>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
 &emsp;- Port to Raspberry Pi Pico:  
 &emsp;- Remove console outputs  
 &emsp;- Remove OS specific components  
@@ -264,6 +314,7 @@ Port plan created during version iteration 0.6:
 &emsp;&emsp;- add hardware links  
 &emsp;&emsp;- add screen wiring diagram  
 
+>>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
 ##### Version 0.5  
 &emsp;- added AM/PM logic  
 &emsp;- formated output for AM/PM  
@@ -307,4 +358,8 @@ Port plan created during version iteration 0.6:
 
 </details>
 
+<<<<<<< HEAD
 ---
+=======
+---
+>>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
