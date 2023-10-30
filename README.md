@@ -26,7 +26,7 @@
     &emsp;&emsp;- [Current Version](#current-version-07)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
     &emsp;&emsp;- [Previous Versions](#previous-versions)  
-</detals>
+</details>
 
 ---
 
