@@ -44,7 +44,54 @@ try:
 except:
     print("ERROR LOADING LCD RESOURCES: utils.py")
 
-VERSION = 0.6
+########################
+########################
+###                  ###
+###     IMPORTS      ###
+###                  ###
+########################
+########################
+
+try:
+    from datetime import datetime
+    import os
+    import platform
+    import time
+    from threading import Timer
+except:
+    print("ERROR LOADING PYTHON: utils.py")
+
+try:
+    import RPi.GPIO as GPIO
+except:
+    print("ERROR LOADING GPIO: utils.py")
+
+try:
+    from config import \
+        ALARM_MINUTE,\
+        ALARM_HOUR,\
+        ALARM_SET,\
+        ALARM_DURATION,\
+        DELAY_TIME
+except:
+    print("ERROR LOADING CONFIG: utils.py")
+
+try:
+    from lcd import lcd_init,\
+        lcd_text,\
+        LCD_E,\
+        LCD_RS,\
+        LCD_D4,\
+        LCD_D5,\
+        LCD_D6,\
+        LCD_D7,\
+        LCD_LINE_1,\
+        LCD_LINE_2
+except:
+    print("ERROR LOADING LCD RESOURCES: utils.py")
+    print("ERROR LOADING LCD RESOURCES: utils.py")
+
+VERSION = 0.7
 AUTHOR = "David Miles"
 
 ########################
@@ -260,15 +307,6 @@ def check_sound_alarm(current_time):
         recently_sounded_timer = Timer(60, set_recently_sounded)
         recently_sounded_timer.start()
 
-
-
-        # print("timer set")
-        # print(snooze_timer)
-        # sleep(2)
-
-
-
-
         # Give the circuit time to recover before initializing screen.
         sleep(0.1)
 
@@ -322,7 +360,6 @@ def display_welcome(os_name, loop_bool):
     print(f"SNOOZING: {SNOOZING}")
     print(f"RECENT: {RECENTLY_SOUNDED}")
 
-
     print(f"System is running: {os_name}")
     print("***************************************")
     print("*    /\    |       /\    |``\  |\  /| *")
@@ -354,14 +391,6 @@ def display_welcome(os_name, loop_bool):
 def print_clock_output(time_stamp):
     ALARM_TIME = create_alarm_string(ALARM_HOUR, ALARM_MINUTE)
 
-    if ALARM_SET == True and GPIO.input(SET_BUTTON_PIN) == False:
-        alarm_to_display = f"ALARM:ON {ALARM_TIME}"
-    elif SNOOZING == True:
-        alarm_to_display = f"ALARM:ON  HURRY!"
-    elif ALARM_SET == True:
-         alarm_to_display = f"ALARM:ON        "
-    else:
-         alarm_to_display = "ALARM: OFF      "
     time_to_display = time_stamp.strftime("%I:%M%p %a%m/%d")
 
     if time_to_display[0] == "0":
@@ -369,6 +398,16 @@ def print_clock_output(time_stamp):
         time_list[0] = ""
         time_to_display = ''.join(time_list)
         time_to_display = time_to_display[:10] + " " + time_to_display[10:]
+
+    if ALARM_SET == True and GPIO.input(SET_BUTTON_PIN) == False:
+        alarm_to_display = f"ALARM:ON {ALARM_TIME}"
+    elif SNOOZING == True:
+        time_to_display = "I LOVE TO GET   "
+        alarm_to_display = " YOU WET! HURRY!"
+    elif ALARM_SET == True:
+        alarm_to_display = "ALARM:ON        "
+    else:
+        alarm_to_display = "ALARM: OFF      "
     
     print("\n\n##### SCREEN OUTPUT #####\n")
     print("Position:  0123456789012345")
@@ -434,6 +473,7 @@ def get_current_time():
 
 
 # Determines the 'clear' command for the OS
+# Determines the 'clear' command for the OS
 def get_os_info():
     OS_platform = platform.system()
 
@@ -450,6 +490,8 @@ def get_os_info():
         clear_message = "clear"
         name = "MacOS"
     else:
+        clear_message = "clear"
+        name = "Unknown"
         clear_message = "clear"
         name = "Unknown"
     
@@ -475,7 +517,6 @@ def print_debug_button_output():
 ###                  ###
 ########################
 ########################
-
 
 DEFAULT_ERROR = "An unexpected error occured. Fuck."
 EXIT_MESSAGE = "Thank you for using!"
