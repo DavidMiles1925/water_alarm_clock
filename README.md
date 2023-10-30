@@ -38,8 +38,6 @@ This is a project in development to create an alarm clock that will spray you wi
 
 ---
 
----
-
 ### Inspiration
 
 This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
@@ -125,17 +123,17 @@ Contents: [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) -
 [Configure to Run on Startup](#configure-to-run-on-startup)
 
 >#### Install on Raspberry Pi 4:
->>1. Configure git:
+>>1. Configure git:  
 >>&emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 >>&emsp;b. Configure:  
 >>```bash
->>git config --global user.name "yourusername"
->>git config --global user.email "your@email"
+>>git config --global user.name "yourusername"  
+>>git config --global user.email "your@email"  
 >>```  
 >>&emsp;c. Create GitHub Access Token: [Instructions here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)  
 >>&emsp;**SAVE THIS KEY IMMEDIATELY! YOU WILL NOT BE ABLE TO ACCESS IT AGAIN.**  
 >  
->>2. Clone repo:
+>>2. Clone repo:  
 >>&emsp;a. In the terminal, navigate to your desired directory and enter this command:  
 >>```bash
 >>git clone https://github.com/DavidMiles1925/water_alarm_clock.git  
