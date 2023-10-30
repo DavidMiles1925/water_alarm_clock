@@ -4,6 +4,7 @@
 
 ## Table of Contents
 <details><summary>Click to expand...</summary>  
+
 **- [Project Description](#project-description-1)**  
     &emsp;- [About the Product](#about-the-product)  
     &emsp;- [Inspiration](#inspiration)  
