@@ -1,4 +1,5 @@
 
+
 # Water Alarm Clock
 
 ## Table of Contents  
@@ -6,6 +7,7 @@
     &emsp;- [About the Product](#about-the-product)  
     &emsp;- [Inspiration](#inspiration)  
     &emsp;- [Project Showcase](#project-showcase)  
+    &emsp;&emsp; [Video Overview](#video-overview)
 
 **- [Project Credits](#project-credits)**  
     &emsp;- [Jonathan Hoffman](#jonathan-hoffman---product-owner)  
@@ -29,6 +31,8 @@
 ### About the Product
 
 This is a project in development to create an alarm clock that will spray you with water to help heavy sleepers get out of bed in the morning.
+
+---
 
 ---
 
@@ -70,11 +74,74 @@ The debug interface as of version 0.6:
 >David is responsible for the software and small electronics portion of the project. He is also the one maintaining the project documentation.
 
 ---
+This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
+
+---
+
+### Project Showcase
+
+#### [Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)
+Click here to see a video about the project in it's current state:  
+**[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
+
+The alarm clock as of version 0.5:
+
+<img src="./media/version_0.5_set_up.jpg" width="300" alt="v0.5">
+
+The debug interface as of version 0.6:
+
+<img src="./media/v0.6_debug_interface.png" width="300" alt="debug v0.6">
+
+>This interface was used to:
+>>**Test individual components of the project.** For example, when testing the buttons I would print a message to the screen when each button was depressed.
+>
+>>**Display the values of important variables.** When debugging, it was invaluable to know how my variables were set.
+>
+>>**Display the expected LCD output.** I sent the same string to the console as to the LCD. As I was getting the screen working, this was helpful because I knew if I didn't get the correct output, it was probably an error in my wiring. 
+>
+
+---
+
+## Project Credits
+
+### Jonathan Hoffman - Product Owner
+>Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
+
+### Tom Ryan - Consulting Engineer
+>Tom has been an instrumental part of product testing, solution design, and general consulting. 
+
+### David Miles - Software Developer
+>David is responsible for the software and small electronics portion of the project. He is also the one maintaining the project documentation.
+
+---
 
 ## Documentation:
 
 ### Hardware:
 
+---
+
+>Pump info needed  
+>Converter info needed  
+>Raspberry Pi 4 (Pico in future versions)  
+>[1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
+>[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
+>[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
+>[4-pin buttons x4](https://components101.com/switches/push-button)  
+>Jumper Wires (many assorted m-f, f-f, m-m)  
+>220 Ohm Resistor  
+>10K Ohm Resistors x4
+>LED  
+
+---
+
+### Design
+
+---
+
+<img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
+
+---
 ---
 
 >Pump info needed  
@@ -136,15 +203,41 @@ The debug interface as of version 0.6:
 
 ---
 
-#### Current Version: 0.7  
-&emsp;- added snooze feature  
-&emsp;- add set time logic  
-&emsp;- add set time button  
+>#### Current Version: 0.7  
+>&emsp;- added snooze feature  
+>&emsp;- add set time logic  
+>&emsp;- add set time button  
+>&emsp;- tweaked snooze output
+>&emsp;- adjusted lcd performance
+>&emsp;- README:  
+>&emsp;&emsp;- add overview video  
+>&emsp;&emsp;- add technical notes section  
 
 ---
 
 #### Future Versions:
 
+##### Version 0.8
+&emsp;- Port to Raspberry Pi Pico:  
+&emsp;- Remove console outputs  
+&emsp;- Remove OS specific components  
+&emsp;- add "no internet" mode  
+&emsp;&emsp;- create set_current_time() function  
+&emsp;&emsp;- set configuration variable  
+&emsp;- Project tuning  
+
+>**Notes on porting to Pico:**  
+>   - Need to test with MicroPython  
+>   - Need to write code for setting clock  
+>               **OR**  
+>   - Need to find a way to ping for internet  
+
+Port plan created during version iteration 0.6:
+
+<img src="./media/portplan.png" width="400" alt="v0.6 port plan">
+
+##### Version 1.0   
+**This will be the full realease of software, designed to run on the final product.**
 ##### Version 0.8
 &emsp;- Port to Raspberry Pi Pico:  
 &emsp;- Remove console outputs  
@@ -186,8 +279,6 @@ Port plan created during version iteration 0.6:
 &emsp;&emsp;- Videos/images  
 &emsp;&emsp;- add hardware links  
 &emsp;&emsp;- add screen wiring diagram  
-
-
 
 ##### Version 0.5  
 &emsp;- added AM/PM logic  
