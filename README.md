@@ -214,8 +214,8 @@ Contents: [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) -
 >&emsp;- added snooze feature  
 >&emsp;- add set time logic  
 >&emsp;- add set time button  
->&emsp;- tweaked snooze output
->&emsp;- adjusted lcd performance
+>&emsp;- tweaked snooze output  
+>&emsp;- adjusted lcd performance  
 >&emsp;- README:  
 >&emsp;&emsp;- add overview video  
 >&emsp;&emsp;- add technical notes section  
