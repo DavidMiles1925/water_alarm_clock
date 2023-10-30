@@ -309,9 +309,3 @@ Port plan created during version iteration 0.6:
 &emsp;- Started README  
 
 </details>
-
-<<<<<<< HEAD
----
-=======
----
->>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
