@@ -15,6 +15,7 @@
     &emsp;- [David Miles](#david-miles---software-developer)  
 
 **- [Documentation](#documentation-1)**  
+    &emsp;- [Using Water Alarm](#using-water-alarm)  
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Design](#design)  
     &emsp;- [Software](#software)  
@@ -81,7 +82,7 @@ The debug interface as of version 0.6:
 
 ### Using Water Alarm:
 >
->- **Setting the alarm:**  
+>#### Setting the Alarm  
 >>1. Turn the alarm on by pressing the ON/OFF button. The screen should display "ALARM:ON"  
 >  
 >>2. Hold down the 'SET ALARM' button. The alarm time should appear on the screen.  
@@ -126,6 +127,37 @@ The debug interface as of version 0.6:
 
 #### Technical Notes
 
+[Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) - 
+[Configure to Run on Startup](#configure-to-run-on-startup)
+
+>##### Install on Raspberry Pi 4:
+>>1. Configure git:
+>>&emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+>>&emsp;b. Configure:  
+>>```bash
+>>git config --global user.name "yourusername"
+>>git config --global user.email "your@email"
+>>```  
+>>&emsp;c. Create GitHub Access Token: [Instructions here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)  
+>>&emsp;**SAVE THIS KEY IMMEDIATELY! YOU WILL NOT BE ABLE TO ACCESS IT AGAIN.**  
+>  
+>>2. Clone repo:
+>>&emsp;a. In the terminal, navigate to your desired directory and enter this command:  
+>>```bash
+>>git clone https://github.com/DavidMiles1925/water_alarm_clock.git  
+>>```
+>>&emsp;b. You will be prompted for username and key (it is labeled password).  
+>>&emsp;**Copy and paste the key generated in step 1c as the password.**  
+>  
+>>3. Run program:
+>>&emsp;a. Run program in console:  
+>>```bash
+>>cd path/to/program
+>>python main.py
+>>```
+>>&emsp;b. [Configure for startup](#configure-to-run-on-startup)
+>  
+
 >##### Configure to Run ON Startup:
 >>1. Modify etc/rc.local with admin priviliges:
 >>```bash
@@ -149,33 +181,8 @@ The debug interface as of version 0.6:
 >>```bash
 >>sudo kill -TERM ###  
 >>```  
->>&emsp;*replace "###" with the number from step 3.  
->  
+>>&emsp;*replace "###" with the number from step 3
 
-##### Install on Raspberry Pi 4:
-1. Configure git:
-&emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-&emsp;b. Configure:  
-```bash
-git config --global user.name "yourusername"
-git config --global user.email "your@email"
-```  
-&emsp;c. Create GitHub Access Token: [Instructions here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)  
-&emsp;**SAVE THIS KEY IMMEDIATELY! YOU WILL NOT BE ABLE TO ACCESS IT AGAIN.**  
-2. Clone repo:
-&emsp;a. In the terminal, navigate to your desired directory and enter this command:  
-```bash
-git clone https://github.com/DavidMiles1925/water_alarm_clock.git  
-```
-&emsp;b. You will be prompted for username and key (it is labeled password).  
-&emsp;**Copy and paste the key generated in step 1c as the password.**  
-3. Run program:
-&emsp;a. Run program in console:  
-```bash
-cd path/to/program
-python main.py
-```
-&emsp;b. [Configure for startup](#configure-to-run-on-startup)
 ---
 
 #### Dependencies:
