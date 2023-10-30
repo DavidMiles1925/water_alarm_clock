@@ -79,6 +79,11 @@ The debug interface as of version 0.6:
 ---
 
 ## Documentation:
+Contents: 
+[Using Water Alarm](#using-water-alarm) - 
+[Hardware](#hardware) - 
+[Design](#design) - 
+[Software](#software)  
 
 ### Using Water Alarm:
 >
@@ -92,45 +97,22 @@ The debug interface as of version 0.6:
 >>4. Release the set alarm button. You can check the alarm time at any time by pressing the 'SET ALARM. button.  
 >
 
-
-
-
-### Hardware:
-
----
-
->Pump info needed  
->Converter info needed  
->Raspberry Pi 4 (Pico in future versions)  
->[1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
->[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
->[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
->[4-pin buttons x4](https://components101.com/switches/push-button)  
->Jumper Wires (many assorted m-f, f-f, m-m)  
->220 Ohm Resistor  
->10K Ohm Resistors x4
->LED  
+>>#### Priming the Pump
+>>1. Fill pump reservoir.
+>  
+>>2. Ensure you have something to catch the water ejected during priming.
+>  
+>>3. Press 'HOUR' AND 'MINUTE' buttons at the same time. Pump will run for 1 second.
+>  
 
 ---
 
-### Design
+### Technical Notes
 
----
-
-<img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
-
----
-
-### Software:
-
----
-
-#### Technical Notes
-
-[Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) - 
+Contents: [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) - 
 [Configure to Run on Startup](#configure-to-run-on-startup)
 
->##### Install on Raspberry Pi 4:
+>#### Install on Raspberry Pi 4:
 >>1. Configure git:
 >>&emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 >>&emsp;b. Configure:  
@@ -158,7 +140,7 @@ The debug interface as of version 0.6:
 >>&emsp;b. [Configure for startup](#configure-to-run-on-startup)
 >  
 
->##### Configure to Run ON Startup:
+>#### Configure to Run ON Startup:
 >>1. Modify etc/rc.local with admin priviliges:
 >>```bash
 >>cd /etc
@@ -184,6 +166,30 @@ The debug interface as of version 0.6:
 >>&emsp;*replace "###" with the number from step 3
 
 ---
+
+### Hardware:
+
+>Pump info needed  
+>Converter info needed  
+>Raspberry Pi 4 (Pico in future versions)  
+>[1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
+>[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
+>[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
+>[4-pin buttons x4](https://components101.com/switches/push-button)  
+>Jumper Wires (many assorted m-f, f-f, m-m)  
+>220 Ohm Resistor  
+>10K Ohm Resistors x4
+>LED  
+
+---
+
+### Design
+
+<img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
+
+---
+
+### Software:
 
 #### Dependencies:
 
