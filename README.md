@@ -42,7 +42,7 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 
 ### Project Showcase
 
-#### [Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)
+#### Video Overview
 Click here to see a video about the project in it's current state:  
 **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
 
