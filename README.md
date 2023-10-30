@@ -79,6 +79,21 @@ The debug interface as of version 0.6:
 
 ## Documentation:
 
+### Using Water Alarm:
+>
+>- **Setting the alarm:**  
+>>1. Turn the alarm on by pressing the ON/OFF button. The screen should display "ALARM:ON"  
+>  
+>>2. Hold down the 'SET ALARM' button. The alarm time should appear on the screen.  
+>  
+>>3. With the 'SET ALARM' button depressed, press the 'HOUR' and 'MINUTE' buttons to set the alarm time.  
+>  
+>>4. Release the set alarm button. You can check the alarm time at any time by pressing the 'SET ALARM. button.  
+>
+
+
+
+
 ### Hardware:
 
 ---
@@ -111,10 +126,16 @@ The debug interface as of version 0.6:
 
 #### Technical Notes
 
->**Configured startup:**  
+>##### Configure to Run ON Startup:
+>>1. Modify etc/rc.local with admin priviliges:
+>>```bash
+>>cd /etc
+>>sudo nano rc.local
+>>```
+>>
 >>1. Added this line to /etc/rc.local:  
 >>```bash  
->>sudo python /home/pi/Desktop/alarm_clock/main.py &  
+>>sudo python /home/pi/water_alarm_clock/main.py &  
 >>```  
 >  
 >>2. To stop process, first find pid:  
@@ -131,6 +152,30 @@ The debug interface as of version 0.6:
 >>&emsp;*replace "###" with the number from step 3.  
 >  
 
+##### Install on Raspberry Pi 4:
+1. Configure git:
+&emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+&emsp;b. Configure:  
+```bash
+git config --global user.name "yourusername"
+git config --global user.email "your@email"
+```  
+&emsp;c. Create GitHub Access Token: [Instructions here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)  
+&emsp;**SAVE THIS KEY IMMEDIATELY! YOU WILL NOT BE ABLE TO ACCESS IT AGAIN.**  
+2. Clone repo:
+&emsp;a. In the terminal, navigate to your desired directory and enter this command:  
+```bash
+git clone https://github.com/DavidMiles1925/water_alarm_clock.git  
+```
+&emsp;b. You will be prompted for username and key (it is labeled password).  
+&emsp;**Copy and paste the key generated in step 1c as the password.**  
+3. Run program:
+&emsp;a. Run program in console:  
+```bash
+cd path/to/program
+python main.py
+```
+&emsp;b. [Configure for startup](#configure-to-run-on-startup)
 ---
 
 #### Dependencies:
