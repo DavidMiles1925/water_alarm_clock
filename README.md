@@ -48,9 +48,7 @@ Contents:
 [Design](#design)
 
 #### Video Overview
-&emsp;-Click here to see a video about the project in it's current state:  
-
-**[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
+&emsp;-Click here to see a video about the project in it's current state: **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
 
 #### Product Image
 &emsp;- The alarm clock as of version 0.5:  
@@ -221,27 +219,6 @@ Contents: [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) -
 
 #### Future Versions:
 
-##### Version 0.8
-&emsp;- Port to Raspberry Pi Pico:  
-&emsp;- Remove console outputs  
-&emsp;- Remove OS specific components  
-&emsp;- add "no internet" mode  
-&emsp;&emsp;- create set_current_time() function  
-&emsp;&emsp;- set configuration variable  
-&emsp;- Project tuning  
-
->**Notes on porting to Pico:**  
->   - Need to test with MicroPython  
->   - Need to write code for setting clock  
->               **OR**  
->   - Need to find a way to ping for internet  
-
-Port plan created during version iteration 0.6:
-
-<img src="./media/portplan.png" width="400" alt="v0.6 port plan">
-
-##### Version 1.0   
-**This will be the full realease of software, designed to run on the final product.**
 ##### Version 0.8
 &emsp;- Port to Raspberry Pi Pico:  
 &emsp;- Remove console outputs  
