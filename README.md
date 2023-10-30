@@ -1,10 +1,8 @@
 
 
 # Water Alarm Clock
-<details>
-    <summary>Click to expand...</summary>
 
-## Table of Contents  
+## <details><summary>Table of COntents</summary>  
 **- [Project Description](#project-description-1)**  
     &emsp;- [About the Product](#about-the-product)  
     &emsp;- [Inspiration](#inspiration)  
