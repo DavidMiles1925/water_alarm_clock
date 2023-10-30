@@ -36,8 +36,8 @@ if __name__ == "__main__":
         run_clock(os_name, True)
 
     except:
-        GPIO.cleanup()
         print_error(DEFAULT_ERROR)
+        GPIO.cleanup()
         sleep(3)
 
     finally:

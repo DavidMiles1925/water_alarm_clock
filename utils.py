@@ -25,7 +25,8 @@ try:
         ALARM_MINUTE,\
         ALARM_HOUR,\
         ALARM_SET,\
-        ALARM_DURATION
+        ALARM_DURATION,\
+        DELAY_TIME
 except:
     print("ERROR LOADING CONFIG: utils.py")
 
@@ -114,6 +115,7 @@ def setup_pins():
 # and remains true for 60 seconds. This prevents the
 # alarm from sounding again during the same minute.
 RECENTLY_SOUNDED = False
+SNOOZING = False
 
 def run_clock(os_name, loop_bool):
 
@@ -150,9 +152,34 @@ def run_clock(os_name, loop_bool):
 
 # Check if the 'set' button is being pressed.
 def check_button_press():
+    
+
+    if (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
+
+        # Turn on LED
+        GPIO.output(LED_PIN, GPIO.HIGH)
+
+        # Turn on Relay
+        GPIO.output(RELAY_PIN, GPIO.HIGH)
+
+        # Run pump for 1 second
+        sleep(1)
+
+        # Turn off pump and LED pins
+        GPIO.output(LED_PIN, GPIO.LOW)
+        GPIO.output(RELAY_PIN, GPIO.LOW)
+
+        # Give the circuit time to recover before initializing screen.
+        sleep(0.1)
+
+        # Re-initialize screen to deal with any voltage spike interference.
+        lcd_init()
+
 
     # Check to see if 'set alarm' button is pressed
     if GPIO.input(SET_BUTTON_PIN) == False:
+        global SNOOZING
+        SNOOZING = False
 
         # Add an hour when the button is pressed
         if GPIO.input(HOUR_BUTTON_PIN) == False:
@@ -183,6 +210,9 @@ def check_sound_alarm(current_time):
     # the pump needs to be activated.
     ALARM_SOUNDING = False
 
+    global RECENTLY_SOUNDED
+    global SNOOZING
+
     if ALARM_SET == True and RECENTLY_SOUNDED == False:
         if current_time.hour == ALARM_HOUR and current_time.minute == ALARM_MINUTE:
             if GPIO.input(SET_BUTTON_PIN):
@@ -204,19 +234,46 @@ def check_sound_alarm(current_time):
 
     # Activate Pump if alarm is sounding
     if ALARM_SOUNDING == True:
+        # Clear screen and display "wake up" message
         lcd_init()
         lcd_text("    WAKE UP!    ", LCD_LINE_1)
+
+        # Run pump for time specified in config.py
         sleep(ALARM_DURATION)
 
+        # Turn off pump and LED pins
         GPIO.output(LED_PIN, GPIO.LOW)
         GPIO.output(RELAY_PIN, GPIO.LOW)
 
-        lcd_init()
+        SNOOZING = True
 
-        set_recently_sounded()
+        # print("snoozeing set to true")
+        # sleep(2)
+        
+        snooze_timer = Timer(DELAY_TIME, snooze_check)
+        snooze_timer.start()
 
+        # Set recently_sounded to True
+        RECENTLY_SOUNDED = True
+
+        # Start timer to prevent pump from activating again immediately.
         recently_sounded_timer = Timer(60, set_recently_sounded)
         recently_sounded_timer.start()
+
+
+
+        # print("timer set")
+        # print(snooze_timer)
+        # sleep(2)
+
+
+
+
+        # Give the circuit time to recover before initializing screen.
+        sleep(0.1)
+
+        # Re-initialize screen to deal with any voltage spike interference.
+        lcd_init()
 
 
 # Build the string that will be displayed
@@ -257,7 +314,15 @@ IS_TURNING_ON = True
 def display_welcome(os_name, loop_bool):
     global IS_TURNING_ON
 
+    global SNOOZING
+    global RECENTLY_SOUNDED
+
     clear()
+
+    print(f"SNOOZING: {SNOOZING}")
+    print(f"RECENT: {RECENTLY_SOUNDED}")
+
+
     print(f"System is running: {os_name}")
     print("***************************************")
     print("*    /\    |       /\    |``\  |\  /| *")
@@ -291,6 +356,8 @@ def print_clock_output(time_stamp):
 
     if ALARM_SET == True and GPIO.input(SET_BUTTON_PIN) == False:
         alarm_to_display = f"ALARM:ON {ALARM_TIME}"
+    elif SNOOZING == True:
+        alarm_to_display = f"ALARM:ON  HURRY!"
     elif ALARM_SET == True:
          alarm_to_display = f"ALARM:ON        "
     else:
@@ -317,7 +384,16 @@ def print_clock_output(time_stamp):
 # Toggles the RECENTLY_SOUNDED variable
 def set_recently_sounded():
     global RECENTLY_SOUNDED
-    RECENTLY_SOUNDED = not RECENTLY_SOUNDED
+    RECENTLY_SOUNDED = False
+
+def snooze_check():
+    global SNOOZING
+    global RECENTLY_SOUNDED
+    
+    if SNOOZING == True:
+        RECENTLY_SOUNDED = False
+    else:
+        SNOOZING = False
 
 
 def display_welcome_lcd():

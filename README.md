@@ -142,6 +142,7 @@ The debug interface as of version 0.6:
 <img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
 
 ---
+<<<<<<< HEAD
 ---
 
 >Pump info needed  
@@ -165,6 +166,8 @@ The debug interface as of version 0.6:
 <img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
 
 ---
+=======
+>>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
 
 ### Software:
 
@@ -203,6 +206,7 @@ The debug interface as of version 0.6:
 
 ---
 
+<<<<<<< HEAD
 >#### Current Version: 0.7  
 >&emsp;- added snooze feature  
 >&emsp;- add set time logic  
@@ -212,12 +216,19 @@ The debug interface as of version 0.6:
 >&emsp;- README:  
 >&emsp;&emsp;- add overview video  
 >&emsp;&emsp;- add technical notes section  
+=======
+#### Current Version: 0.7  
+&emsp;- added snooze feature  
+&emsp;- add set time logic  
+&emsp;- add set time button  
+>>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
 
 ---
 
 #### Future Versions:
 
 ##### Version 0.8
+<<<<<<< HEAD
 &emsp;- Port to Raspberry Pi Pico:  
 &emsp;- Remove console outputs  
 &emsp;- Remove OS specific components  
@@ -239,6 +250,8 @@ Port plan created during version iteration 0.6:
 ##### Version 1.0   
 **This will be the full realease of software, designed to run on the final product.**
 ##### Version 0.8
+=======
+>>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
 &emsp;- Port to Raspberry Pi Pico:  
 &emsp;- Remove console outputs  
 &emsp;- Remove OS specific components  
@@ -280,6 +293,11 @@ Port plan created during version iteration 0.6:
 &emsp;&emsp;- add hardware links  
 &emsp;&emsp;- add screen wiring diagram  
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
 ##### Version 0.5  
 &emsp;- added AM/PM logic  
 &emsp;- formated output for AM/PM  
@@ -323,4 +341,8 @@ Port plan created during version iteration 0.6:
 
 </details>
 
+<<<<<<< HEAD
 ---
+=======
+---
+>>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
