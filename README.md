@@ -48,17 +48,17 @@ Contents:
 [Design](#design)
 
 #### Video Overview
-    -Click here to see a video about the project in it's current state:  
+&emsp;-Click here to see a video about the project in it's current state:  
 
 **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
 
 #### Product Image
-    - The alarm clock as of version 0.5:  
+&emsp;- The alarm clock as of version 0.5:  
 
 <img src="./media/version_0.5_set_up.jpg" width="300" alt="v0.5">
 
 #### Debug Console
-    - The debug interface as of version 0.6:  
+&emsp;- The debug interface as of version 0.6:  
 
 <img src="./media/v0.6_debug_interface.png" width="300" alt="debug v0.6">
 
