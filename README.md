@@ -16,10 +16,10 @@
 
 **- [Documentation](#documentation-1)**  
     &emsp;- [Using Water Alarm](#using-water-alarm)  
+    &emsp;- [Technical Notes](#technical-notes)  
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Design](#design)  
     &emsp;- [Software](#software)  
-    &emsp;&emsp;- [Technical Notes](#dependencies)  
     &emsp;&emsp;- [Dependencies](#dependencies)  
     &emsp;&emsp;- [Current Version](#current-version-07)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
@@ -42,16 +42,23 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 ---
 
 ### Project Showcase
+Contents: 
+[Video Overview](#video-overview) - 
+[Product Image](#product-image) - 
+[Design](#design)
 
 #### Video Overview
-Click here to see a video about the project in it's current state:  
+    -Click here to see a video about the project in it's current state:  
+
 **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
 
-The alarm clock as of version 0.5:
+#### Product Image
+    - The alarm clock as of version 0.5:  
 
 <img src="./media/version_0.5_set_up.jpg" width="300" alt="v0.5">
 
-The debug interface as of version 0.6:
+#### Debug Console
+    - The debug interface as of version 0.6:  
 
 <img src="./media/v0.6_debug_interface.png" width="300" alt="debug v0.6">
 
@@ -85,9 +92,11 @@ Contents:
 [Design](#design) - 
 [Software](#software)  
 
+---
+
 ### Using Water Alarm:
->
->#### Setting the Alarm  
+
+#### Setting the Alarm  
 >>1. Turn the alarm on by pressing the ON/OFF button. The screen should display "ALARM:ON"  
 >  
 >>2. Hold down the 'SET ALARM' button. The alarm time should appear on the screen.  
@@ -97,7 +106,7 @@ Contents:
 >>4. Release the set alarm button. You can check the alarm time at any time by pressing the 'SET ALARM. button.  
 >
 
->>#### Priming the Pump
+#### Priming the Pump
 >>1. Fill pump reservoir.
 >  
 >>2. Ensure you have something to catch the water ejected during priming.
