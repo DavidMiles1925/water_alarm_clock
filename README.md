@@ -49,8 +49,13 @@ Contents:
 [Product Image](#product-image) - 
 [Design](#design)
 
+---
+
 #### Video Overview
-&emsp;-Click here to see a video about the project in it's current state: **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
+
+**Click here to see a video about the project in it's current state:**  
+**[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
+
 
 #### Product Image
 &emsp;- The alarm clock as of version 0.5:  
@@ -235,7 +240,7 @@ Contents:
 
 ---
 
->#### Current Version: 0.7  
+#### Current Version: 0.7  
 >&emsp;- added snooze feature  
 >&emsp;- tweaked snooze output  
 >&emsp;- adjusted lcd performance  
@@ -283,62 +288,62 @@ Port plan created during version iteration 0.6:
     <summary>Click to expand...</summary>
 
 ##### Version 0.6  
-&emsp;- configured to run on startup  
-&emsp;- Minor improvements:  
-&emsp;&emsp;- optimized sleep times  
-&emsp;&emsp;- added exit message on lcd  
-&emsp;&emsp;-re-introduced debugging for porting  
-&emsp;- Reformated board layout for efficiency  
-&emsp;- README:  
-&emsp;&emsp;- Project recap  
-&emsp;&emsp;- Videos/images  
-&emsp;&emsp;- add hardware links  
-&emsp;&emsp;- add screen wiring diagram  
+>&emsp;- configured to run on startup  
+>&emsp;- Minor improvements:  
+>&emsp;&emsp;- optimized sleep times  
+>&emsp;&emsp;- added exit message on lcd  
+>&emsp;&emsp;-re-introduced debugging for porting  
+>&emsp;- Reformated board layout for efficiency  
+>&emsp;- README:  
+>&emsp;&emsp;- Project recap  
+>&emsp;&emsp;- Videos/images  
+>&emsp;&emsp;- add hardware links  
+>&emsp;&emsp;- add screen wiring diagram  
 
 
 ##### Version 0.5  
-&emsp;- added AM/PM logic  
-&emsp;- formated output for AM/PM  
-&emsp;- integrated screen  
-&emsp;- calibrated potentiometer  
-&emsp;- generated screen output to match debug output  
-&emsp;- reformatted code for easier reading
+>&emsp;- added AM/PM logic  
+>&emsp;- formated output for AM/PM  
+>&emsp;- integrated screen  
+>&emsp;- calibrated potentiometer  
+>&emsp;- generated screen output to match debug output  
+>&emsp;- reformatted code for easier reading
 
 
 ##### Version 0.4  
-&emsp;- Created basic alarm logic  
-&emsp;- integrated indicator LED  
-&emsp;- integrated relay circuit  
-&emsp;- test all components  
+>&emsp;- Created basic alarm logic  
+>&emsp;- integrated indicator LED  
+>&emsp;- integrated relay circuit  
+>&emsp;- test all components  
 
 
 ##### Version 0.3  
-&emsp;- Set up GPIO pins  
-&emsp;- integrated buttons:  
-&emsp;&emsp;- alarm on/off  
-&emsp;&emsp;- set alarm  
-&emsp;&emsp;- hour  
-&emsp;&emsp;- minute  
-&emsp;- configured button logic  
-&emsp;- console debug formatting adjustments  
-&emsp;- README:  
-&emsp;&emsp;- added table of contents  
+>&emsp;- Set up GPIO pins  
+>&emsp;- integrated buttons:  
+>&emsp;&emsp;- alarm on/off  
+>&emsp;&emsp;- set alarm  
+>&emsp;&emsp;- hour  
+>&emsp;&emsp;- minute  
+>&emsp;- configured button logic  
+>&emsp;- console debug formatting adjustments  
+>&emsp;- README:  
+>&emsp;&emsp;- added table of contents  
 
 
 ##### Version 0.2  
-&emsp;- adjusted time output formatting  
-&emsp;- created debug output to console  
-&emsp;- README update:  
-&emsp;&emsp;- hardware  
-&emsp;&emsp;- future versioning  
+>&emsp;- adjusted time output formatting  
+>&emsp;- created debug output to console  
+>&emsp;- README update:  
+>&emsp;&emsp;- hardware  
+>&emsp;&emsp;- future versioning  
 
 
 ##### Version 0.1  
-&emsp;- Created main function  
-&emsp;- Created basic utilities library  
-&emsp;- Created configuration file  
-&emsp;- Initialized repository  
-&emsp;- Incorporated bare-bones error handling  
-&emsp;- Started README  
+>&emsp;- Created main function  
+>&emsp;- Created basic utilities library  
+>&emsp;- Created configuration file  
+>&emsp;- Initialized repository  
+>&emsp;- Incorporated bare-bones error handling  
+>&emsp;- Started README  
 
 </details>
