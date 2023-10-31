@@ -26,7 +26,8 @@ try:
         ALARM_HOUR,\
         ALARM_SET,\
         ALARM_DURATION,\
-        DELAY_TIME
+        SNOOZE_COUNT_CONFIG
+        #DELAY_TIME
 except:
     print("ERROR LOADING CONFIG: utils.py")
 
@@ -43,8 +44,9 @@ try:
         LCD_LINE_2
 except:
     print("ERROR LOADING LCD RESOURCES: utils.py")
+    print("ERROR LOADING LCD RESOURCES: utils.py")
 
-VERSION = 0.6
+VERSION = 0.7
 AUTHOR = "David Miles"
 
 ########################
@@ -111,11 +113,20 @@ def setup_pins():
 #############################
 #############################
 
-# This variable becomes true when the alarm sounds, 
+# Becomes true when the alarm sounds, 
 # and remains true for 60 seconds. This prevents the
 # alarm from sounding again during the same minute.
 RECENTLY_SOUNDED = False
+
+# Becomes True when the alarm sounds
 SNOOZING = False
+
+# Snoozing will stop when SNOOZE_COUNT = SNOOZE_COUNT_CONFIG
+SNOOZE_COUNT = 0
+DELAY_TIME = ((60 / SNOOZE_COUNT_CONFIG) - 1)
+
+if DELAY_TIME > 30:
+    DELAY_TIME = 30
 
 def run_clock(os_name, loop_bool):
 
@@ -179,7 +190,14 @@ def check_button_press():
     # Check to see if 'set alarm' button is pressed
     if GPIO.input(SET_BUTTON_PIN) == False:
         global SNOOZING
-        SNOOZING = False
+        global SNOOZE_COUNT
+
+        if SNOOZING == True:
+            timer_time = (SNOOZE_COUNT_CONFIG - SNOOZE_COUNT) * DELAY_TIME
+            snooze_cancel_timer = Timer(timer_time, reset_snooze_count())
+            snooze_cancel_timer.start()
+            SNOOZING = False
+            SNOOZE_COUNT = 100
 
         # Add an hour when the button is pressed
         if GPIO.input(HOUR_BUTTON_PIN) == False:
@@ -214,7 +232,11 @@ def check_sound_alarm(current_time):
     global SNOOZING
 
     if ALARM_SET == True and RECENTLY_SOUNDED == False:
+
+        # Check that alarm time matches application time.
         if current_time.hour == ALARM_HOUR and current_time.minute == ALARM_MINUTE:
+
+            # Is the 'set alarm' button NOT being held?
             if GPIO.input(SET_BUTTON_PIN):
                 ALARM_SOUNDING = True
 
@@ -245,10 +267,8 @@ def check_sound_alarm(current_time):
         GPIO.output(LED_PIN, GPIO.LOW)
         GPIO.output(RELAY_PIN, GPIO.LOW)
 
-        SNOOZING = True
-
-        # print("snoozeing set to true")
-        # sleep(2)
+        if SNOOZE_COUNT <= SNOOZE_COUNT_CONFIG:
+            SNOOZING = True
         
         snooze_timer = Timer(DELAY_TIME, snooze_check)
         snooze_timer.start()
@@ -259,15 +279,6 @@ def check_sound_alarm(current_time):
         # Start timer to prevent pump from activating again immediately.
         recently_sounded_timer = Timer(60, set_recently_sounded)
         recently_sounded_timer.start()
-
-
-
-        # print("timer set")
-        # print(snooze_timer)
-        # sleep(2)
-
-
-
 
         # Give the circuit time to recover before initializing screen.
         sleep(0.1)
@@ -316,12 +327,14 @@ def display_welcome(os_name, loop_bool):
 
     global SNOOZING
     global RECENTLY_SOUNDED
+    global SNOOZE_COUNT
 
     clear()
 
+    print(f"DELAY_TIME: {DELAY_TIME}")
+    print(f"SNOOZE_COUNT: {SNOOZE_COUNT}")
     print(f"SNOOZING: {SNOOZING}")
     print(f"RECENT: {RECENTLY_SOUNDED}")
-
 
     print(f"System is running: {os_name}")
     print("***************************************")
@@ -354,14 +367,6 @@ def display_welcome(os_name, loop_bool):
 def print_clock_output(time_stamp):
     ALARM_TIME = create_alarm_string(ALARM_HOUR, ALARM_MINUTE)
 
-    if ALARM_SET == True and GPIO.input(SET_BUTTON_PIN) == False:
-        alarm_to_display = f"ALARM:ON {ALARM_TIME}"
-    elif SNOOZING == True:
-        alarm_to_display = f"ALARM:ON  HURRY!"
-    elif ALARM_SET == True:
-         alarm_to_display = f"ALARM:ON        "
-    else:
-         alarm_to_display = "ALARM: OFF      "
     time_to_display = time_stamp.strftime("%I:%M%p %a%m/%d")
 
     if time_to_display[0] == "0":
@@ -369,6 +374,16 @@ def print_clock_output(time_stamp):
         time_list[0] = ""
         time_to_display = ''.join(time_list)
         time_to_display = time_to_display[:10] + " " + time_to_display[10:]
+
+    if ALARM_SET == True and GPIO.input(SET_BUTTON_PIN) == False:
+        alarm_to_display = f"ALARM:ON {ALARM_TIME}"
+    elif SNOOZING == True and SNOOZE_COUNT < SNOOZE_COUNT_CONFIG:
+        time_to_display = "I LOVE TO GET   "
+        alarm_to_display = " YOU WET! HURRY!"
+    elif ALARM_SET == True:
+        alarm_to_display = "ALARM:ON        "
+    else:
+        alarm_to_display = "ALARM: OFF      "
     
     print("\n\n##### SCREEN OUTPUT #####\n")
     print("Position:  0123456789012345")
@@ -384,16 +399,26 @@ def print_clock_output(time_stamp):
 # Toggles the RECENTLY_SOUNDED variable
 def set_recently_sounded():
     global RECENTLY_SOUNDED
+    global SNOOZING
+    global SNOOZE_COUNT
+
     RECENTLY_SOUNDED = False
+    SNOOZING = False
+    SNOOZE_COUNT = 0
 
 def snooze_check():
     global SNOOZING
     global RECENTLY_SOUNDED
+    global SNOOZE_COUNT
     
     if SNOOZING == True:
         RECENTLY_SOUNDED = False
-    else:
-        SNOOZING = False
+        SNOOZE_COUNT = SNOOZE_COUNT + 1
+
+def reset_snooze_count():
+    global SNOOZE_COUNT
+
+    SNOOZE_COUNT = 0
 
 
 def display_welcome_lcd():
@@ -434,6 +459,7 @@ def get_current_time():
 
 
 # Determines the 'clear' command for the OS
+# Determines the 'clear' command for the OS
 def get_os_info():
     OS_platform = platform.system()
 
@@ -450,6 +476,8 @@ def get_os_info():
         clear_message = "clear"
         name = "MacOS"
     else:
+        clear_message = "clear"
+        name = "Unknown"
         clear_message = "clear"
         name = "Unknown"
     
@@ -475,7 +503,6 @@ def print_debug_button_output():
 ###                  ###
 ########################
 ########################
-
 
 DEFAULT_ERROR = "An unexpected error occured. Fuck."
 EXIT_MESSAGE = "Thank you for using!"
