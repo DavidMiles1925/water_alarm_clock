@@ -8,7 +8,6 @@ def get_test_time():
     return now
 
 def create_date_string(year, month, date, hour, minute):
-    
 
     # Transform variables to strings
     year = str(year)
