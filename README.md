@@ -22,7 +22,6 @@
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Design](#design)  
     &emsp;- [Software](#software)  
-    &emsp;&emsp;- [Dependencies](#dependencies)  
     &emsp;&emsp;- [Current Version](#current-version-07)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
     &emsp;&emsp;- [Previous Versions](#previous-versions)  
@@ -96,6 +95,10 @@ Contents:
 ---
 
 ### Using Water Alarm:
+Contents:
+[Setting the Alarm](#setting-the-alarm) - 
+[Setting the Snooze](#setting-the-snooze) - 
+[Priming the Pump](#priming-the-pump)
 
 #### Setting the Alarm  
 >>1. Turn the alarm on by pressing the ON/OFF button. The screen should display "ALARM:ON"  
@@ -106,6 +109,30 @@ Contents:
 >  
 >>4. Release the set alarm button. You can check the alarm time at any time by pressing the 'SET ALARM. button.  
 >
+
+#### Setting the Snooze
+
+Note: Currently the only way to adjust the snooze is through the **config.py** file. Future versions will include a button for this feature.
+
+1. Open config.py with a text editor or the terminal:  
+```bash
+cd path/to/config.py
+sudo nano 
+```
+2. Set `SNOOZE_COUNT_CONFIG = #` where "#" is the number of times you would like snooze to sound (the pump to activate) in the one minute following the first alram. Values are listed below for reference.
+
+`SNOOZE_COUNT_CONFIG = 1` (default setting): Alarm will sound once more. The number of seconds between the intial alarm and the snooze alarm is determined by MAX_SNOOZE_TIME.
+
+SNOOZE COUNT CONFIG = 
+&emsp;&emsp;&emsp;&emsp;1: See above.  
+&emsp;&emsp;&emsp;&emsp;2: Alarm will sound at +29 seconds and +58 seconds.  
+&emsp;&emsp;&emsp;&emsp;3: Alarm will sound at +19, +38 seconds and +57 seconds.  
+&emsp;&emsp;&emsp;&emsp;4: Alarm will sound +14, +28, +42, and +56 seconds.  
+
+3. Set `MAX_SNOOZE_TIME` (default=30): The time in seconds between the intial alarm and the snooze alarm when SNOOZE_COUNT_CONFIG = 1.
+
+Algorithm for determining snooze activation times:  
+`DELAY_TIME = (60 / SNOOZE_COUNT_CONFIG) - 1`
 
 #### Priming the Pump
 >>1. Fill pump reservoir.
@@ -119,10 +146,16 @@ Contents:
 
 ### Technical Notes
 
-Contents: [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) - 
+Contents: 
+[Dependencies](#dependencies) - 
+[Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) - 
 [Configure to Run on Startup](#configure-to-run-on-startup)
 
->#### Install on Raspberry Pi 4:
+#### Dependencies:
+>**- Python**  
+>Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
+
+#### Install on Raspberry Pi 4:
 >>1. Configure git:  
 >>&emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 >>&emsp;b. Configure:  
@@ -150,26 +183,26 @@ Contents: [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) -
 >>&emsp;b. [Configure for startup](#configure-to-run-on-startup)
 >  
 
->#### Configure to Run ON Startup:
->>1. Modify etc/rc.local with admin priviliges:
+#### Configure to Run ON Startup:
+>>1. Modify etc/rc.local with admin priviliges:  
 >>```bash
 >>cd /etc
 >>sudo nano rc.local
 >>```
 >>
->>1. Added this line to /etc/rc.local:  
+>>2. Added this line to /etc/rc.local:  
 >>```bash  
 >>sudo python /home/pi/water_alarm_clock/main.py &  
 >>```  
 >  
->>2. To stop process, first find pid:  
+>>3. To stop process, first find pid:  
 >>```bash  
 >>ps aux | grep "main.py"  
 >>```  
 >  
->>3. Note the number in the second column.  
+>>4. Note the number in the second column.  
 >  
->>4. Terminate process:  
+>>5. Terminate process:  
 >>```bash
 >>sudo kill -TERM ###  
 >>```  
@@ -181,14 +214,13 @@ Contents: [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) -
 
 >Pump info needed  
 >Converter info needed  
->Raspberry Pi 4 (Pico in future versions)  
+>[Raspberry Pi 4 (Pico in future versions)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/)
 >[1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
 >[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
 >[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
 >[4-pin buttons x4](https://components101.com/switches/push-button)  
 >Jumper Wires (many assorted m-f, f-f, m-m)  
->220 Ohm Resistor  
->10K Ohm Resistors x4
+>220 Ohm Resistors x5  
 >LED  
 
 ---
@@ -201,34 +233,33 @@ Contents: [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) -
 
 ### Software:
 
-#### Dependencies:
-
->**- Python**  
->Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
-
 ---
 
 >#### Current Version: 0.7  
 >&emsp;- added snooze feature  
->&emsp;- add set time logic  
->&emsp;- add set time button  
 >&emsp;- tweaked snooze output  
 >&emsp;- adjusted lcd performance  
 >&emsp;- README:  
 >&emsp;&emsp;- add overview video  
 >&emsp;&emsp;- add technical notes section  
+>&emsp;&emsp;- general fixes  
 
 ---
 
 #### Future Versions:
 
-##### Version 0.8
+##### Version 1.0
+&emsp;- create set_current_time() function  
+&emsp;- add set time logic  
+&emsp;- add set time button  
+&emsp;- add reset logic  
+&emsp;- add reset button  
+
+##### Version P: A device port to Raspberry Pi Pico.
 &emsp;- Port to Raspberry Pi Pico:  
 &emsp;- Remove console outputs  
 &emsp;- Remove OS specific components  
 &emsp;- add "no internet" mode  
-&emsp;&emsp;- create set_current_time() function  
-&emsp;&emsp;- set configuration variable  
 &emsp;- Project tuning  
 
 >**Notes on porting to Pico:**  
@@ -264,7 +295,7 @@ Port plan created during version iteration 0.6:
 &emsp;&emsp;- add hardware links  
 &emsp;&emsp;- add screen wiring diagram  
 
->>>>>>> 2ad94f52bde1cbe3b3095639cae8afbb7bbaba10
+
 ##### Version 0.5  
 &emsp;- added AM/PM logic  
 &emsp;- formated output for AM/PM  
@@ -273,11 +304,13 @@ Port plan created during version iteration 0.6:
 &emsp;- generated screen output to match debug output  
 &emsp;- reformatted code for easier reading
 
+
 ##### Version 0.4  
 &emsp;- Created basic alarm logic  
 &emsp;- integrated indicator LED  
 &emsp;- integrated relay circuit  
 &emsp;- test all components  
+
 
 ##### Version 0.3  
 &emsp;- Set up GPIO pins  
@@ -291,12 +324,14 @@ Port plan created during version iteration 0.6:
 &emsp;- README:  
 &emsp;&emsp;- added table of contents  
 
+
 ##### Version 0.2  
 &emsp;- adjusted time output formatting  
 &emsp;- created debug output to console  
 &emsp;- README update:  
 &emsp;&emsp;- hardware  
 &emsp;&emsp;- future versioning  
+
 
 ##### Version 0.1  
 &emsp;- Created main function  

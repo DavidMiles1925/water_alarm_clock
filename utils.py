@@ -26,53 +26,8 @@ try:
         ALARM_HOUR,\
         ALARM_SET,\
         ALARM_DURATION,\
-        DELAY_TIME
-except:
-    print("ERROR LOADING CONFIG: utils.py")
-
-try:
-    from lcd import lcd_init,\
-        lcd_text,\
-        LCD_E,\
-        LCD_RS,\
-        LCD_D4,\
-        LCD_D5,\
-        LCD_D6,\
-        LCD_D7,\
-        LCD_LINE_1,\
-        LCD_LINE_2
-except:
-    print("ERROR LOADING LCD RESOURCES: utils.py")
-
-########################
-########################
-###                  ###
-###     IMPORTS      ###
-###                  ###
-########################
-########################
-
-try:
-    from datetime import datetime
-    import os
-    import platform
-    import time
-    from threading import Timer
-except:
-    print("ERROR LOADING PYTHON: utils.py")
-
-try:
-    import RPi.GPIO as GPIO
-except:
-    print("ERROR LOADING GPIO: utils.py")
-
-try:
-    from config import \
-        ALARM_MINUTE,\
-        ALARM_HOUR,\
-        ALARM_SET,\
-        ALARM_DURATION,\
-        DELAY_TIME
+        SNOOZE_COUNT_CONFIG
+        #DELAY_TIME
 except:
     print("ERROR LOADING CONFIG: utils.py")
 
@@ -158,11 +113,20 @@ def setup_pins():
 #############################
 #############################
 
-# This variable becomes true when the alarm sounds, 
+# Becomes true when the alarm sounds, 
 # and remains true for 60 seconds. This prevents the
 # alarm from sounding again during the same minute.
 RECENTLY_SOUNDED = False
+
+# Becomes True when the alarm sounds
 SNOOZING = False
+
+# Snoozing will stop when SNOOZE_COUNT = SNOOZE_COUNT_CONFIG
+SNOOZE_COUNT = 0
+DELAY_TIME = ((60 / SNOOZE_COUNT_CONFIG) - 1)
+
+if DELAY_TIME > 30:
+    DELAY_TIME = 30
 
 def run_clock(os_name, loop_bool):
 
@@ -226,7 +190,14 @@ def check_button_press():
     # Check to see if 'set alarm' button is pressed
     if GPIO.input(SET_BUTTON_PIN) == False:
         global SNOOZING
-        SNOOZING = False
+        global SNOOZE_COUNT
+
+        if SNOOZING == True:
+            timer_time = (SNOOZE_COUNT_CONFIG - SNOOZE_COUNT) * DELAY_TIME
+            snooze_cancel_timer = Timer(timer_time, reset_snooze_count())
+            snooze_cancel_timer.start()
+            SNOOZING = False
+            SNOOZE_COUNT = 100
 
         # Add an hour when the button is pressed
         if GPIO.input(HOUR_BUTTON_PIN) == False:
@@ -261,7 +232,11 @@ def check_sound_alarm(current_time):
     global SNOOZING
 
     if ALARM_SET == True and RECENTLY_SOUNDED == False:
+
+        # Check that alarm time matches application time.
         if current_time.hour == ALARM_HOUR and current_time.minute == ALARM_MINUTE:
+
+            # Is the 'set alarm' button NOT being held?
             if GPIO.input(SET_BUTTON_PIN):
                 ALARM_SOUNDING = True
 
@@ -292,10 +267,8 @@ def check_sound_alarm(current_time):
         GPIO.output(LED_PIN, GPIO.LOW)
         GPIO.output(RELAY_PIN, GPIO.LOW)
 
-        SNOOZING = True
-
-        # print("snoozeing set to true")
-        # sleep(2)
+        if SNOOZE_COUNT <= SNOOZE_COUNT_CONFIG:
+            SNOOZING = True
         
         snooze_timer = Timer(DELAY_TIME, snooze_check)
         snooze_timer.start()
@@ -354,9 +327,12 @@ def display_welcome(os_name, loop_bool):
 
     global SNOOZING
     global RECENTLY_SOUNDED
+    global SNOOZE_COUNT
 
     clear()
 
+    print(f"DELAY_TIME: {DELAY_TIME}")
+    print(f"SNOOZE_COUNT: {SNOOZE_COUNT}")
     print(f"SNOOZING: {SNOOZING}")
     print(f"RECENT: {RECENTLY_SOUNDED}")
 
@@ -401,7 +377,7 @@ def print_clock_output(time_stamp):
 
     if ALARM_SET == True and GPIO.input(SET_BUTTON_PIN) == False:
         alarm_to_display = f"ALARM:ON {ALARM_TIME}"
-    elif SNOOZING == True:
+    elif SNOOZING == True and SNOOZE_COUNT < SNOOZE_COUNT_CONFIG:
         time_to_display = "I LOVE TO GET   "
         alarm_to_display = " YOU WET! HURRY!"
     elif ALARM_SET == True:
@@ -424,18 +400,25 @@ def print_clock_output(time_stamp):
 def set_recently_sounded():
     global RECENTLY_SOUNDED
     global SNOOZING
+    global SNOOZE_COUNT
 
     RECENTLY_SOUNDED = False
     SNOOZING = False
+    SNOOZE_COUNT = 0
 
 def snooze_check():
     global SNOOZING
     global RECENTLY_SOUNDED
+    global SNOOZE_COUNT
     
     if SNOOZING == True:
         RECENTLY_SOUNDED = False
-    else:
-        SNOOZING = False
+        SNOOZE_COUNT = SNOOZE_COUNT + 1
+
+def reset_snooze_count():
+    global SNOOZE_COUNT
+
+    SNOOZE_COUNT = 0
 
 
 def display_welcome_lcd():
