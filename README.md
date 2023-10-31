@@ -119,25 +119,26 @@ Contents:
 
 Note: Currently the only way to adjust the snooze is through the **config.py** file. Future versions will include a button for this feature.
 
-1. Open config.py with a text editor or the terminal:  
-```bash
-cd path/to/config.py
-sudo nano 
-```
-2. Set `SNOOZE_COUNT_CONFIG = #` where "#" is the number of times you would like snooze to sound (the pump to activate) in the one minute following the first alram. Values are listed below for reference.
-
-`SNOOZE_COUNT_CONFIG = 1` (default setting): Alarm will sound once more. The number of seconds between the intial alarm and the snooze alarm is determined by MAX_SNOOZE_TIME.
-
-SNOOZE COUNT CONFIG = 
-&emsp;&emsp;&emsp;&emsp;1: See above.  
-&emsp;&emsp;&emsp;&emsp;2: Alarm will sound at +29 seconds and +58 seconds.  
-&emsp;&emsp;&emsp;&emsp;3: Alarm will sound at +19, +38 seconds and +57 seconds.  
-&emsp;&emsp;&emsp;&emsp;4: Alarm will sound +14, +28, +42, and +56 seconds.  
-
-3. Set `MAX_SNOOZE_TIME` (default=30): The time in seconds between the intial alarm and the snooze alarm when SNOOZE_COUNT_CONFIG = 1.
-
-Algorithm for determining snooze activation times:  
-`DELAY_TIME = (60 / SNOOZE_COUNT_CONFIG) - 1`
+>>1. Open config.py with a text editor or the terminal:  
+>>```bash
+>>cd path/to/config.py
+>>sudo nano 
+>>```
+>  
+>>2. Set `SNOOZE_COUNT_CONFIG = #` where "#" is the number of times you would like snooze to sound (the pump to activate) in the one minute following the first alram. Values are listed below for reference.
+>>
+>>&emsp;`SNOOZE_COUNT_CONFIG = 1` (default setting): Alarm will sound once more. The number of seconds between the intial alarm and the snooze alarm is determined by MAX_SNOOZE_TIME.
+>>
+>>SNOOZE COUNT CONFIG...  
+>>&emsp;&emsp;&emsp;&emsp;=1: See above.  
+>>&emsp;&emsp;&emsp;&emsp;=2: Alarm will sound at +29 seconds and +58 seconds.  
+>>&emsp;&emsp;&emsp;&emsp;=3: Alarm will sound at +19, +38 seconds and +57 seconds.  
+>>&emsp;&emsp;&emsp;&emsp;=4: Alarm will sound +14, +28, +42, and +56 seconds.  
+>  
+>>3. Set `MAX_SNOOZE_TIME` (default=30): The time in seconds between the intial alarm and the snooze alarm when SNOOZE_COUNT_CONFIG = 1.
+>>
+>>&emsp;Algorithm for determining snooze activation times:  
+>>&emsp;`DELAY_TIME = (60 / SNOOZE_COUNT_CONFIG) - 1`
 
 #### Priming the Pump
 >>1. Fill pump reservoir.
@@ -154,7 +155,7 @@ Algorithm for determining snooze activation times:
 Contents: 
 [Dependencies](#dependencies) - 
 [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) - 
-[Configure to Run on Startup](#configure-to-run-on-startup)
+[Run on Startup](#configure-to-run-on-startup)
 
 #### Dependencies:
 >**- Python**  
@@ -169,7 +170,7 @@ Contents:
 >>git config --global user.email "your@email"  
 >>```  
 >>&emsp;c. Create GitHub Access Token: [Instructions here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)  
->>&emsp;**SAVE THIS KEY IMMEDIATELY! YOU WILL NOT BE ABLE TO ACCESS IT AGAIN.**  
+>>**SAVE THIS KEY IMMEDIATELY! YOU WILL NOT BE ABLE TO ACCESS IT AGAIN.**  
 >  
 >>2. Clone repo:  
 >>&emsp;a. In the terminal, navigate to your desired directory and enter this command:  
@@ -177,7 +178,7 @@ Contents:
 >>git clone https://github.com/DavidMiles1925/water_alarm_clock.git  
 >>```
 >>&emsp;b. You will be prompted for username and key (it is labeled password).  
->>&emsp;**Copy and paste the key generated in step 1c as the password.**  
+>>**Copy and paste the key generated in step 1c as the password.**  
 >  
 >>3. Run program:
 >>&emsp;a. Run program in console:  
@@ -188,7 +189,7 @@ Contents:
 >>&emsp;b. [Configure for startup](#configure-to-run-on-startup)
 >  
 
-#### Configure to Run ON Startup:
+#### Configure to Run On Startup:
 >>1. Modify etc/rc.local with admin priviliges:  
 >>```bash
 >>cd /etc
@@ -200,7 +201,7 @@ Contents:
 >>sudo python /home/pi/water_alarm_clock/main.py &  
 >>```  
 >  
->>3. To stop process, first find pid:  
+>>3. To stop the process, first find the pid number:  
 >>```bash  
 >>ps aux | grep "main.py"  
 >>```  
@@ -211,7 +212,7 @@ Contents:
 >>```bash
 >>sudo kill -TERM ###  
 >>```  
->>&emsp;*replace "###" with the number from step 3
+>>&emsp;*replace "###" with the number from step 4
 
 ---
 
@@ -224,8 +225,8 @@ Contents:
 >[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
 >[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
 >[4-pin buttons x4](https://components101.com/switches/push-button)  
->Jumper Wires (many assorted m-f, f-f, m-m)  
->220 Ohm Resistors x5  
+[>Pack of Jumper Wires](https://www.amazon.com/EDGELEC-Breadboard-Optional-Assorted-Multicolored/dp/B07GD2BWPY/ref=mp_s_a_1_4_maf_2?keywords=jumper+wires&qid=1698723823&sr=8-4)
+>[220 Ohm Resistors x5](https://www.amazon.com/EDGELEC-Resistor-Tolerance-Multiple-Resistance/dp/B07QK9ZBVZ/ref=asc_df_B07QK9ZBVZ/?tag=hyprod-20&linkCode=df0&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024&psc=1&tag=&ref=&adgrpid=79957163727&hvpone=&hvptwo=&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024)  
 >LED  
 
 ---
