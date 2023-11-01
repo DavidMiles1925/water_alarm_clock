@@ -58,14 +58,14 @@ Contents:
 
 
 #### Product Image
-&emsp;- The alarm clock as of version 0.5:  
+&emsp;- The alarm clock as of version 1.0:  
 
-<img src="./media/version_0.5_set_up.jpg" width="300" alt="v0.5">
+<img src="./media/Version_1_Assembled.jpg" width="500" alt="v1.0 assembled">
 
 #### Debug Console
 &emsp;- The debug interface as of version 0.6:  
 
-<img src="./media/v0.6_debug_interface.png" width="300" alt="debug v0.6">
+<img src="./media/v0.6_debug_interface.png" width="400" alt="debug v0.6">
 
 >This interface was used to:
 >>**Test individual components of the project.** For example, when testing the buttons I would print a message to the screen when each button was depressed.
