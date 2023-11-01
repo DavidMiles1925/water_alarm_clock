@@ -22,7 +22,7 @@
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Design](#design)  
     &emsp;- [Software](#software)  
-    &emsp;&emsp;- [Current Version](#current-version-07)  
+    &emsp;&emsp;- [Current Version](#current-version-10)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
     &emsp;&emsp;- [Previous Versions](#previous-versions)  
 </details>
@@ -244,14 +244,14 @@ Contents:
 #### Current Version: 1.0  
 &emsp;- created set_system_time() function  
 &emsp;- added set time logic  
-&emsp;- README:
-&emsp;&emsp;- add set time instructions
+&emsp;- README:  
+&emsp;&emsp;- add set time instructions  
 
 ---
 
 #### Future Versions:
 
-##### Version P: A device port to Raspberry Pi Pico.
+##### Version 1P: A device port to Raspberry Pi Pico.
 &emsp;- Port to Raspberry Pi Pico:  
 &emsp;- Remove console outputs  
 &emsp;- Remove OS specific components  
