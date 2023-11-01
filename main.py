@@ -41,6 +41,7 @@ if __name__ == "__main__":
         if BYPASS_SET_TIME == False:
             set_system_time()
 
+
         start_time = get_current_time()
         
         os_info = get_os_info()
@@ -54,17 +55,9 @@ if __name__ == "__main__":
 
         print_error(DEFAULT_ERROR)
 
-        GPIO.cleanup()
-        
-        sleep(3)
-
     finally:
-        stop_time = get_current_time()
-        stop_time_display = "Stop Time: " + stop_time.strftime("%H:%M:%S")
-        start_time_display = "Start Time: " + start_time.strftime("%H:%M:%S")
-
         # Display exit message
-        print_error(EXIT_MESSAGE, start_time_display, stop_time_display)
+        print_error(EXIT_MESSAGE)
 
         GPIO.cleanup()
 

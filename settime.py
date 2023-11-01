@@ -113,13 +113,13 @@ def set_system_time():
         lcd_init()
         
     except KeyboardInterrupt:
+
         lcd_init()
         lcd_text("Error:", LCD_LINE_1)
         lcd_text("Restart System", LCD_LINE_2)
 
         print_error(GET_TIME_ERROR)
-
-        GPIO.cleanup()
+        exit()
 
 def press_enter_to_continue():
 
