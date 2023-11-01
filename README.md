@@ -24,7 +24,7 @@
     &emsp;- [Software](#software)  
     &emsp;&emsp;- [Current Version](#current-version-10)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
-    &emsp;&emsp;- [Previous Versions](#previous-versions)  
+    &emsp;&emsp;- [Version Release Notes](#version-release-notes)  
 </details>
 
 ---
@@ -240,7 +240,8 @@ Contents:
 ### Software:
 Contents: 
 [Current Version](#current-version-10) - 
-[Dependencies](#release-notes) - 
+[Future Versions](#future-versions) - 
+[Version Release Notes](#version-release-notes) - 
 
 ---
 
@@ -250,7 +251,7 @@ This version is a fully functional version of the software that has been tested 
 
 ---
 
-#### Release Notes:
+#### Future Versions:
 
 ##### Version 1P: A device port to Raspberry Pi Pico.
 &emsp;- Port to Raspberry Pi Pico:  
@@ -271,7 +272,7 @@ Port plan created during version iteration 0.6:
 
 ---
 
-#### Previous Versions:
+#### Version Release Notes:
 
 <details>
     <summary>Click to expand...</summary>
