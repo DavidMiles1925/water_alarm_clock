@@ -18,21 +18,21 @@
 
 **- [Documentation](#documentation-1)**  
     &emsp;- [Using Water Alarm](#using-water-alarm)  
-    &emsp;&emsp;[Setting the Clock](#setting-the-clock)  
-    &emsp;&emsp;[Setting the Alarm](#setting-the-alarm)  
-    &emsp;&emsp;[Setting the Snooze](#setting-the-snooze)  
-    &emsp;&emsp;[Priming the Pump](#priming-the-pump)  
+    &emsp;&emsp;*- [Setting the Clock](#setting-the-clock)*  
+    &emsp;&emsp;*- [Setting the Alarm](#setting-the-alarm)*  
+    &emsp;&emsp;*- [Setting the Snooze](#setting-the-snooze)*  
+    &emsp;&emsp;*- [Priming the Pump](#priming-the-pump)*  
     &emsp;- [Technical Notes](#technical-notes)  
-    &emsp;&emsp;- [Dependencies](#dependencies)  
-    &emsp;&emsp;- [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4)  
-    &emsp;&emsp;- [Run on Startup](#configure-to-run-on-startup)  
-    &emsp;&emsp;- [Config Information](#config-information)  
+    &emsp;&emsp;*- [Dependencies](#dependencies)*  
+    &emsp;&emsp;*- [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4)*  
+    &emsp;&emsp;*- [Run on Startup](#configure-to-run-on-startup)*  
+    &emsp;&emsp;*- [Config Information](#config-information)*  
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Design](#design)  
     &emsp;- [Software](#software)  
-    &emsp;&emsp;- [Current Version](#current-version-10)  
-    &emsp;&emsp;- [Future Versions](#future-versions)  
-    &emsp;&emsp;- [Version Release Notes](#version-release-notes)  
+    &emsp;&emsp;*- [Current Version](#current-version-10)*  
+    &emsp;&emsp;*- [Future Versions](#future-versions)*  
+    &emsp;&emsp;*- [Version Release Notes](#version-release-notes)*  
 </details>
 
 ---
