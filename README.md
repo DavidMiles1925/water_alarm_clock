@@ -238,18 +238,19 @@ Contents:
 ---
 
 ### Software:
+Contents: 
+[Current Version](#current-version-10) - 
+[Dependencies](#release-notes) - 
 
 ---
 
 #### Current Version: 1.0  
-&emsp;- created set_system_time() function  
-&emsp;- added set time logic  
-&emsp;- README:  
-&emsp;&emsp;- add set time instructions  
+
+This version is a fully functional version of the software that has been tested with the hardware. The next step is to build a prototype of the final Water Alarm product. In the meantime, I will begin work on Version 1P which will be a port of the current software to MicroPython.
 
 ---
 
-#### Future Versions:
+#### Release Notes:
 
 ##### Version 1P: A device port to Raspberry Pi Pico.
 &emsp;- Port to Raspberry Pi Pico:  
@@ -268,15 +269,18 @@ Port plan created during version iteration 0.6:
 
 <img src="./media/portplan.png" width="400" alt="v0.6 port plan">
 
-##### Version 1.0   
-**This will be the full realease of software, designed to run on the final product.**
-
 ---
 
 #### Previous Versions:
 
 <details>
     <summary>Click to expand...</summary>
+
+##### Version 1.0
+&emsp;- created set_system_time() function  
+&emsp;- added set time logic  
+&emsp;- README:  
+&emsp;&emsp;- add set time instructions  
 
 ##### Version: 0.7  
 >&emsp;- added snooze feature  
