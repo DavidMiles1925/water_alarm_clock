@@ -22,7 +22,7 @@
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Design](#design)  
     &emsp;- [Software](#software)  
-    &emsp;&emsp;- [Current Version](#current-version-07)  
+    &emsp;&emsp;- [Current Version](#current-version-10)  
     &emsp;&emsp;- [Future Versions](#future-versions)  
     &emsp;&emsp;- [Previous Versions](#previous-versions)  
 </details>
@@ -58,14 +58,14 @@ Contents:
 
 
 #### Product Image
-&emsp;- The alarm clock as of version 0.5:  
+&emsp;- The alarm clock as of version 1.0:  
 
-<img src="./media/version_0.5_set_up.jpg" width="300" alt="v0.5">
+<img src="./media/Version_1_Assembled.jpg" width="500" alt="v1.0 assembled">
 
 #### Debug Console
 &emsp;- The debug interface as of version 0.6:  
 
-<img src="./media/v0.6_debug_interface.png" width="300" alt="debug v0.6">
+<img src="./media/v0.6_debug_interface.png" width="400" alt="debug v0.6">
 
 >This interface was used to:
 >>**Test individual components of the project.** For example, when testing the buttons I would print a message to the screen when each button was depressed.
@@ -238,30 +238,21 @@ Contents:
 ---
 
 ### Software:
+Contents: 
+[Current Version](#current-version-10) - 
+[Dependencies](#release-notes) - 
 
 ---
 
-#### Current Version: 0.7  
->&emsp;- added snooze feature  
->&emsp;- tweaked snooze output  
->&emsp;- adjusted lcd performance  
->&emsp;- README:  
->&emsp;&emsp;- add overview video  
->&emsp;&emsp;- add technical notes section  
->&emsp;&emsp;- general fixes  
+#### Current Version: 1.0  
+
+This version is a fully functional version of the software that has been tested with the hardware. The next step is to build a prototype of the final Water Alarm product. In the meantime, I will begin work on Version 1P which will be a port of the current software to MicroPython.
 
 ---
 
-#### Future Versions:
+#### Release Notes:
 
-##### Version 1.0
-&emsp;- create set_current_time() function  
-&emsp;- add set time logic  
-&emsp;- add set time button  
-&emsp;- add reset logic  
-&emsp;- add reset button  
-
-##### Version P: A device port to Raspberry Pi Pico.
+##### Version 1P: A device port to Raspberry Pi Pico.
 &emsp;- Port to Raspberry Pi Pico:  
 &emsp;- Remove console outputs  
 &emsp;- Remove OS specific components  
@@ -278,15 +269,27 @@ Port plan created during version iteration 0.6:
 
 <img src="./media/portplan.png" width="400" alt="v0.6 port plan">
 
-##### Version 1.0   
-**This will be the full realease of software, designed to run on the final product.**
-
 ---
 
 #### Previous Versions:
 
 <details>
     <summary>Click to expand...</summary>
+
+##### Version 1.0
+&emsp;- created set_system_time() function  
+&emsp;- added set time logic  
+&emsp;- README:  
+&emsp;&emsp;- add set time instructions  
+
+##### Version: 0.7  
+>&emsp;- added snooze feature  
+>&emsp;- tweaked snooze output  
+>&emsp;- adjusted lcd performance  
+>&emsp;- README:  
+>&emsp;&emsp;- added overview video  
+>&emsp;&emsp;- added technical notes section  
+>&emsp;&emsp;- general fixes  
 
 ##### Version 0.6  
 >&emsp;- configured to run on startup  
