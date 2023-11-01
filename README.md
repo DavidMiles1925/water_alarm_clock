@@ -105,6 +105,20 @@ Contents:
 [Setting the Snooze](#setting-the-snooze) - 
 [Priming the Pump](#priming-the-pump)
 
+#### Setting the Clock  
+>>1. Turn on the device.  
+>  
+>>2. You will be prompted with some basic instructions, and then you will be asked to enter the date and time, one item at a time.  
+>>See the technical notes for more information about setting the time.
+>  
+>>3. Use the 'MINUTE' button to change the value on the screen. If you pass your desired value, simply keep going and it will circle around again.
+>>> Note: Time will need to be set in 24hr format. Clock will display AM/PM format.
+>  
+>>4. Use the 'HOUR'  button to submit the value. Treat it like your 'ENTER' button.
+>
+>>5. The system will verify you have entered a real date. If there is an error in the date, the system will restart and prompt you for the date and time again.
+>
+
 #### Setting the Alarm  
 >>1. Turn the alarm on by pressing the ON/OFF button. The screen should display "ALARM:ON"  
 >  
@@ -163,7 +177,7 @@ Contents:
 
 #### Install on Raspberry Pi 4:
 >>1. Configure git:  
->>&emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+>>&emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)  
 >>&emsp;b. Configure:  
 >>```bash
 >>git config --global user.name "yourusername"  
@@ -214,6 +228,8 @@ Contents:
 >>```  
 >>&emsp;*replace "###" with the number from step 4
 
+#### Config Information
+
 ---
 
 ### Hardware:
@@ -225,7 +241,7 @@ Contents:
 >[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
 >[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
 >[4-pin buttons x4](https://components101.com/switches/push-button)  
-[>Pack of Jumper Wires](https://www.amazon.com/EDGELEC-Breadboard-Optional-Assorted-Multicolored/dp/B07GD2BWPY/ref=mp_s_a_1_4_maf_2?keywords=jumper+wires&qid=1698723823&sr=8-4)
+>[Pack of Jumper Wires](https://www.amazon.com/EDGELEC-Breadboard-Optional-Assorted-Multicolored/dp/B07GD2BWPY/ref=mp_s_a_1_4_maf_2?keywords=jumper+wires&qid=1698723823&sr=8-4)  
 >[220 Ohm Resistors x5](https://www.amazon.com/EDGELEC-Resistor-Tolerance-Multiple-Resistance/dp/B07QK9ZBVZ/ref=asc_df_B07QK9ZBVZ/?tag=hyprod-20&linkCode=df0&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024&psc=1&tag=&ref=&adgrpid=79957163727&hvpone=&hvptwo=&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024)  
 >LED  
 
