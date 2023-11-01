@@ -231,50 +231,50 @@ Contents:
 
 #### Config Information
 
-&emsp;These two variables determine default alarm time.  
+These two variables determine default alarm time.  
 &emsp;&emsp;&emsp;ALARM_HOUR:ALARM_MINUTE  
-ALARM_HOUR = 5  
+`ALARM_HOUR` = 5  
 &emsp;Set to an integer between 0 and 23  
-ALARM_MINUTE = 0  
+`ALARM_MINUTE` = 0  
 &emsp;Set to an integer between 0 and 59  
 
 
-ALARM_SET = True  
+`ALARM_SET` = True  
 &emsp;Alarm on/off by default.  
 &emsp;&emsp;Set True for ALARM: ON  
 &emsp;&emsp;Set False for ALARM: OFF  
 
 
-ALARM_DURATION = 0.1  
+`ALARM_DURATION` = 0.1  
 &emsp;Time in seconds the pump will run.  
 &emsp;&emsp;In one second approx. 2oz of water comes through pump.  
 
 
-SNOOZE_COUNT_CONFIG = 1  
+`SNOOZE_COUNT_CONFIG` = 1  
 &emsp;if SNOOZE_COUNT_CONFIG = 1:  
 &emsp;&emsp;Pump will activate once more, in addition to intial alarm.  
 &emsp;&emsp;The number of seconds between the intial alarm and the  
 &emsp;&emsp;snooze alarm is determined by MAX_SNOOZE_TIME.  
        
-&emsp;if SNOOZE COUNT CONFIG =  
+&emsp;if `SNOOZE COUNT CONFIG` =  
 &emsp;&emsp;&emsp;2:  Alarm will sound at +29 seconds and +58 seconds  
 &emsp;&emsp;&emsp;3:  Alarm will sound at +19, +38 seconds and +57 seconds  
 &emsp;&emsp;&emsp;4:  Alarm will sound +14, +28, +42, and +56 seconds  
 &emsp;&emsp;&emsp;5+: Use Algorithm: DELAY_TIME = ((60 / SNOOZE_COUNT_CONFIG) - 1)  
 
 
-MAX_SNOOZE_TIME = 30  
+`MAX_SNOOZE_TIME` = 30  
 &emsp;The time in seconds between the intial alarm and the  
 &emsp;snooze alarm when SNOOZE_COUNT_CONFIG = 1  
 
 
-BYPASS_SET_TIME = False  
+`BYPASS_SET_TIME` = False  
 &emsp;This variable is used to bypass setting the time on power-up  
 &emsp;&emsp;False:  User will set system time manually  
 &emsp;&emsp;True:   System time will be set to default  
 
 
-BYPASS_INSTRUCTIONS = False  
+`BYPASS_INSTRUCTIONS` = False  
 &emsp;This variable is used to bypass set-time instructions.  
 &emsp;&emsp;*Note: If BYPASS_SET_TIME is set to True,  
 &emsp;&emsp;this variable will have no effect.  
