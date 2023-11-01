@@ -538,6 +538,10 @@ def print_error(err, msg1="", msg2=""):
     clear()
     lcd_init()
 
+def lcd_error():
+    lcd_init()
+    lcd_text("Error:", LCD_LINE_1)
+    lcd_text("Restart System", LCD_LINE_2)
 
 def restart_program():
     my_app = sys.executable
