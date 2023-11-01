@@ -508,7 +508,7 @@ def print_debug_button_output():
 DEFAULT_ERROR = "An unexpected error occured. Fuck."
 EXIT_MESSAGE = "Thank you for using!"
 OS_ERROR = "ERROR:\nOS not supported.\nCurrently supported operating systems:\n\t*Windos\n\t*MacOS\n\t*Linux"
-GET_TIME_ERROR = "SOMETHING WENT WRONG WHILE GETTING THE SYSTEM TIME"
+GET_TIME_ERROR = "SOMETHING WENT WRONG WHILE GETTING THE SYSTEM TIME.\n Restart System."
 
 def print_error(err, msg1="", msg2=""):
     clear()
@@ -536,6 +536,7 @@ def print_error(err, msg1="", msg2=""):
     print("Press ENTER to exit...")
     input("")
     clear()
+    lcd_init()
 
 
 def restart_program():

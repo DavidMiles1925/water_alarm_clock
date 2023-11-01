@@ -18,13 +18,21 @@
 
 **- [Documentation](#documentation-1)**  
     &emsp;- [Using Water Alarm](#using-water-alarm)  
+    &emsp;&emsp;*- [Setting the Clock](#setting-the-clock)*  
+    &emsp;&emsp;*- [Setting the Alarm](#setting-the-alarm)*  
+    &emsp;&emsp;*- [Setting the Snooze](#setting-the-snooze)*  
+    &emsp;&emsp;*- [Priming the Pump](#priming-the-pump)*  
     &emsp;- [Technical Notes](#technical-notes)  
+    &emsp;&emsp;*- [Dependencies](#dependencies)*  
+    &emsp;&emsp;*- [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4)*  
+    &emsp;&emsp;*- [Run on Startup](#configure-to-run-on-startup)*  
+    &emsp;&emsp;*- [Config Information](#config-information)*  
     &emsp;- [Hardware](#hardware)  
     &emsp;- [Design](#design)  
     &emsp;- [Software](#software)  
-    &emsp;&emsp;- [Current Version](#current-version-10)  
-    &emsp;&emsp;- [Future Versions](#future-versions)  
-    &emsp;&emsp;- [Previous Versions](#previous-versions)  
+    &emsp;&emsp;*- [Current Version](#current-version-10)*  
+    &emsp;&emsp;*- [Future Versions](#future-versions)*  
+    &emsp;&emsp;*- [Version Release Notes](#version-release-notes)*  
 </details>
 
 ---
@@ -101,9 +109,23 @@ Contents:
 
 ### Using Water Alarm:
 Contents:
+[Setting the Clock](#setting-the-clock) - 
 [Setting the Alarm](#setting-the-alarm) - 
 [Setting the Snooze](#setting-the-snooze) - 
 [Priming the Pump](#priming-the-pump)
+
+#### Setting the Clock  
+>>1. Turn on the device.  
+>  
+>>2. You will be prompted with some basic instructions, and then you will be asked to enter the date and time, one item at a time.  
+>  
+>>3. Use the 'MINUTE' button to change the value on the screen. If you pass your desired value, simply keep going and it will circle around again.
+>>> Note: Time will need to be set in 24hr format. Clock will display AM/PM format.
+>  
+>>4. Use the 'HOUR'  button to submit the value. Treat it like your 'ENTER' button.
+>
+>>5. The system will verify you have entered a real date. If there is an error in the date, the system will restart and prompt you for the date and time again.
+>
 
 #### Setting the Alarm  
 >>1. Turn the alarm on by pressing the ON/OFF button. The screen should display "ALARM:ON"  
@@ -113,7 +135,16 @@ Contents:
 >>3. With the 'SET ALARM' button depressed, press the 'HOUR' and 'MINUTE' buttons to set the alarm time.  
 >  
 >>4. Release the set alarm button. You can check the alarm time at any time by pressing the 'SET ALARM. button.  
+>>Note: YOU WILL NEED TO [PRIME THE PUMP](#priming-the-pump) before using.
 >
+
+#### Priming the Pump
+>>1. Fill pump reservoir.
+>  
+>>2. Ensure you have something to catch the water ejected during priming.
+>  
+>>3. Press 'HOUR' AND 'MINUTE' buttons at the same time. Pump will run for 1 second.
+>  
 
 #### Setting the Snooze
 
@@ -140,14 +171,6 @@ Note: Currently the only way to adjust the snooze is through the **config.py** f
 >>&emsp;Algorithm for determining snooze activation times:  
 >>&emsp;`DELAY_TIME = (60 / SNOOZE_COUNT_CONFIG) - 1`
 
-#### Priming the Pump
->>1. Fill pump reservoir.
->  
->>2. Ensure you have something to catch the water ejected during priming.
->  
->>3. Press 'HOUR' AND 'MINUTE' buttons at the same time. Pump will run for 1 second.
->  
-
 ---
 
 ### Technical Notes
@@ -155,7 +178,8 @@ Note: Currently the only way to adjust the snooze is through the **config.py** f
 Contents: 
 [Dependencies](#dependencies) - 
 [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) - 
-[Run on Startup](#configure-to-run-on-startup)
+[Run on Startup](#configure-to-run-on-startup) - 
+[Config Information](#config-information)
 
 #### Dependencies:
 >**- Python**  
@@ -163,7 +187,7 @@ Contents:
 
 #### Install on Raspberry Pi 4:
 >>1. Configure git:  
->>&emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+>>&emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)  
 >>&emsp;b. Configure:  
 >>```bash
 >>git config --global user.name "yourusername"  
@@ -214,6 +238,52 @@ Contents:
 >>```  
 >>&emsp;*replace "###" with the number from step 4
 
+#### Config Information
+>These two variables determine default alarm time.  
+>&emsp;&emsp;&emsp;ALARM_HOUR:ALARM_MINUTE  
+>`ALARM_HOUR` = 5  
+>>&emsp;Set to an integer between 0 and 23  
+>`ALARM_MINUTE` = 0  
+>>&emsp;Set to an integer between 0 and 59  
+>
+>`ALARM_SET` = True  
+>>&emsp;Alarm on/off by default.  
+>>&emsp;&emsp;Set True for ALARM: ON  
+>>&emsp;&emsp;Set False for ALARM: OFF  
+>
+>`ALARM_DURATION` = 0.1  
+>>&emsp;Time in seconds the pump will run.  
+>>&emsp;&emsp;In one second approx. 2oz of water comes through pump.  
+>
+>`SNOOZE_COUNT_CONFIG` = 1  
+>>&emsp;if SNOOZE_COUNT_CONFIG = 1:  
+>>&emsp;&emsp;Pump will activate once more, in addition to intial alarm.  
+>>&emsp;&emsp;The number of seconds between the intial alarm and the  
+>>&emsp;&emsp;snooze alarm is determined by MAX_SNOOZE_TIME.  
+>>    
+>>&emsp;if SNOOZE COUNT CONFIG =  
+>>&emsp;&emsp;&emsp;2:  Alarm will sound at +29 seconds and +58 seconds  
+>>&emsp;&emsp;&emsp;3:  Alarm will sound at +19, +38 seconds and +57 seconds  
+>>&emsp;&emsp;&emsp;4:  Alarm will sound +14, +28, +42, and +56 seconds  
+>>&emsp;&emsp;&emsp;5+: Use Algorithm: DELAY_TIME = ((60 / SNOOZE_COUNT_CONFIG) - 1)  
+>
+>`MAX_SNOOZE_TIME` = 30  
+>>&emsp;The time in seconds between the intial alarm and the  
+>>&emsp;snooze alarm when SNOOZE_COUNT_CONFIG = 1  
+>
+>`BYPASS_SET_TIME` = False  
+>>&emsp;This variable is used to bypass setting the time on power-up  
+>>&emsp;&emsp;False:  User will set system time manually  
+>>&emsp;&emsp;True:   System time will be set to default  
+>
+>`BYPASS_INSTRUCTIONS` = False  
+>>&emsp;This variable is used to bypass set-time instructions.  
+>>&emsp;&emsp;*Note: If BYPASS_SET_TIME is set to True,  
+>>&emsp;&emsp;this variable will have no effect.  
+>>
+>>&emsp;&emsp;False:  Instructions will display at startup  
+>>&emsp;&emsp;True:   Instructions will NOT display at startup  
+>
 ---
 
 ### Hardware:
@@ -225,7 +295,7 @@ Contents:
 >[B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
 >[5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
 >[4-pin buttons x4](https://components101.com/switches/push-button)  
-[>Pack of Jumper Wires](https://www.amazon.com/EDGELEC-Breadboard-Optional-Assorted-Multicolored/dp/B07GD2BWPY/ref=mp_s_a_1_4_maf_2?keywords=jumper+wires&qid=1698723823&sr=8-4)
+>[Pack of Jumper Wires](https://www.amazon.com/EDGELEC-Breadboard-Optional-Assorted-Multicolored/dp/B07GD2BWPY/ref=mp_s_a_1_4_maf_2?keywords=jumper+wires&qid=1698723823&sr=8-4)  
 >[220 Ohm Resistors x5](https://www.amazon.com/EDGELEC-Resistor-Tolerance-Multiple-Resistance/dp/B07QK9ZBVZ/ref=asc_df_B07QK9ZBVZ/?tag=hyprod-20&linkCode=df0&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024&psc=1&tag=&ref=&adgrpid=79957163727&hvpone=&hvptwo=&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024)  
 >LED  
 
@@ -240,7 +310,8 @@ Contents:
 ### Software:
 Contents: 
 [Current Version](#current-version-10) - 
-[Dependencies](#release-notes) - 
+[Future Versions](#future-versions) - 
+[Version Release Notes](#version-release-notes) - 
 
 ---
 
@@ -250,7 +321,7 @@ This version is a fully functional version of the software that has been tested 
 
 ---
 
-#### Release Notes:
+#### Future Versions:
 
 ##### Version 1P: A device port to Raspberry Pi Pico.
 &emsp;- Port to Raspberry Pi Pico:  
@@ -271,7 +342,7 @@ Port plan created during version iteration 0.6:
 
 ---
 
-#### Previous Versions:
+#### Version Release Notes:
 
 <details>
     <summary>Click to expand...</summary>
