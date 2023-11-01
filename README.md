@@ -101,6 +101,7 @@ Contents:
 
 ### Using Water Alarm:
 Contents:
+[Setting the Clock](#setting-the-clock) - 
 [Setting the Alarm](#setting-the-alarm) - 
 [Setting the Snooze](#setting-the-snooze) - 
 [Priming the Pump](#priming-the-pump)
@@ -109,7 +110,6 @@ Contents:
 >>1. Turn on the device.  
 >  
 >>2. You will be prompted with some basic instructions, and then you will be asked to enter the date and time, one item at a time.  
->>See the technical notes for more information about setting the time.
 >  
 >>3. Use the 'MINUTE' button to change the value on the screen. If you pass your desired value, simply keep going and it will circle around again.
 >>> Note: Time will need to be set in 24hr format. Clock will display AM/PM format.
@@ -127,7 +127,16 @@ Contents:
 >>3. With the 'SET ALARM' button depressed, press the 'HOUR' and 'MINUTE' buttons to set the alarm time.  
 >  
 >>4. Release the set alarm button. You can check the alarm time at any time by pressing the 'SET ALARM. button.  
+>>Note: YOU WILL NEED TO [PRIME THE PUMP](#priming-the-pump) before using.
 >
+
+#### Priming the Pump
+>>1. Fill pump reservoir.
+>  
+>>2. Ensure you have something to catch the water ejected during priming.
+>  
+>>3. Press 'HOUR' AND 'MINUTE' buttons at the same time. Pump will run for 1 second.
+>  
 
 #### Setting the Snooze
 
@@ -153,14 +162,6 @@ Note: Currently the only way to adjust the snooze is through the **config.py** f
 >>
 >>&emsp;Algorithm for determining snooze activation times:  
 >>&emsp;`DELAY_TIME = (60 / SNOOZE_COUNT_CONFIG) - 1`
-
-#### Priming the Pump
->>1. Fill pump reservoir.
->  
->>2. Ensure you have something to catch the water ejected during priming.
->  
->>3. Press 'HOUR' AND 'MINUTE' buttons at the same time. Pump will run for 1 second.
->  
 
 ---
 
@@ -229,6 +230,57 @@ Contents:
 >>&emsp;*replace "###" with the number from step 4
 
 #### Config Information
+
+&emsp;These two variables determine default alarm time.  
+&emsp;&emsp;&emsp;ALARM_HOUR:ALARM_MINUTE  
+ALARM_HOUR = 5  
+&emsp;Set to an integer between 0 and 23  
+ALARM_MINUTE = 0  
+&emsp;Set to an integer between 0 and 59  
+
+
+ALARM_SET = True  
+&emsp;Alarm on/off by default.  
+&emsp;&emsp;Set True for ALARM: ON  
+&emsp;&emsp;Set False for ALARM: OFF  
+
+
+ALARM_DURATION = 0.1  
+&emsp;Time in seconds the pump will run.  
+&emsp;&emsp;In one second approx. 2oz of water comes through pump.  
+
+
+SNOOZE_COUNT_CONFIG = 1  
+&emsp;if SNOOZE_COUNT_CONFIG = 1:  
+&emsp;&emsp;Pump will activate once more, in addition to intial alarm.  
+&emsp;&emsp;The number of seconds between the intial alarm and the  
+&emsp;&emsp;snooze alarm is determined by MAX_SNOOZE_TIME.  
+       
+&emsp;if SNOOZE COUNT CONFIG =  
+&emsp;&emsp;&emsp;2:  Alarm will sound at +29 seconds and +58 seconds  
+&emsp;&emsp;&emsp;3:  Alarm will sound at +19, +38 seconds and +57 seconds  
+&emsp;&emsp;&emsp;4:  Alarm will sound +14, +28, +42, and +56 seconds  
+&emsp;&emsp;&emsp;5+: Use Algorithm: DELAY_TIME = ((60 / SNOOZE_COUNT_CONFIG) - 1)  
+
+
+MAX_SNOOZE_TIME = 30  
+&emsp;The time in seconds between the intial alarm and the  
+&emsp;snooze alarm when SNOOZE_COUNT_CONFIG = 1  
+
+
+BYPASS_SET_TIME = False  
+&emsp;This variable is used to bypass setting the time on power-up  
+&emsp;&emsp;False:  User will set system time manually  
+&emsp;&emsp;True:   System time will be set to default  
+
+
+BYPASS_INSTRUCTIONS = False  
+&emsp;This variable is used to bypass set-time instructions.  
+&emsp;&emsp;*Note: If BYPASS_SET_TIME is set to True,  
+&emsp;&emsp;this variable will have no effect.  
+
+&emsp;&emsp;False:  Instructions will display at startup  
+&emsp;&emsp;True:   Instructions will NOT display at startup  
 
 ---
 
