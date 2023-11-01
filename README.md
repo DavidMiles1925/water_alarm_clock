@@ -319,6 +319,10 @@ Contents:
 
 This version is a fully functional version of the software that has been tested with the hardware. The next step is to build a prototype of the final Water Alarm product. In the meantime, I will begin work on Version 1P which will be a port of the current software to MicroPython.
 
+**Version 1.1 Progress**
+- added better error handling
+- README updates
+
 ---
 
 #### Future Versions:

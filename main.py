@@ -14,8 +14,8 @@ try:
         EXIT_MESSAGE,\
         get_current_time,\
         get_os_info,\
+        lcd_error,\
         print_error,\
-        restart_program,\
         run_clock,\
         sleep,\
         setup_pins
@@ -50,8 +50,12 @@ if __name__ == "__main__":
         run_clock(os_name, True)
 
     except:
+        lcd_error()
+
         print_error(DEFAULT_ERROR)
+
         GPIO.cleanup()
+        
         sleep(3)
 
     finally:
@@ -62,7 +66,6 @@ if __name__ == "__main__":
         # Display exit message
         print_error(EXIT_MESSAGE, start_time_display, stop_time_display)
 
-        lcd_init()
         GPIO.cleanup()
 
         exit()
