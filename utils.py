@@ -166,7 +166,7 @@ pump_primer_on = False
 def check_button_press():
     global pump_primer_on
 
-
+    # Check if priming function is activated.
     if (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
         while (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
         
@@ -184,41 +184,7 @@ def check_button_press():
         sleep(0.1)
 
         # Re-initialize screen to deal with any voltage spike interference.
-        lcd_init()
-
-        pump_primer_on = False
-
-        
-
-    #     # Turn on Relay
-    #     GPIO.output(RELAY_PIN, GPIO.HIGH)
-    #     print(pump_primer_on)
-    #     sleep(2)
-    #     # Turn on LED
-    #     GPIO.output(LED_PIN, GPIO.HIGH)
-
-    #     # Turn on Relay
-    #     GPIO.output(RELAY_PIN, GPIO.HIGH)
-
-    #     pump_primer_on = True
-    
-    # else:
-    #     if pump_primer_on == True:
-    #         # Turn off pump and LED pins
-    #         GPIO.output(LED_PIN, GPIO.LOW)
-    #         GPIO.output(RELAY_PIN, GPIO.LOW)
-
-    #         # Give the circuit time to recover before initializing screen.
-    #         sleep(0.1)
-
-    #         # Re-initialize screen to deal with any voltage spike interference.
-    #         lcd_init()
-
-    #         pump_primer_on = False
-
-
-
-
+        lcd_init()    
 
 
     # Check to see if 'set alarm' button is pressed
@@ -247,6 +213,7 @@ def check_button_press():
             ALARM_MINUTE = ALARM_MINUTE + 1
             if ALARM_MINUTE == 60:
                 ALARM_MINUTE = 0
+
 
     # Turn alarm on/off when button is pressed
     if GPIO.input(ALARM_BUTTON_PIN) == False:
