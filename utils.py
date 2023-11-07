@@ -160,22 +160,21 @@ def run_clock(os_name, loop_bool):
 ###                  ###
 ########################
 ########################
-
+pump_primer_on = False
 
 # Check if the 'set' button is being pressed.
 def check_button_press():
-    
+    global pump_primer_on
+
 
     if (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
+        while (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
+        
+            # Turn on LED
+            GPIO.output(LED_PIN, GPIO.HIGH)
 
-        # Turn on LED
-        GPIO.output(LED_PIN, GPIO.HIGH)
-
-        # Turn on Relay
-        GPIO.output(RELAY_PIN, GPIO.HIGH)
-
-        # Run pump for 1 second
-        sleep(1)
+            # Turn on Relay
+            GPIO.output(RELAY_PIN, GPIO.HIGH)
 
         # Turn off pump and LED pins
         GPIO.output(LED_PIN, GPIO.LOW)
@@ -186,6 +185,40 @@ def check_button_press():
 
         # Re-initialize screen to deal with any voltage spike interference.
         lcd_init()
+
+        pump_primer_on = False
+
+        
+
+    #     # Turn on Relay
+    #     GPIO.output(RELAY_PIN, GPIO.HIGH)
+    #     print(pump_primer_on)
+    #     sleep(2)
+    #     # Turn on LED
+    #     GPIO.output(LED_PIN, GPIO.HIGH)
+
+    #     # Turn on Relay
+    #     GPIO.output(RELAY_PIN, GPIO.HIGH)
+
+    #     pump_primer_on = True
+    
+    # else:
+    #     if pump_primer_on == True:
+    #         # Turn off pump and LED pins
+    #         GPIO.output(LED_PIN, GPIO.LOW)
+    #         GPIO.output(RELAY_PIN, GPIO.LOW)
+
+    #         # Give the circuit time to recover before initializing screen.
+    #         sleep(0.1)
+
+    #         # Re-initialize screen to deal with any voltage spike interference.
+    #         lcd_init()
+
+    #         pump_primer_on = False
+
+
+
+
 
 
     # Check to see if 'set alarm' button is pressed
