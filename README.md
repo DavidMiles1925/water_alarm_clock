@@ -322,6 +322,8 @@ This version is a fully functional version of the software that has been tested 
 **Version 1.1 Progress**
 - added better error handling
 - README updates
+- Primer made to be constant flow
+- Switched hour and minute GPIO pins
 
 ---
 

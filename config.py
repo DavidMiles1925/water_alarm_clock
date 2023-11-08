@@ -42,7 +42,7 @@ BYPASS_SET_TIME = False
 
 
 BYPASS_INSTRUCTIONS = False 
-#   This variable is used to bypass set-time instructions
+#   This variable is used to bypass set-time instructions.
 #       *Note: If BYPASS_SET_TIME is set to True,
 #       this variable will have no effect.
 #
