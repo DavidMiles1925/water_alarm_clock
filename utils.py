@@ -47,7 +47,7 @@ except:
     print("ERROR LOADING LCD RESOURCES: utils.py")
     print("ERROR LOADING LCD RESOURCES: utils.py")
 
-VERSION = 0.7
+VERSION = 1.1
 AUTHOR = "David Miles"
 
 ########################

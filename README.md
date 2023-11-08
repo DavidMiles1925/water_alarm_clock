@@ -66,15 +66,19 @@ Contents:
 **Click here to see a video about the project in it's current state:**  
 **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
 
-#### Product Image
+#### Product Images
 
-&emsp;- The alarm clock as of version 1.0:
+&emsp;**A picture of the "box build" for the computer components:**
+
+<img src="./media/version1.1_box_build.png" width="500" alt="v1.0 assembled">
+
+&emsp;**- The alarm clock as of version 1.0:**
 
 <img src="./media/Version_1_Assembled.jpg" width="500" alt="v1.0 assembled">
 
 #### Debug Console
 
-&emsp;- The debug interface as of version 0.6:
+&emsp;- **The debug interface as of version 0.6:**
 
 <img src="./media/v0.6_debug_interface.png" width="400" alt="debug v0.6">
 
@@ -152,7 +156,7 @@ Contents:
 >
 > > 2. Ensure you have something to catch the water ejected during priming.
 >
-> > 3. Press 'HOUR' AND 'MINUTE' buttons at the same time. Pump will run for 1 second.
+> > 3. Press 'HOUR' AND 'MINUTE' buttons at the same time. Pump will run as long as the buttons are depressed.
 
 #### Setting the Snooze
 
@@ -161,13 +165,15 @@ Note: Currently the only way to adjust the snooze is through the **config.py** f
 > > 1. Open config.py with a text editor or the terminal:
 > >
 > > ```bash
-> > cd path/to/config.py
-> > sudo nano
+> > cd path/to/water_alarm_clock
+> > sudo nano config.py
 > > ```
+> >
+> > \*Press CTRL+S to save, then CTRL+X to exit
 >
 > > 2. Set `SNOOZE_COUNT_CONFIG = #` where "#" is the number of times you would like snooze to sound (the pump to activate) in the one minute following the first alram. Values are listed below for reference.
 > >
-> > &emsp;`SNOOZE_COUNT_CONFIG = 1` (default setting): Alarm will sound once more. The number of seconds between the intial alarm and the snooze alarm is determined by MAX_SNOOZE_TIME.
+> > &emsp;`SNOOZE_COUNT_CONFIG = 1` (default setting): Alarm will sound once more in addition to the initial alarm. The number of seconds between the intial alarm and the snooze alarm is determined by MAX_SNOOZE_TIME.
 > >
 > > SNOOZE COUNT CONFIG...  
 > > &emsp;&emsp;&emsp;&emsp;=1: See above.  
@@ -276,7 +282,7 @@ This repo is located at http://github.com/DavidMiles1925/water_alarm_clock
 > > &emsp;b. You will be prompted for username and key (it is labeled password).  
 > > **Copy and paste the key generated in step 1c as the password.**
 >
-> > 3. Run program:
+> > 3. Run program:  
 > >    &emsp;a. Run program in console:
 > >
 > > ```bash
@@ -288,7 +294,7 @@ This repo is located at http://github.com/DavidMiles1925/water_alarm_clock
 
 #### Install on Raspberry Pi Zero W:
 
-1. Follow [these instructions](http://github.com/DavidMiles1925/pi_zero_setup) to set up the Pi.
+1. Follow [these instructions](http://github.com/DavidMiles1925/pi_zero_setup) to set up the Pi.  
    &emsp;- Also, if you require authentication, follow instructions in the above section [Intallation on Pi 4](#install-on-raspberry-pi-4)
 
 2. Run these commands to run program
@@ -361,11 +367,9 @@ Contents:
 
 ---
 
-#### Current Version: 1.0
+#### Current Version: 1.P
 
 This version is a fully functional version of the software that has been tested with the hardware. The next step is to build a prototype of the final Water Alarm product. In the meantime, I will begin work on Version 1P which will be a port of the current software to MicroPython.
-
-**Version 1.1 Progress**
 
 - added better error handling
 - README updates
@@ -377,6 +381,8 @@ This version is a fully functional version of the software that has been tested 
 #### Future Versions:
 
 ##### Version 1P: A device port to Raspberry Pi Pico.
+
+NOTE: THIS IDEA HAS SINCE BEEN ABANDONED. A PORT TO THE PI ZERO WAS DONE INSTEAD
 
 &emsp;- Port to Raspberry Pi Pico:  
 &emsp;- Remove console outputs  
