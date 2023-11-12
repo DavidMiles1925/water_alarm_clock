@@ -166,6 +166,13 @@ pump_primer_on = False
 def check_button_press():
     global pump_primer_on
 
+    if (GPIO.input(ALARM_BUTTON_PIN) == False and GPIO.input(SET_BUTTON_PIN) == False):
+        lcd_init()
+        lcd_text("PROGRAM STOPPED:", LCD_LINE_1)
+        lcd_text(" RESTART DEVICE ", LCD_LINE_2)
+        GPIO.cleanup()
+        exit()
+
     # Check if priming function is activated.
     if (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
         while (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
