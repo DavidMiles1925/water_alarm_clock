@@ -15,6 +15,7 @@ try:
         get_current_time,\
         get_os_info,\
         print_error,\
+        restart_program,\
         run_clock,\
         sleep,\
         setup_pins

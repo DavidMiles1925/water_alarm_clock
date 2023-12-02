@@ -12,6 +12,7 @@ try:
     import platform
     import time
     from threading import Timer
+    import sys
 except:
     print("ERROR LOADING PYTHON: utils.py")
 
@@ -507,7 +508,7 @@ def print_debug_button_output():
 DEFAULT_ERROR = "An unexpected error occured. Fuck."
 EXIT_MESSAGE = "Thank you for using!"
 OS_ERROR = "ERROR:\nOS not supported.\nCurrently supported operating systems:\n\t*Windos\n\t*MacOS\n\t*Linux"
-
+GET_TIME_ERROR = "SOMETHING WENT WRONG WHILE GETTING THE SYSTEM TIME"
 
 def print_error(err, msg1="", msg2=""):
     clear()
@@ -535,3 +536,8 @@ def print_error(err, msg1="", msg2=""):
     print("Press ENTER to exit...")
     input("")
     clear()
+
+
+def restart_program():
+    my_app = sys.executable
+    os.execl(my_app, my_app, *sys.argv)
