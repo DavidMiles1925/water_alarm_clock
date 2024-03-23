@@ -19,8 +19,16 @@ try:
 except:
     print("COULD NOT LOAD CONFIG: settime.py")
 
+try:
+    from logger import console_and_log
+except:
+    print("COULD NOT LOAD LOGGER: settime.py")
+
 
 def print_lcd_instructions():
+    console_and_log("Instructions shown")
+
+    lcd_init()
     lcd_text("   PLEASE SET   ", LCD_LINE_1)
     lcd_text("    THE TIME    ", LCD_LINE_2)
     sleep(3)
@@ -37,6 +45,8 @@ def print_lcd_instructions():
 def get_user_date(date_int, label, min, max):
     move_on = False
 
+    lcd_init()
+
     while move_on == False:
                  #1234567890123456
         lcd_text("What is the     ", LCD_LINE_1)
@@ -51,6 +61,7 @@ def get_user_date(date_int, label, min, max):
 
         if GPIO.input(HOUR_BUTTON_PIN) ==  False:
             sleep(0.2)
+            console_and_log(f"{label} set as {date_int}")
             return date_int
         
 
@@ -69,6 +80,7 @@ def create_date_string(year, month, date, hour, minute):
     # "02301010000.00"
     #date_string = f"{month}{date}{hour}{minute}{year}.00"
 
+    console_and_log(f"Date string created:{date_string}")
     return date_string
 
 
@@ -94,6 +106,8 @@ def set_system_time():
         if BYPASS_INSTRUCTIONS == False:
             print_lcd_instructions()
 
+        console_and_log("Process to set time started")
+        
         year = get_user_date(year, "YEAR", 2023, 2050)
         month = get_user_date(month, "MONTH", 1, 12)
         date = get_user_date(date, "DAY", 1, 31)
@@ -113,12 +127,18 @@ def set_system_time():
         lcd_init()
         
     except KeyboardInterrupt:
+        console_and_log("Control+C was pressed")
 
         lcd_init()
         lcd_text("Error:", LCD_LINE_1)
         lcd_text("Restart System", LCD_LINE_2)
 
+        exit(0)
+
+    except Exception as e:
+
         print_error(GET_TIME_ERROR)
+        console_and_log("Error occured in settime.set_system_time()")
         exit()
 
 def press_enter_to_continue():

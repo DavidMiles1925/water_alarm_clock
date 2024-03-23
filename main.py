@@ -24,14 +24,14 @@ except:
     exit()
 
 try:
-    from lcd import lcd_init
-except:
-    print("ERROR LOADING LCD RESOURCES: main.py")
-
-try:
     from settime import set_system_time
 except:
     print("ERROR LOADING SETTIME: main.py")
+
+try:
+    from logger import write_to_log, console_and_log
+except:
+    print(("ERROR LOADING LOGGER: main.py"))
 
 
 if __name__ == "__main__":
@@ -50,15 +50,19 @@ if __name__ == "__main__":
 
         run_clock(os_name, True)
 
-    except:
+    except Exception as e:
         lcd_error()
 
         print_error(DEFAULT_ERROR)
+
+    except KeyboardInterrupt:
+        console_and_log("Ctrl+C was pressed. System will exit.")
 
     finally:
         # Display exit message
         print_error(EXIT_MESSAGE)
 
         GPIO.cleanup()
+        console_and_log("GPIO cleaned up.")
 
-        exit()
+        exit(0)

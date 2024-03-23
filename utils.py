@@ -27,8 +27,14 @@ try:
         ALARM_HOUR,\
         ALARM_SET,\
         ALARM_DURATION,\
-        SNOOZE_COUNT_CONFIG
-        #DELAY_TIME
+        SNOOZE_COUNT_CONFIG,\
+        LED_PIN,\
+        RELAY_PIN,\
+        SET_BUTTON_PIN,\
+        ALARM_BUTTON_PIN,\
+        HOUR_BUTTON_PIN,\
+        MINUTE_BUTTON_PIN,\
+        BUTTON_SLEEP_TIME_AFTER_PRESS
 except:
     print("ERROR LOADING CONFIG: utils.py")
 
@@ -47,8 +53,18 @@ except:
     print("ERROR LOADING LCD RESOURCES: utils.py")
     print("ERROR LOADING LCD RESOURCES: utils.py")
 
+try:
+    from logger import console_and_log
+except:
+    print(("ERROR LOADING LOGGER: main.py"))
+
+
 VERSION = 1.1
 AUTHOR = "David Miles"
+
+LCD_PIN_ARRAY = [LCD_E, LCD_RS, LCD_D4, LCD_D5, LCD_D6, LCD_D7]
+BUTTON_ARRAY = [ALARM_BUTTON_PIN, SET_BUTTON_PIN, HOUR_BUTTON_PIN, MINUTE_BUTTON_PIN]
+
 
 ########################
 ########################
@@ -58,52 +74,40 @@ AUTHOR = "David Miles"
 ########################
 ########################
 
-# Conponent Pins
-LED_PIN = 27
-RELAY_PIN = 21
-SET_BUTTON_PIN = 13
-ALARM_BUTTON_PIN = 26
-HOUR_BUTTON_PIN = 6
-MINUTE_BUTTON_PIN = 5
 
 # Set up pins for all components
 def setup_pins():
-    # Board Mode: BCM
-    GPIO.setmode(GPIO.BCM)
+    try:
 
-    # Disable Warnings
-    GPIO.setwarnings(False)
+        # Board Mode: BCM
+        GPIO.setmode(GPIO.BCM)
 
-    # LCD Pins
-    GPIO.setup(LCD_E, GPIO.OUT)
-    GPIO.setup(LCD_RS, GPIO.OUT)
-    GPIO.setup(LCD_D4, GPIO.OUT)
-    GPIO.setup(LCD_D5, GPIO.OUT)
-    GPIO.setup(LCD_D6, GPIO.OUT)
-    GPIO.setup(LCD_D7, GPIO.OUT)
+        # Disable Warnings
+        GPIO.setwarnings(False)
 
-    # Initialize LCD screen
-    lcd_init()
+        for x in range(len(LCD_PIN_ARRAY)):
+            GPIO.setup(LCD_PIN_ARRAY[x], GPIO.OUT)
+            console_and_log(f"GPIO pin {LCD_PIN_ARRAY[x]} was set up as an LCD output pin.")
 
-    # Hour button
-    GPIO.setup(HOUR_BUTTON_PIN, GPIO.IN)
+        for y in range(len(BUTTON_ARRAY)):
+            GPIO.setup(BUTTON_ARRAY[y], GPIO.IN)
+            console_and_log(f"GPIO pin {BUTTON_ARRAY[y]} was set up as an input pin.")
 
-    # Minute button
-    GPIO.setup(MINUTE_BUTTON_PIN, GPIO.IN)
+        # Initialize LCD screen
+        lcd_init()
 
-    # Set Alarm Button
-    GPIO.setup(SET_BUTTON_PIN, GPIO.IN)
+        # LED
+        GPIO.setup(LED_PIN, GPIO.OUT)
+        GPIO.output(LED_PIN, GPIO.LOW)
+        console_and_log(f"GPIO pin {RELAY_PIN} was set up as an LCD output pin.")
 
-    # Alarm ON/OFF Button
-    GPIO.setup(ALARM_BUTTON_PIN, GPIO.IN)
-
-    # LED
-    GPIO.setup(LED_PIN, GPIO.OUT)
-    GPIO.output(LED_PIN, GPIO.LOW)
-
-    # Relay
-    GPIO.setup(RELAY_PIN, GPIO.OUT)
-    GPIO.output(RELAY_PIN, GPIO.LOW)
+        # Relay
+        GPIO.setup(RELAY_PIN, GPIO.OUT)
+        GPIO.output(RELAY_PIN, GPIO.LOW)
+        console_and_log(f"GPIO pin {RELAY_PIN} was set up as an LCD output pin.")
+    
+    except Exception as e:
+        console_and_log(f"Error occurred setting up pins: {e}")
 
 
 #############################
@@ -147,10 +151,13 @@ def run_clock(os_name, loop_bool):
 
             check_sound_alarm(current_time)
 
-            sleep(0.05)
     except KeyboardInterrupt:
+        console_and_log("Control+C was pressed. run_clock() terminated")
         clear
         lcd_init()
+
+    except Exception as e:
+        console_and_log(f"An error occured in the run_clock() function: {e}")
 
 
 ########################
@@ -164,168 +171,189 @@ pump_primer_on = False
 
 # Check if the 'set' button is being pressed.
 def check_button_press():
-    global pump_primer_on
+    try:
+        global pump_primer_on
 
-    if (GPIO.input(ALARM_BUTTON_PIN) == False and GPIO.input(SET_BUTTON_PIN) == False):
-        lcd_init()
-        lcd_text("PROGRAM STOPPED:", LCD_LINE_1)
-        lcd_text(" RESTART DEVICE ", LCD_LINE_2)
-        GPIO.cleanup()
-        exit()
+        if (GPIO.input(ALARM_BUTTON_PIN) == False and GPIO.input(SET_BUTTON_PIN) == False):
+            console_and_log("Exit button combination pressed.")
+            lcd_init()
+            lcd_text("PROGRAM STOPPED:", LCD_LINE_1)
+            lcd_text(" RESTART DEVICE ", LCD_LINE_2)
+            GPIO.cleanup()
+            console_and_log("GPIO cleaned up, system exiting.")
+            exit(0)
 
-    # Check if priming function is activated.
-    if (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
-        while (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
-        
-            # Turn on LED
-            GPIO.output(LED_PIN, GPIO.HIGH)
+        # Check if priming function is activated.
+        if (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
+            console_and_log("Primer activated.")
 
-            # Turn on Relay
-            GPIO.output(RELAY_PIN, GPIO.HIGH)
-
-        # Turn off pump and LED pins
-        GPIO.output(LED_PIN, GPIO.LOW)
-        GPIO.output(RELAY_PIN, GPIO.LOW)
-
-        # Give the circuit time to recover before initializing screen.
-        sleep(0.1)
-
-        # Re-initialize screen to deal with any voltage spike interference.
-        lcd_init()    
-
-
-    # Check to see if 'set alarm' button is pressed
-    if GPIO.input(SET_BUTTON_PIN) == False:
-        global SNOOZING
-        global SNOOZE_COUNT
-
-        if SNOOZING == True:
-            timer_time = (SNOOZE_COUNT_CONFIG - SNOOZE_COUNT) * DELAY_TIME
-            snooze_cancel_timer = Timer(timer_time, reset_snooze_count())
-            snooze_cancel_timer.start()
-            SNOOZING = False
-            SNOOZE_COUNT = 100
-
-        # Add an hour when the button is pressed
-        if GPIO.input(HOUR_BUTTON_PIN) == False:
-            global ALARM_HOUR
-            ALARM_HOUR = ALARM_HOUR + 1
-            if ALARM_HOUR == 24:
-                ALARM_HOUR = 0
-            sleep(0.05)
-        
-        # Add a minute when the button is pressed
-        if GPIO.input(MINUTE_BUTTON_PIN) == False:
-            global ALARM_MINUTE
-            ALARM_MINUTE = ALARM_MINUTE + 1
-            if ALARM_MINUTE == 60:
-                ALARM_MINUTE = 0
-
-
-    # Turn alarm on/off when button is pressed
-    if GPIO.input(ALARM_BUTTON_PIN) == False:
-        global ALARM_SET
-        ALARM_SET = not ALARM_SET
-        sleep(0.2)
-
-
-# Check to see if alarm needs to sound.
-def check_sound_alarm(current_time):
-
-    # This variable is set to True when
-    # the pump needs to be activated.
-    ALARM_SOUNDING = False
-
-    global RECENTLY_SOUNDED
-    global SNOOZING
-
-    if ALARM_SET == True and RECENTLY_SOUNDED == False:
-
-        # Check that alarm time matches application time.
-        if current_time.hour == ALARM_HOUR and current_time.minute == ALARM_MINUTE:
-
-            # Is the 'set alarm' button NOT being held?
-            if GPIO.input(SET_BUTTON_PIN):
-                ALARM_SOUNDING = True
-
+            while (GPIO.input(HOUR_BUTTON_PIN) == False and GPIO.input(MINUTE_BUTTON_PIN) == False) and GPIO.input(SET_BUTTON_PIN):
+            
                 # Turn on LED
                 GPIO.output(LED_PIN, GPIO.HIGH)
 
                 # Turn on Relay
                 GPIO.output(RELAY_PIN, GPIO.HIGH)
+                
+
+            # Turn off pump and LED pins
+            GPIO.output(LED_PIN, GPIO.LOW)
+            GPIO.output(RELAY_PIN, GPIO.LOW)
+
+            # Give the circuit time to recover before initializing screen.
+            sleep(0.1)
+
+            # Re-initialize screen to deal with any voltage spike interference.
+            lcd_init()    
+
+
+        # Check to see if 'set alarm' button is pressed
+        if GPIO.input(SET_BUTTON_PIN) == False:
+            global SNOOZING
+            global SNOOZE_COUNT
+
+            if SNOOZING == True:
+                timer_time = (SNOOZE_COUNT_CONFIG - SNOOZE_COUNT) * DELAY_TIME
+                snooze_cancel_timer = Timer(timer_time, reset_snooze_count())
+                snooze_cancel_timer.start()
+                SNOOZING = False
+                SNOOZE_COUNT = 100
+
+            # Add an hour when the button is pressed
+            if GPIO.input(HOUR_BUTTON_PIN) == False:
+                global ALARM_HOUR
+                ALARM_HOUR = ALARM_HOUR + 1
+                if ALARM_HOUR == 24:
+                    ALARM_HOUR = 0
+                sleep(BUTTON_SLEEP_TIME_AFTER_PRESS)
+            
+            # Add a minute when the button is pressed
+            if GPIO.input(MINUTE_BUTTON_PIN) == False:
+                global ALARM_MINUTE
+                ALARM_MINUTE = ALARM_MINUTE + 1
+                if ALARM_MINUTE == 60:
+                    ALARM_MINUTE = 0
+                sleep(BUTTON_SLEEP_TIME_AFTER_PRESS)
+
+
+        # Turn alarm on/off when button is pressed
+        if GPIO.input(ALARM_BUTTON_PIN) == False:
+            global ALARM_SET
+            ALARM_SET = not ALARM_SET
+            console_and_log(f"Alarm status set to {ALARM_SET}")
+            if ALARM_SET:
+                console_and_log(f"Alarm set for {create_alarm_string(ALARM_HOUR, ALARM_MINUTE)}")
+            sleep(BUTTON_SLEEP_TIME_AFTER_PRESS)
+
+    except Exception as e:
+        console_and_log(f"Error triggered from utils.check_button_press: {e}")
+
+
+# Check to see if alarm needs to sound.
+def check_sound_alarm(current_time):
+    try:
+
+        # This variable is set to True when
+        # the pump needs to be activated.
+        ALARM_SOUNDING = False
+
+        global RECENTLY_SOUNDED
+        global SNOOZING
+
+        if ALARM_SET == True and RECENTLY_SOUNDED == False:
+
+            # Check that alarm time matches application time.
+            if current_time.hour == ALARM_HOUR and current_time.minute == ALARM_MINUTE:
+
+                # Is the 'set alarm' button NOT being held?
+                if GPIO.input(SET_BUTTON_PIN):
+                    ALARM_SOUNDING = True
+
+                    # Turn on LED
+                    GPIO.output(LED_PIN, GPIO.HIGH)
+
+                    # Turn on Relay
+                    GPIO.output(RELAY_PIN, GPIO.HIGH)
+
+                    console_and_log("ALARM SOUNDING")
+            else:
+                ALARM_SOUNDING = False
+                GPIO.output(LED_PIN, GPIO.LOW)
+                GPIO.output(RELAY_PIN, GPIO.LOW)
         else:
             ALARM_SOUNDING = False
             GPIO.output(LED_PIN, GPIO.LOW)
             GPIO.output(RELAY_PIN, GPIO.LOW)
-    else:
-        ALARM_SOUNDING = False
-        GPIO.output(LED_PIN, GPIO.LOW)
-        GPIO.output(RELAY_PIN, GPIO.LOW)
 
-    # Activate Pump if alarm is sounding
-    if ALARM_SOUNDING == True:
-        # Clear screen and display "wake up" message
-        lcd_init()
-        lcd_text("    WAKE UP!    ", LCD_LINE_1)
+        # Activate Pump if alarm is sounding
+        if ALARM_SOUNDING == True:
+            # Clear screen and display "wake up" message
+            lcd_init()
+            lcd_text("    WAKE UP!    ", LCD_LINE_1)
 
-        # Run pump for time specified in config.py
-        sleep(ALARM_DURATION)
+            # Run pump for time specified in config.py
+            sleep(ALARM_DURATION)
 
-        # Turn off pump and LED pins
-        GPIO.output(LED_PIN, GPIO.LOW)
-        GPIO.output(RELAY_PIN, GPIO.LOW)
+            # Turn off pump and LED pins
+            GPIO.output(LED_PIN, GPIO.LOW)
+            GPIO.output(RELAY_PIN, GPIO.LOW)
 
-        if SNOOZE_COUNT <= SNOOZE_COUNT_CONFIG:
-            SNOOZING = True
-        
-        snooze_timer = Timer(DELAY_TIME, snooze_check)
-        snooze_timer.start()
+            if SNOOZE_COUNT <= SNOOZE_COUNT_CONFIG:
+                SNOOZING = True
+            
+            snooze_timer = Timer(DELAY_TIME, snooze_check)
+            snooze_timer.start()
 
-        # Set recently_sounded to True
-        RECENTLY_SOUNDED = True
+            # Set recently_sounded to True
+            RECENTLY_SOUNDED = True
 
-        # Start timer to prevent pump from activating again immediately.
-        recently_sounded_timer = Timer(60, set_recently_sounded)
-        recently_sounded_timer.start()
+            # Start timer to prevent pump from activating again immediately.
+            recently_sounded_timer = Timer(60, set_recently_sounded)
+            recently_sounded_timer.start()
 
-        # Give the circuit time to recover before initializing screen.
-        sleep(0.1)
+            # Give the circuit time to recover before initializing screen.
+            sleep(0.1)
 
-        # Re-initialize screen to deal with any voltage spike interference.
-        lcd_init()
+            # Re-initialize screen to deal with any voltage spike interference.
+            lcd_init()
+    except Exception as e:
+        console_and_log(f"An error occured in the check_sound_alarm function: {e}")
 
 
 # Build the string that will be displayed
 # on the second line of the LCD screen.
 def create_alarm_string(hour, minute):
-    am_pm = "AM"
+    try:
+        am_pm = "AM"
 
-    if hour == 0:
-        hour_string = "12"
-    elif hour == 12:
-        hour_string = str(hour)
-        am_pm = "PM"
-    elif hour < 10:
-        hour_string = " " + str(hour)
-    elif hour < 12:
-        hour_string = str(hour)
-    elif hour > 12 and hour < 22:
-        hour = hour - 12
-        hour_string = " " + str(hour)
-        am_pm = "PM"
-    else:
-        hour = hour - 12
-        hour_string = str(hour)
-        am_pm = "PM"
+        if hour == 0:
+            hour_string = "12"
+        elif hour == 12:
+            hour_string = str(hour)
+            am_pm = "PM"
+        elif hour < 10:
+            hour_string = " " + str(hour)
+        elif hour < 12:
+            hour_string = str(hour)
+        elif hour > 12 and hour < 22:
+            hour = hour - 12
+            hour_string = " " + str(hour)
+            am_pm = "PM"
+        else:
+            hour = hour - 12
+            hour_string = str(hour)
+            am_pm = "PM"
 
-    if minute < 10:
-        minute_string = "0" + str(minute)
-    else:
-        minute_string = str(minute)
+        if minute < 10:
+            minute_string = "0" + str(minute)
+        else:
+            minute_string = str(minute)
 
-    alarm_string = hour_string + ":" + minute_string + am_pm
+        alarm_string = hour_string + ":" + minute_string + am_pm
 
-    return alarm_string
+        return alarm_string
+    except Exception as e:
+        console_and_log(f"An error occured in the create_alarm_string function: {e}")
 
 IS_TURNING_ON = True
 
@@ -430,6 +458,10 @@ def reset_snooze_count():
 
 
 def display_welcome_lcd():
+    lcd_init()
+
+    console_and_log("Welcome screen displayed")
+
     lcd_text("*   Welcome    *", LCD_LINE_1)
     lcd_text("--Water Alarm-- ", LCD_LINE_2)
 
@@ -530,18 +562,15 @@ def print_error(err, msg1="", msg2=""):
     print("\n")
     print("**********************************************************************")
     print("\n")
-    print(err)
+    console_and_log(err)
     print("\n")
     print("**********************************************************************")
 
     if msg1 != "":
-        print(f"{msg1}\n")
+        console_and_log(f"{msg1}\n")
     if msg2 != "":
-        print(f"{msg2}\n")
-    
-    print("\n")
-    print("Press ENTER to exit...")
-    input("")
+        console_and_log(f"{msg2}\n")
+
     clear()
     lcd_init()
 

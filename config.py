@@ -48,3 +48,17 @@ BYPASS_INSTRUCTIONS = False
 #
 #       False:  Instructions will display at startup
 #       True:   Instructions will NOT display at startup
+
+
+LOG_DIRECTORY_PATH = "/home/astro/water_alarm_clock/logs"
+CONSOLE_OUTPUT_ON = True
+LOGGING_ENABLED = True
+
+LED_PIN = 27
+RELAY_PIN = 21
+SET_BUTTON_PIN = 13
+ALARM_BUTTON_PIN = 26
+HOUR_BUTTON_PIN = 6
+MINUTE_BUTTON_PIN = 5
+
+BUTTON_SLEEP_TIME_AFTER_PRESS = 0.05
