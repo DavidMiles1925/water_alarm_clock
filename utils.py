@@ -428,6 +428,7 @@ def print_clock_output(time_stamp):
     print(f"Line 2:   |{alarm_to_display}|")
     print("          ------------------")
 
+    lcd_init()
     lcd_text(time_to_display, LCD_LINE_1)
     lcd_text(alarm_to_display, LCD_LINE_2)
 
