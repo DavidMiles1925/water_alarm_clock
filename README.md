@@ -30,7 +30,6 @@
  &emsp;- [Design](#design)  
  &emsp;- [Software](#software)  
  &emsp;&emsp;_- [Current Version](#current-version-10)_  
- &emsp;&emsp;_- [Future Versions](#future-versions)_  
  &emsp;&emsp;_- [Version Release Notes](#version-release-notes)_
 
 </details>
@@ -278,6 +277,8 @@ Example:
 
 #### Install on Raspberry Pi 4:
 
+<details><summary>Click to see installation instructions.</summary>
+
 > > 1. Configure git:  
 > >    &emsp;a. Install git: [Click Here To Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)  
 > >    &emsp;b. Configure:
@@ -310,7 +311,11 @@ Example:
 > >
 > > &emsp;b. [Configure for startup](#configure-to-run-on-startup)
 
+</details>
+
 #### Install on Raspberry Pi Zero W:
+
+<details><summary>Click to see installation instructions.</summary>
 
 1. Follow [these instructions](http://github.com/DavidMiles1925/pi_zero_setup) to set up the Pi.  
    &emsp;- Also, if you require authentication, follow instructions in the above section [Intallation on Pi 4](#install-on-raspberry-pi-4)
@@ -323,7 +328,11 @@ cd water_alarm_clock
 python main.py
 ```
 
+</details>
+
 #### Configure to Run On Startup:
+
+<details><summary>Click to see installation instructions.</summary>
 
 > > 1. Modify etc/rc.local with admin priviliges:
 > >
@@ -353,6 +362,8 @@ python main.py
 > > ```
 > >
 > > &emsp;\*replace "###" with the number from step 4
+
+</details>
 
 ---
 
@@ -385,46 +396,23 @@ Contents:
 
 ---
 
-#### Current Version: 1.P
+#### Current Version: 1.2
 
-This version is a fully functional version of the software that has been tested with the hardware. The next step is to build a prototype of the final Water Alarm product. In the meantime, I will begin work on Version 1P which will be a port of the current software to MicroPython.
-
-- added better error handling
-- README updates
-- Primer made to be constant flow
-- Switched hour and minute GPIO pins
-
----
-
-#### Future Versions:
-
-##### Version 1P: A device port to Raspberry Pi Pico.
-
-NOTE: THIS IDEA HAS SINCE BEEN ABANDONED. A PORT TO THE PI ZERO WAS DONE INSTEAD
-
-&emsp;- Port to Raspberry Pi Pico:  
-&emsp;- Remove console outputs  
-&emsp;- Remove OS specific components  
-&emsp;- add "no internet" mode  
-&emsp;- Project tuning
-
-> **Notes on porting to Pico:**
->
-> - Need to test with MicroPython
-> - Need to write code for setting clock  
->    **OR**
-> - Need to find a way to ping for internet
-
-Port plan created during version iteration 0.6:
-
-<img src="./media/portplan.png" width="400" alt="v0.6 port plan">
+This version is a fully functional version of the software that has been tested with the hardware. It has a printed case, and is awaiting pump nozzel adjustments. The next step is to build a full prototype of the final Water Alarm product.
 
 ---
 
 #### Version Release Notes:
 
 <details>
-    <summary font-size="32px">Click to see version notes:</summary>
+    <summary style="font-size:32px">Click to see version notes:</summary>
+
+##### Version 1.1
+
+&emsp;- added better error handling
+&emsp;- README updates
+&emsp;- Primer made to be constant flow
+&emsp;- Switched hour and minute GPIO pins
 
 ##### Version 1.0
 
