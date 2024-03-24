@@ -28,8 +28,9 @@
  &emsp;&emsp;_- [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4)_  
  &emsp;&emsp;_- [Installation (Raspberry Pi Zero W)]()_  
  &emsp;&emsp;_- [Run Program on Startup](#configure-to-run-on-startup)_  
- &emsp;- [Hardware](#hardware)  
- &emsp;- [Design](#design)  
+ &emsp;- [Hardware and Design](#hardware-and-design)  
+ &emsp;&emsp;_- [Parst List](#parts-list)_  
+ &emsp;&emsp;_- [Design Schematic](#design-schematic)_  
  &emsp;- [Software](#software)  
  &emsp;&emsp;_- [Current Version](#current-version-10)_  
  &emsp;&emsp;_- [Version Release Notes](#version-release-notes)_
@@ -52,14 +53,9 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 
 ### Project Showcase
 
-Contents:
-[Video Overview](#video-overview) -
-[Product Image](#product-image) -
-[Design](#design)
-
 #### [Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)
 
-**Click here to see a video about the project in it's current state:**  
+**Click here to see a video about the project in it's development state:**  
 **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
 
 #### Product Images
@@ -121,8 +117,6 @@ Contents:
 ---
 
 ## Documentation:
-
----
 
 ### Using Water Alarm:
 
@@ -384,7 +378,9 @@ python main.py
 
 ---
 
-### Hardware:
+### Hardware and Design:
+
+#### Parts List
 
 > Pump info needed  
 > Converter info needed  
@@ -398,7 +394,7 @@ python main.py
 
 ---
 
-### Design
+#### Design Schematic
 
 <img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
 
