@@ -23,10 +23,9 @@
  &emsp;&emsp;_- [Priming the Pump](#priming-the-pump)_  
  &emsp;- [Technical Notes](#technical-notes)  
  &emsp;&emsp;_- [Config Information](#config-information)_  
- &emsp;&emsp;_- [Dependencies](#dependencies)_  
  &emsp;&emsp;_- [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4)_  
  &emsp;&emsp;_- [Installation (Raspberry Pi Zero W)]()_  
- &emsp;&emsp;_- [Run on Startup](#configure-to-run-on-startup)_  
+ &emsp;&emsp;_- [Run Program on Startup](#configure-to-run-on-startup)_  
  &emsp;- [Hardware](#hardware)  
  &emsp;- [Design](#design)  
  &emsp;- [Software](#software)  
@@ -61,12 +60,22 @@ Contents:
 
 ---
 
-#### Video Overview
+#### [Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)
 
 **Click here to see a video about the project in it's current state:**  
 **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
 
+---
+
 #### Product Images
+
+&emsp;**Some pictures of the clock inside the 3D printed box.**
+
+<img src="./media/printed_version.jpg" width="500" alt="v1.0 assembled">
+
+<img src="./media/printed_version_top.jpg" width="500" alt="v1.0 assembled">
+
+<img src="./media/printed_version_back.jpg" width="500" alt="v1.0 assembled">
 
 &emsp;**A picture of the "box build" for the computer components:**
 
@@ -199,8 +208,6 @@ Contents:
 
 This repo is located at http://github.com/DavidMiles1925/water_alarm_clock
 
----
-
 #### Config Information
 
 **IMPORTANT!!!**  
@@ -268,13 +275,6 @@ Example:
 > > **`BUTTON_SLEEP_TIME_AFTER_PRESS`** - This is the amount of time that the buttons will 'sleep' after each press.
 
 </details>
-
----
-
-#### Dependencies:
-
-> **- Python**  
-> Python is natively installed on the Raspberry Pi Pico that will be used in Version 1.0. However, python can be downloaded and installed here: [Install Python](https://www.python.org/downloads/)
 
 #### Install on Raspberry Pi 4:
 
@@ -360,14 +360,12 @@ python main.py
 
 > Pump info needed  
 > Converter info needed  
-> [Raspberry Pi Zero W](https://www.raspberrypi.com/products/)
-> [1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
+> [Raspberry Pi Zero W](https://www.raspberrypi.com/products/) > [1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
 > [B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
 > [5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
 > [4-pin buttons x4](https://components101.com/switches/push-button)  
 > [Pack of Jumper Wires](https://www.amazon.com/EDGELEC-Breadboard-Optional-Assorted-Multicolored/dp/B07GD2BWPY/ref=mp_s_a_1_4_maf_2?keywords=jumper+wires&qid=1698723823&sr=8-4)  
-> [220 Ohm Resistors x5](https://www.amazon.com/EDGELEC-Resistor-Tolerance-Multiple-Resistance/dp/B07QK9ZBVZ/ref=asc_df_B07QK9ZBVZ/?tag=hyprod-20&linkCode=df0&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024&psc=1&tag=&ref=&adgrpid=79957163727&hvpone=&hvptwo=&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024)
-> [1K Ohm Resistors x4]()
+> [220 Ohm Resistors x5](https://www.amazon.com/EDGELEC-Resistor-Tolerance-Multiple-Resistance/dp/B07QK9ZBVZ/ref=asc_df_B07QK9ZBVZ/?tag=hyprod-20&linkCode=df0&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024&psc=1&tag=&ref=&adgrpid=79957163727&hvpone=&hvptwo=&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024) > [1K Ohm Resistors x4]()
 > LED x1
 
 ---
