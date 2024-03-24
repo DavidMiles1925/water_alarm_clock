@@ -238,11 +238,11 @@ Example:
 > > `MINUTE_BUTTON_PIN` = 5
 >
 > > **These pin assignments are found in lcd.py** > > `LCD_RS` = 7 # Pi pin 26  
-> > `LCD_E` = 8 # Pi pin 24  
-> > `LCD_D4` = 25 # Pi pin 22  
-> > `LCD_D5` = 24 # Pi pin 18  
-> > `LCD_D6` = 23 # Pi pin 16  
-> > `LCD_D7` = 18 # Pi pin 12
+> > `LCD_E` = 8  
+> > `LCD_D4` = 25  
+> > `LCD_D5` = 24  
+> > `LCD_D6` = 23  
+> > `LCD_D7` = 18
 >
 > > These two variables determine default alarm time.  
 > > **`ALARM_HOUR`** - Set to an integer between 0 and 23  
@@ -271,9 +271,9 @@ Example:
 > > &emsp;- False: User will set system time manually  
 > > &emsp;- True: System time will be set to default
 >
-> > **`BYPASS_INSTRUCTIONS`** - This variable is used to bypass the instructions that display before setting the time.
-> > &emsp;**\*Note**: If `BYPASS_SET_TIME` is set to True, this variable will have no effect.
-> > &emsp;&emsp;False: Instructions will display at startup
+> > **`BYPASS_INSTRUCTIONS`** - This variable is used to bypass the instructions that display before setting the time.  
+> > &emsp;**\*Note**: If `BYPASS_SET_TIME` is set to True, this variable will have no effect.  
+> > &emsp;&emsp;False: Instructions will display at startup  
 > > &emsp;&emsp;True: Instructions will NOT display at startup
 >
 > > **`BUTTON_SLEEP_TIME_AFTER_PRESS`** - This is the amount of time that the buttons will 'sleep' after each press.
