@@ -42,8 +42,6 @@
 
 This is a project in development to create an alarm clock that will spray you with water to help heavy sleepers get out of bed in the morning. It has undergone many transformations since its inception, but it continues to be fun and challenging project that pushes our team to try and learn new things.
 
----
-
 ### Inspiration
 
 This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring. I (David Miles) too the idea and ran with it. You can read more in our [bios](#project-credits) below about the roles we each play in the project if you're interested.
@@ -57,14 +55,10 @@ Contents:
 [Product Image](#product-image) -
 [Design](#design)
 
----
-
 #### [Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)
 
 **Click here to see a video about the project in it's current state:**  
 **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
-
----
 
 #### Product Images
 
@@ -136,6 +130,8 @@ Contents:
 
 #### Setting the Clock
 
+<details><summary>Click to expand...</summary>
+
 > > 1. Turn on the device.
 >
 > > 2. You will be prompted with some basic instructions, and then you will be asked to enter the date and time, one item at a time.
@@ -147,7 +143,11 @@ Contents:
 >
 > > 5. The system will verify you have entered a real date. If there is an error in the date, the system will restart and prompt you for the date and time again.
 
+</details>
+
 #### Setting the Alarm
+
+<details><summary>Click to expand...</summary>
 
 > > 1. Turn the alarm on by pressing the ON/OFF button. The screen should display "ALARM:ON"
 >
@@ -158,7 +158,11 @@ Contents:
 > > 4. Release the set alarm button. You can check the alarm time at any time by pressing the 'SET ALARM. button.  
 > >    Note: YOU WILL NEED TO [PRIME THE PUMP](#priming-the-pump) before using.
 
+</details>
+
 #### Priming the Pump
+
+<details><summary>Click to expand...</summary>
 
 > > 1. Fill pump reservoir.
 >
@@ -166,7 +170,11 @@ Contents:
 >
 > > 3. Press 'HOUR' AND 'MINUTE' buttons at the same time. Pump will run as long as the buttons are depressed.
 
+</details>
+
 #### Setting the Snooze
+
+<details><summary>Click to expand...</summary>
 
 Note: Currently the only way to adjust the snooze is through the **config.py** file. Future versions will include a button for this feature.
 
@@ -193,6 +201,8 @@ Note: Currently the only way to adjust the snooze is through the **config.py** f
 > >
 > > &emsp;Algorithm for determining snooze activation times:  
 > > &emsp;`DELAY_TIME = (60 / SNOOZE_COUNT_CONFIG) - 1`
+
+</details>
 
 ---
 
