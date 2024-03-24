@@ -390,9 +390,9 @@ python main.py
 > [1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
 > [B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
 > [5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
-> [4-pin buttons x4](https://components101.com/switches/push-button)  
+> [4-pin buttons](https://components101.com/switches/push-button) x4  
 > [Pack of Jumper Wires](https://www.amazon.com/EDGELEC-Breadboard-Optional-Assorted-Multicolored/dp/B07GD2BWPY/ref=mp_s_a_1_4_maf_2?keywords=jumper+wires&qid=1698723823&sr=8-4)  
-> [220 Ohm Resistors x2](https://www.amazon.com/dp/B08FD1XVL6/ref=sspa_dk_hqp_detail_aax_0?psc=1&sp_csd=d2lkZ2V0TmFtZT1zcF9ocXBfc2hhcmVk)  
+> [220 Ohm Resistors](https://www.amazon.com/dp/B08FD1XVL6/ref=sspa_dk_hqp_detail_aax_0?psc=1&sp_csd=d2lkZ2V0TmFtZT1zcF9ocXBfc2hhcmVk) x2  
 > [1K Ohm Resistors](https://www.amazon.com/dp/B08FD1XVL6/ref=sspa_dk_hqp_detail_aax_0?psc=1&sp_csd=d2lkZ2V0TmFtZT1zcF9ocXBfc2hhcmVk) x4  
 > [47 Ohm Resistor](https://www.amazon.com/dp/B08FD1XVL6/ref=sspa_dk_hqp_detail_aax_0?psc=1&sp_csd=d2lkZ2V0TmFtZT1zcF9ocXBfc2hhcmVk) x1  
 > [LED]() x1
