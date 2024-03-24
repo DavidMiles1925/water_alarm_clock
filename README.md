@@ -122,21 +122,11 @@ Contents:
 
 ## Documentation:
 
-Contents:
-[Using Water Alarm](#using-water-alarm) -
-[Hardware](#hardware) -
-[Design](#design) -
-[Software](#software)
-
 ---
 
 ### Using Water Alarm:
 
-Contents:
-[Setting the Clock](#setting-the-clock) -
-[Setting the Alarm](#setting-the-alarm) -
-[Setting the Snooze](#setting-the-snooze) -
-[Priming the Pump](#priming-the-pump)
+---
 
 #### Setting the Clock
 
@@ -223,13 +213,6 @@ Note: Currently the only way to adjust the snooze is through the **config.py** f
 ---
 
 ### Technical Notes
-
-Contents:  
-[Config Information](#config-information) -
-[Dependencies](#dependencies) -
-[Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) -
-[Installation (Raspberry Pi Zero W)](#install-on-raspberry-pi-4) -
-[Run on Startup](#configure-to-run-on-startup)
 
 Note: This repo is located at http://github.com/DavidMiles1925/water_alarm_clock
 
