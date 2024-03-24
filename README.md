@@ -145,6 +145,8 @@ Contents:
 
 </details>
 
+---
+
 #### Setting the Alarm
 
 <details><summary>Click to expand...</summary>
@@ -160,6 +162,8 @@ Contents:
 
 </details>
 
+---
+
 #### Priming the Pump
 
 <details><summary>Click to expand...</summary>
@@ -171,6 +175,8 @@ Contents:
 > > 3. Press 'HOUR' AND 'MINUTE' buttons at the same time. Pump will run as long as the buttons are depressed.
 
 </details>
+
+---
 
 #### Setting the Snooze
 
@@ -213,9 +219,11 @@ Contents:
 [Dependencies](#dependencies) -
 [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4) -
 [Installation (Raspberry Pi Zero W)](#install-on-raspberry-pi-4) -
-[Run on Startup](#configure-to-run-on-startup) -
+[Run on Startup](#configure-to-run-on-startup)
 
-This repo is located at http://github.com/DavidMiles1925/water_alarm_clock
+Note: This repo is located at http://github.com/DavidMiles1925/water_alarm_clock
+
+---
 
 #### Config Information
 
