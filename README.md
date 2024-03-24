@@ -386,14 +386,16 @@ python main.py
 
 > Pump info needed  
 > Converter info needed  
-> [Raspberry Pi Zero W](https://www.raspberrypi.com/products/) > [1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
+> [Raspberry Pi Zero W](https://www.raspberrypi.com/products/)  
+> [1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
 > [B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
 > [5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
 > [4-pin buttons x4](https://components101.com/switches/push-button)  
 > [Pack of Jumper Wires](https://www.amazon.com/EDGELEC-Breadboard-Optional-Assorted-Multicolored/dp/B07GD2BWPY/ref=mp_s_a_1_4_maf_2?keywords=jumper+wires&qid=1698723823&sr=8-4)  
-> [220 Ohm Resistors x5](https://www.amazon.com/EDGELEC-Resistor-Tolerance-Multiple-Resistance/dp/B07QK9ZBVZ/ref=asc_df_B07QK9ZBVZ/?tag=hyprod-20&linkCode=df0&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024&psc=1&tag=&ref=&adgrpid=79957163727&hvpone=&hvptwo=&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024)  
-> [1K Ohm Resistors x4]()  
-> LED x1
+> [220 Ohm Resistors x2](https://www.amazon.com/dp/B08FD1XVL6/ref=sspa_dk_hqp_detail_aax_0?psc=1&sp_csd=d2lkZ2V0TmFtZT1zcF9ocXBfc2hhcmVk)  
+> [1K Ohm Resistors](https://www.amazon.com/dp/B08FD1XVL6/ref=sspa_dk_hqp_detail_aax_0?psc=1&sp_csd=d2lkZ2V0TmFtZT1zcF9ocXBfc2hhcmVk) x4  
+> [47 Ohm Resistor](https://www.amazon.com/dp/B08FD1XVL6/ref=sspa_dk_hqp_detail_aax_0?psc=1&sp_csd=d2lkZ2V0TmFtZT1zcF9ocXBfc2hhcmVk) x1  
+> [LED]() x1
 
 ---
 
