@@ -405,7 +405,7 @@ This version is a fully functional version of the software that has been tested 
 #### Version Release Notes:
 
 <details>
-    <summary><h2>Click to see version notes:<h2></summary>
+    <summary><span style="font-size:32px">Click to see version notes:</span></summary>
 
 ##### Version 1.1
 
