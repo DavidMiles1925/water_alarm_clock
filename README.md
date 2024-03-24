@@ -7,10 +7,12 @@
 <details><summary>Click to expand...</summary>
 
 **- [Project Description](#project-description-1)**  
- &emsp;- [About the Product](#about-the-product)  
- &emsp;- [Inspiration](#inspiration)  
- &emsp;- [Project Showcase](#project-showcase)  
- &emsp;&emsp; [Video Overview](#video-overview)
+&emsp;- [About the Product](#about-the-product)  
+&emsp;- [Inspiration](#inspiration)  
+&emsp;- [Project Showcase](#project-showcase)  
+&emsp;&emsp;- [Video Overview](#video-overview)
+&emsp;&emsp;- [Product Images](#product-images)
+&emsp;&emsp;- [Debug Console](#debug-console)
 
 **- [Project Credits](#project-credits)**  
  &emsp;- [Jonathan Hoffman](#jonathan-hoffman---product-owner)  
@@ -29,10 +31,10 @@
  &emsp;&emsp;_- [Installation (Raspberry Pi Zero W)]()_  
  &emsp;&emsp;_- [Run Program on Startup](#configure-to-run-on-startup)_  
  &emsp;- [Hardware and Design](#hardware-and-design)  
- &emsp;&emsp;_- [Parst List](#parts-list)_  
+ &emsp;&emsp;_- [Parts List](#parts-list)_  
  &emsp;&emsp;_- [Design Schematic](#design-schematic)_  
  &emsp;- [Software](#software)  
- &emsp;&emsp;_- [Current Version](#current-version-10)_  
+ &emsp;&emsp;_- [Current Version](#current-version-12)_  
  &emsp;&emsp;_- [Version Release Notes](#version-release-notes)_
 
 </details>
