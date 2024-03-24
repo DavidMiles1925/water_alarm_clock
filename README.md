@@ -42,13 +42,13 @@
 
 ### About the Product
 
-This is a project in development to create an alarm clock that will spray you with water to help heavy sleepers get out of bed in the morning.
+This is a project in development to create an alarm clock that will spray you with water to help heavy sleepers get out of bed in the morning. It has undergone many transformations since its inception, but it continues to be fun and challenging project that pushes our team to try and learn new things.
 
 ---
 
 ### Inspiration
 
-This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring.
+This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring. I (David Miles) too the idea and ran with it. You can read more in our [bios](#project-credits) below about the roles we each play in the project if you're interested.
 
 ---
 
@@ -199,59 +199,94 @@ Contents:
 
 This repo is located at http://github.com/DavidMiles1925/water_alarm_clock
 
+---
+
 #### Config Information
 
-> These two variables determine default alarm time.  
-> &emsp;&emsp;&emsp;ALARM_HOUR:ALARM_MINUTE  
-> `ALARM_HOUR` = 5
+**IMPORTANT!!!**
+Make sure the constant called LOG_DIRECTORY_PATH has the correct value set! #####
+Example:
+"/home/[YOUR PI NAME HERE]/water_alarm_clock/logs"
+
+<details><summary>Click to see detailed config information.</summary>
+
+> ##### LOG_DIRECTORY_PATH = "/home/astro/water_alarm_clock/logs"
 >
-> > &emsp;Set to an integer between 0 and 23  
-> > `ALARM_MINUTE` = 0  
-> > &emsp;Set to an integer between 0 and 59
+> The path that your logs will write to:
 >
-> `ALARM_SET` = True
+> # Turn logging on/off
 >
-> > &emsp;Alarm on/off by default.  
-> > &emsp;&emsp;Set True for ALARM: ON  
-> > &emsp;&emsp;Set False for ALARM: OFF
+> LOGGING_ENABLED = True
 >
-> `ALARM_DURATION` = 0.1
+> # Turn console output on/off
 >
-> > &emsp;Time in seconds the pump will run.  
-> > &emsp;&emsp;In one second approx. 2oz of water comes through pump.
+> CONSOLE_OUTPUT_ON = True
 >
-> `SNOOZE_COUNT_CONFIG` = 1
+> # Pin assignments (See lcd.py for LCD to Pin mapping)
 >
-> > &emsp;if SNOOZE_COUNT_CONFIG = 1:  
-> > &emsp;&emsp;Pump will activate once more, in addition to intial alarm.  
-> > &emsp;&emsp;The number of seconds between the intial alarm and the  
-> > &emsp;&emsp;snooze alarm is determined by MAX_SNOOZE_TIME.
-> >
-> > &emsp;if SNOOZE COUNT CONFIG =  
-> > &emsp;&emsp;&emsp;2: Alarm will sound at +29 seconds and +58 seconds  
-> > &emsp;&emsp;&emsp;3: Alarm will sound at +19, +38 seconds and +57 seconds  
-> > &emsp;&emsp;&emsp;4: Alarm will sound +14, +28, +42, and +56 seconds  
-> > &emsp;&emsp;&emsp;5+: Use Algorithm: DELAY_TIME = ((60 / SNOOZE_COUNT_CONFIG) - 1)
+> LED_PIN = 27
+> RELAY_PIN = 21
+> SET_BUTTON_PIN = 13
+> ALARM_BUTTON_PIN = 26
+> HOUR_BUTTON_PIN = 6
+> MINUTE_BUTTON_PIN = 5
 >
-> `MAX_SNOOZE_TIME` = 30
+> # These two variables determine default alarm time.
 >
-> > &emsp;The time in seconds between the intial alarm and the  
-> > &emsp;snooze alarm when SNOOZE_COUNT_CONFIG = 1
+> # ALARM_HOUR:ALARM_MINUTE
 >
-> `BYPASS_SET_TIME` = False
+> ALARM_HOUR = 5
 >
-> > &emsp;This variable is used to bypass setting the time on power-up  
-> > &emsp;&emsp;False: User will set system time manually  
-> > &emsp;&emsp;True: System time will be set to default
+> # Set to an integer between 0 and 23
 >
-> `BYPASS_INSTRUCTIONS` = False
+> ALARM_MINUTE = 0
 >
-> > &emsp;This variable is used to bypass set-time instructions.  
-> > &emsp;&emsp;\*Note: If BYPASS_SET_TIME is set to True,  
-> > &emsp;&emsp;this variable will have no effect.
-> >
-> > &emsp;&emsp;False: Instructions will display at startup  
+> # Set to an integer between 0 and 59
+>
+> # This decides whether or not the alarm will be set when the device is powered on.
+>
+> ALARM_SET = True
+>
+> # Alarm on/off by default.
+>
+> # Set True for ALARM: ON
+>
+> # Set False for ALARM: OFF
+>
+> # Time in seconds the pump will run
+>
+> ALARM_DURATION = 0.1
+>
+> # In one second approx. 2oz of water comes through pump.
+>
+> #
+>
+> **`SNOOZE_COUNT_CONFIG`** - Used for determining how the snooze will function. Read below for more details.  
+> &emsp;if `SNOOZE_COUNT_CONFIG` = 1:
+> &emsp;&emsp;Pump will activate once more, in addition to intial alarm. The number of seconds between the intial alarm and the snooze alarm is determined by MAX_SNOOZE_TIME.
+>
+> &emsp;if `SNOOZE COUNT CONFIG` =
+> &emsp;&emsp;2: Alarm will sound at +29 seconds and +58 seconds
+> &emsp;&emsp;3: Alarm will sound at +19, +38 seconds and +57 seconds
+> &emsp;&emsp;4: Alarm will sound +14, +28, +42, and +56 seconds
+> &emsp;&emsp;5+: Use Algorithm: DELAY_TIME = ((60 / SNOOZE_COUNT_CONFIG) - 1)
+>
+> > **`MAX_SNOOZE_TIME`** - The time in seconds between the intial alarm and the snooze alarm when SNOOZE_COUNT_CONFIG = 1
+>
+> > **`BYPASS_SET_TIME`** - This variable is used to bypass setting the time on power-up. If set to 'True', the time will be pulled from the Wifi, or if there is no connection, it will be set to the epoc.  
+> > &emsp;- False: User will set system time manually  
+> > &emsp;- True: System time will be set to default
+>
+> > **`BYPASS_INSTRUCTIONS`** - This variable is used to bypass the instructions that display before setting the time.
+> > &emsp;**\*Note**: If `BYPASS_SET_TIME` is set to True, this variable will have no effect.
+> > &emsp;&emsp;False: Instructions will display at startup
 > > &emsp;&emsp;True: Instructions will NOT display at startup
+>
+> > **`BUTTON_SLEEP_TIME_AFTER_PRESS`** - This is the amount of time that the buttons will 'sleep' after each press.
+
+</details>
+
+---
 
 #### Dependencies:
 

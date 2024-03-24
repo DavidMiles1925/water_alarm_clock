@@ -27,15 +27,16 @@ def lcd_init():
   time.sleep(0.0005)     # Delay to allow commands to process
 
 def lcd_write(bits, mode):
-# High bits
-  GPIO.output(LCD_RS, mode) # RS
+# This function EITHER writes a character or sends a command depending on the mode
+  GPIO.output(LCD_RS, mode) # Set the mode on the display
 
-  GPIO.output(LCD_D4, False)
+# High bits
+  GPIO.output(LCD_D4, False) # Set all data pins to 0
   GPIO.output(LCD_D5, False)
   GPIO.output(LCD_D6, False)
   GPIO.output(LCD_D7, False)
-  if bits&0x10==0x10:
-    GPIO.output(LCD_D4, True)
+  if bits&0x10==0x10:         # If a bit needs to be turned on, turn it on
+    GPIO.output(LCD_D4, True) 
   if bits&0x20==0x20:
     GPIO.output(LCD_D5, True)
   if bits&0x40==0x40:

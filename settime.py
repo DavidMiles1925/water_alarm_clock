@@ -77,9 +77,6 @@ def create_date_string(year, month, date, hour, minute):
     # "YYYY-MM-DD HH:MM:SS"
     date_string = f"{year}-{month}-{date} {hour}:{minute}:00"
 
-    # "02301010000.00"
-    #date_string = f"{month}{date}{hour}{minute}{year}.00"
-
     console_and_log(f"Date string created:{date_string}")
     return date_string
 
@@ -119,6 +116,7 @@ def set_system_time():
         result = subprocess.run(["sudo", "date", "-s", system_time_string])
 
         if result.returncode != 0:
+            console_and_log("An invalid date was entered.")
             lcd_text("Not a real date.", LCD_LINE_1)
             lcd_text("Restarting...", LCD_LINE_2)
             sleep(5)

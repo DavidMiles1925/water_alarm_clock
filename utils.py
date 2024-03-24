@@ -499,7 +499,6 @@ def get_current_time():
 
 
 # Determines the 'clear' command for the OS
-# Determines the 'clear' command for the OS
 def get_os_info():
     OS_platform = platform.system()
 
@@ -524,25 +523,14 @@ def get_os_info():
     return {"name": name, "message": clear_message}
 
 
-def print_debug_button_output():
-    if GPIO.input(SET_BUTTON_PIN) == False:
-        print("Set Button Held")
-    
-    if GPIO.input(HOUR_BUTTON_PIN) == False:
-        print("Hour")
 
-    if GPIO.input(MINUTE_BUTTON_PIN) == False:
-        print("Minute")
-
-
-
-########################
-########################
-###                  ###
-###  Error Handling  ###
-###                  ###
-########################
-########################
+######################################
+######################################
+###                                ###
+###  Error Handling and Debugging  ###
+###                                ###
+######################################
+######################################
 
 DEFAULT_ERROR = "An unexpected error occured. Fuck."
 EXIT_MESSAGE = "Thank you for using!"
@@ -574,11 +562,26 @@ def print_error(err, msg1="", msg2=""):
     clear()
     lcd_init()
 
+
 def lcd_error():
     lcd_init()
     lcd_text("Error:", LCD_LINE_1)
     lcd_text("Restart System", LCD_LINE_2)
 
+
+# Displays an on-screen message to show which button is being depressed.
+def print_debug_button_output():
+    if GPIO.input(SET_BUTTON_PIN) == False:
+        print("Set Button Held")
+    
+    if GPIO.input(HOUR_BUTTON_PIN) == False:
+        print("Hour")
+
+    if GPIO.input(MINUTE_BUTTON_PIN) == False:
+        print("Minute")
+
+
 def restart_program():
+    console_and_log("restart_program() function triggered.")
     my_app = sys.executable
     os.execl(my_app, my_app, *sys.argv)
