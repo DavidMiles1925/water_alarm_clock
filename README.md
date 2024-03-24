@@ -10,8 +10,8 @@
 &emsp;- [About the Product](#about-the-product)  
 &emsp;- [Inspiration](#inspiration)  
 &emsp;- [Project Showcase](#project-showcase)  
-&emsp;&emsp;- [Video Overview](#video-overview)
-&emsp;&emsp;- [Product Images](#product-images)
+&emsp;&emsp;- [Video Overview](#video-overview)  
+&emsp;&emsp;- [Product Images](#product-images)  
 &emsp;&emsp;- [Debug Console](#debug-console)
 
 **- [Project Credits](#project-credits)**  
@@ -420,9 +420,9 @@ This version is a fully functional version of the software that has been tested 
 
 ##### Version 1.1
 
-> &emsp;- added better error handling
-> &emsp;- README updates
-> &emsp;- Primer made to be constant flow
+> &emsp;- added better error handling  
+> &emsp;- README updates  
+> &emsp;- Primer made to be constant flow  
 > &emsp;- Switched hour and minute GPIO pins
 
 ##### Version 1.0
