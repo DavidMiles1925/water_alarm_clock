@@ -285,6 +285,8 @@ Example:
 
 </details>
 
+---
+
 #### Install on Raspberry Pi 4:
 
 <details><summary>Click to see installation instructions.</summary>
@@ -323,6 +325,8 @@ Example:
 
 </details>
 
+---
+
 #### Install on Raspberry Pi Zero W:
 
 <details><summary>Click to see installation instructions.</summary>
@@ -339,6 +343,8 @@ python main.py
 ```
 
 </details>
+
+---
 
 #### Configure to Run On Startup:
 
