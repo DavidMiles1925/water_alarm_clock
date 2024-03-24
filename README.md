@@ -222,14 +222,13 @@ Example:
 
 <details><summary>Click to see detailed config information.</summary>
 
-> **`LOG_DIRECTORY_PATH`** - The path that your logs will write to:
+> > **`LOG_DIRECTORY_PATH`** - The path that your logs will write to:
 >
 > > **`LOGGING_ENABLED`** - Turn logging on/off (True/False)
 >
 > > **`CONSOLE_OUTPUT_ON`** - Turn console output on/off (True/False)
 >
-> > **Pin assignments**
-> >
+> > **Pin assignments**  
 > > `LED_PIN` = 27  
 > > `RELAY_PIN` = 21  
 > > `SET_BUTTON_PIN` = 13  
@@ -237,7 +236,8 @@ Example:
 > > `HOUR_BUTTON_PIN` = 6  
 > > `MINUTE_BUTTON_PIN` = 5
 >
-> > **These pin assignments are found in lcd.py** > > `LCD_RS` = 7 # Pi pin 26  
+> > **These pin assignments are found in lcd.py**  
+> > `LCD_RS` = 7 # Pi pin 26  
 > > `LCD_E` = 8  
 > > `LCD_D4` = 25  
 > > `LCD_D5` = 24  
