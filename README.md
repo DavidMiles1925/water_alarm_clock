@@ -203,73 +203,56 @@ This repo is located at http://github.com/DavidMiles1925/water_alarm_clock
 
 #### Config Information
 
-**IMPORTANT!!!**
-Make sure the constant called LOG_DIRECTORY_PATH has the correct value set! #####
-Example:
-"/home/[YOUR PI NAME HERE]/water_alarm_clock/logs"
+**IMPORTANT!!!**  
+**Make sure the constant called LOG_DIRECTORY_PATH has the correct value set!**
+
+Example:  
+&emsp;`LOG_DIRECTORY_PATH = "/home/**[YOUR PI NAME HERE]**/water_alarm_clock/logs"`
 
 <details><summary>Click to see detailed config information.</summary>
 
-> ##### LOG_DIRECTORY_PATH = "/home/astro/water_alarm_clock/logs"
+> **`LOG_DIRECTORY_PATH`** - The path that your logs will write to:
 >
-> The path that your logs will write to:
+> > **`LOGGING_ENABLED`** - Turn logging on/off (True/False)
 >
-> # Turn logging on/off
+> > **`CONSOLE_OUTPUT_ON`** - Turn console output on/off (True/False)
 >
-> LOGGING_ENABLED = True
+> > **Pin assignments**
+> >
+> > `LED_PIN` = 27
+> > `RELAY_PIN` = 21
+> > `SET_BUTTON_PIN` = 13
+> > `ALARM_BUTTON_PIN` = 26
+> > `HOUR_BUTTON_PIN` = 6
+> > `MINUTE_BUTTON_PIN` = 5
 >
-> # Turn console output on/off
+> > **These pin assignments are found in lcd.py** > > `LCD_RS` = 7 # Pi pin 26
+> > `LCD_E` = 8 # Pi pin 24
+> > `LCD_D4` = 25 # Pi pin 22
+> > `LCD_D5` = 24 # Pi pin 18
+> > `LCD_D6` = 23 # Pi pin 16
+> > `LCD_D7` = 18 # Pi pin 12
 >
-> CONSOLE_OUTPUT_ON = True
+> > These two variables determine default alarm time.
+> > **`ALARM_HOUR`** - Set to an integer between 0 and 23
+> > **`ALARM_MINUTE`** - Set to an integer between 0 and 59
 >
-> # Pin assignments (See lcd.py for LCD to Pin mapping)
+> > **`ALARM_SET`** - This decides whether or not the alarm will be set when the device is powered on.
+> > &emsp;Set True for ALARM: ON
+> > &emsp;Set False for ALARM: OFF
 >
-> LED_PIN = 27
-> RELAY_PIN = 21
-> SET_BUTTON_PIN = 13
-> ALARM_BUTTON_PIN = 26
-> HOUR_BUTTON_PIN = 6
-> MINUTE_BUTTON_PIN = 5
+> > **`ALARM_DURATION`** - Time in seconds the pump will run
+> > **\*NOTE: In one second approx. 2oz of water comes through pump. Be careful setting this value too high!**
 >
-> # These two variables determine default alarm time.
->
-> # ALARM_HOUR:ALARM_MINUTE
->
-> ALARM_HOUR = 5
->
-> # Set to an integer between 0 and 23
->
-> ALARM_MINUTE = 0
->
-> # Set to an integer between 0 and 59
->
-> # This decides whether or not the alarm will be set when the device is powered on.
->
-> ALARM_SET = True
->
-> # Alarm on/off by default.
->
-> # Set True for ALARM: ON
->
-> # Set False for ALARM: OFF
->
-> # Time in seconds the pump will run
->
-> ALARM_DURATION = 0.1
->
-> # In one second approx. 2oz of water comes through pump.
->
-> #
->
-> **`SNOOZE_COUNT_CONFIG`** - Used for determining how the snooze will function. Read below for more details.  
-> &emsp;if `SNOOZE_COUNT_CONFIG` = 1:
-> &emsp;&emsp;Pump will activate once more, in addition to intial alarm. The number of seconds between the intial alarm and the snooze alarm is determined by MAX_SNOOZE_TIME.
->
-> &emsp;if `SNOOZE COUNT CONFIG` =
-> &emsp;&emsp;2: Alarm will sound at +29 seconds and +58 seconds
-> &emsp;&emsp;3: Alarm will sound at +19, +38 seconds and +57 seconds
-> &emsp;&emsp;4: Alarm will sound +14, +28, +42, and +56 seconds
-> &emsp;&emsp;5+: Use Algorithm: DELAY_TIME = ((60 / SNOOZE_COUNT_CONFIG) - 1)
+> > **`SNOOZE_COUNT_CONFIG`** - Used for determining how the snooze will function. Read below for more details.  
+> > &emsp;if `SNOOZE_COUNT_CONFIG` = 1:
+> > &emsp;&emsp;Pump will activate once more, in addition to intial alarm. The number of seconds between the intial alarm and the snooze alarm is determined by MAX_SNOOZE_TIME.
+> >
+> > &emsp;if `SNOOZE COUNT CONFIG` =
+> > &emsp;&emsp;2: Alarm will sound at +29 seconds and +58 seconds
+> > &emsp;&emsp;3: Alarm will sound at +19, +38 seconds and +57 seconds
+> > &emsp;&emsp;4: Alarm will sound +14, +28, +42, and +56 seconds
+> > &emsp;&emsp;5+: Use Algorithm: DELAY_TIME = ((60 / SNOOZE_COUNT_CONFIG) - 1)
 >
 > > **`MAX_SNOOZE_TIME`** - The time in seconds between the intial alarm and the snooze alarm when SNOOZE_COUNT_CONFIG = 1
 >
@@ -377,13 +360,15 @@ python main.py
 
 > Pump info needed  
 > Converter info needed  
-> [Raspberry Pi 4 (Pico in future versions)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) >[1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
+> [Raspberry Pi Zero W](https://www.raspberrypi.com/products/)
+> [1602 LCD Screen](https://lastminuteengineers.com/arduino-1602-character-lcd-tutorial/)  
 > [B10K Ohm Potentiometer](https://components101.com/resistors/potentiometer)  
 > [5V SL-C Relay](https://www.datasheetcafe.com/srd-05vdc-sl-c-datasheet-pdf/)  
 > [4-pin buttons x4](https://components101.com/switches/push-button)  
 > [Pack of Jumper Wires](https://www.amazon.com/EDGELEC-Breadboard-Optional-Assorted-Multicolored/dp/B07GD2BWPY/ref=mp_s_a_1_4_maf_2?keywords=jumper+wires&qid=1698723823&sr=8-4)  
-> [220 Ohm Resistors x5](https://www.amazon.com/EDGELEC-Resistor-Tolerance-Multiple-Resistance/dp/B07QK9ZBVZ/ref=asc_df_B07QK9ZBVZ/?tag=hyprod-20&linkCode=df0&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024&psc=1&tag=&ref=&adgrpid=79957163727&hvpone=&hvptwo=&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024)  
-> LED
+> [220 Ohm Resistors x5](https://www.amazon.com/EDGELEC-Resistor-Tolerance-Multiple-Resistance/dp/B07QK9ZBVZ/ref=asc_df_B07QK9ZBVZ/?tag=hyprod-20&linkCode=df0&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024&psc=1&tag=&ref=&adgrpid=79957163727&hvpone=&hvptwo=&hvadid=366282353997&hvpos=&hvnetw=g&hvrand=1493730756178399250&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9023859&hvtargid=pla-804889355024)
+> [1K Ohm Resistors x4]()
+> LED x1
 
 ---
 
@@ -441,7 +426,7 @@ Port plan created during version iteration 0.6:
 #### Version Release Notes:
 
 <details>
-    <summary>Click to expand...</summary>
+    <summary font-size="32px">Click to see version notes:</summary>
 
 ##### Version 1.0
 
