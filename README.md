@@ -1,3 +1,21 @@
+<style>
+details > summary {
+  padding: 4px;
+  width: 200px;
+  background-color: #eeeeee;
+  border: none;
+  box-shadow: 1px 1px 2px #bbbbbb;
+  cursor: pointer;
+}
+
+details > p {
+  background-color: #eeeeee;
+  padding: 4px;
+  margin: 0;
+  box-shadow: 1px 1px 2px #bbbbbb;
+}
+</style>
+
 # Water Alarm Clock
 
 ## Table of Contents
@@ -405,7 +423,7 @@ This version is a fully functional version of the software that has been tested 
 #### Version Release Notes:
 
 <details>
-    <summary><h4>Click to see version notes:</h4></summary>
+    <summary>Click to see version notes:</summary>
 
 ##### Version 1.1
 
