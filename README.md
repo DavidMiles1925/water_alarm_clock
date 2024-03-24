@@ -1,5 +1,7 @@
 # Water Alarm Clock
 
+<img src="./media/printed_version.jpg" width="500" alt="v1.0 assembled">
+
 ## Table of Contents
 
 <details><summary>Click to expand...</summary>
@@ -62,6 +64,8 @@ Contents:
 
 #### Product Images
 
+<details><summary>Click to see the product through its evolution.</summary>
+
 &emsp;**Some pictures of the clock inside the 3D printed box.**
 
 <img src="./media/printed_version.jpg" width="500" alt="v1.0 assembled">
@@ -78,7 +82,11 @@ Contents:
 
 <img src="./media/Version_1_Assembled.jpg" width="500" alt="v1.0 assembled">
 
+</details>
+
 #### Debug Console
+
+<details><summary>Click to learn about the debug console.</summary>
 
 &emsp;- **The debug interface as of version 0.6:**
 
@@ -91,6 +99,8 @@ Contents:
 > > **Display the values of important variables.** When debugging, it was invaluable to know how my variables were set.
 >
 > > **Display the expected LCD output.** I sent the same string to the console as to the LCD. As I was getting the screen working, this was helpful because I knew if I didn't get the correct output, it was probably an error in my wiring.
+
+</details>
 
 ---
 
@@ -231,7 +241,7 @@ Note: This repo is located at http://github.com/DavidMiles1925/water_alarm_clock
 **Make sure the constant called LOG_DIRECTORY_PATH has the correct value set!**
 
 Example:  
-&emsp;`LOG_DIRECTORY_PATH = "/home/**[YOUR PI NAME HERE]**/water_alarm_clock/logs"`
+&emsp;`LOG_DIRECTORY_PATH = "/home/`**`YOUR PI NAME HERE`**`/water_alarm_clock/logs"`
 
 <details><summary>Click to see detailed config information.</summary>
 
