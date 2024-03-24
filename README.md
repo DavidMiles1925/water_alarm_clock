@@ -399,7 +399,7 @@ python main.py
 
 #### Design Schematic
 
-<img src="./media/QPASS_Screenshot.png" width="600" alt="setup diagram">
+<img src="./media/water_alarm_schematic.png" width="600" alt="setup diagram">
 
 ---
 
