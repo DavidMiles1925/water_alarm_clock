@@ -47,13 +47,13 @@ This is a project in development to create an alarm clock that will spray you wi
 
 ### Inspiration
 
-This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring. I (David Miles) too the idea and ran with it. You can read more in our [bios](#project-credits) below about the roles we each play in the project if you're interested.
+This idea was conceived by Jonathan Hoffman, who has always thought outside of the box. He is a heavy sleeper, and wants something to get him moving quickly in the moring. I (David Miles) took the idea and ran with it. You can read more in our [bios](#project-credits) below about the roles we each play in the project if you're interested.
 
 ---
 
 ### Project Showcase
 
-#### [Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)
+### [Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)
 
 **Click here to see a video about the project in it's development state:**  
 **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
@@ -237,7 +237,7 @@ Example:
 > > `MINUTE_BUTTON_PIN` = 5
 >
 > > **These pin assignments are found in lcd.py**  
-> > `LCD_RS` = 7 # Pi pin 26  
+> > `LCD_RS` = 7  
 > > `LCD_E` = 8  
 > > `LCD_D4` = 25  
 > > `LCD_D5` = 24  
