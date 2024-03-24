@@ -230,39 +230,39 @@ Example:
 >
 > > **Pin assignments**
 > >
-> > `LED_PIN` = 27
-> > `RELAY_PIN` = 21
-> > `SET_BUTTON_PIN` = 13
-> > `ALARM_BUTTON_PIN` = 26
-> > `HOUR_BUTTON_PIN` = 6
+> > `LED_PIN` = 27  
+> > `RELAY_PIN` = 21  
+> > `SET_BUTTON_PIN` = 13  
+> > `ALARM_BUTTON_PIN` = 26  
+> > `HOUR_BUTTON_PIN` = 6  
 > > `MINUTE_BUTTON_PIN` = 5
 >
-> > **These pin assignments are found in lcd.py** > > `LCD_RS` = 7 # Pi pin 26
-> > `LCD_E` = 8 # Pi pin 24
-> > `LCD_D4` = 25 # Pi pin 22
-> > `LCD_D5` = 24 # Pi pin 18
-> > `LCD_D6` = 23 # Pi pin 16
+> > **These pin assignments are found in lcd.py** > > `LCD_RS` = 7 # Pi pin 26  
+> > `LCD_E` = 8 # Pi pin 24  
+> > `LCD_D4` = 25 # Pi pin 22  
+> > `LCD_D5` = 24 # Pi pin 18  
+> > `LCD_D6` = 23 # Pi pin 16  
 > > `LCD_D7` = 18 # Pi pin 12
 >
-> > These two variables determine default alarm time.
-> > **`ALARM_HOUR`** - Set to an integer between 0 and 23
+> > These two variables determine default alarm time.  
+> > **`ALARM_HOUR`** - Set to an integer between 0 and 23  
 > > **`ALARM_MINUTE`** - Set to an integer between 0 and 59
 >
-> > **`ALARM_SET`** - This decides whether or not the alarm will be set when the device is powered on.
-> > &emsp;Set True for ALARM: ON
+> > **`ALARM_SET`** - This decides whether or not the alarm will be set when the device is powered on.  
+> > &emsp;Set True for ALARM: ON  
 > > &emsp;Set False for ALARM: OFF
 >
-> > **`ALARM_DURATION`** - Time in seconds the pump will run
+> > **`ALARM_DURATION`** - Time in seconds the pump will run  
 > > **\*NOTE: In one second approx. 2oz of water comes through pump. Be careful setting this value too high!**
 >
 > > **`SNOOZE_COUNT_CONFIG`** - Used for determining how the snooze will function. Read below for more details.  
-> > &emsp;if `SNOOZE_COUNT_CONFIG` = 1:
+> > &emsp;if `SNOOZE_COUNT_CONFIG` = 1:  
 > > &emsp;&emsp;Pump will activate once more, in addition to intial alarm. The number of seconds between the intial alarm and the snooze alarm is determined by MAX_SNOOZE_TIME.
 > >
 > > &emsp;if `SNOOZE COUNT CONFIG` =
-> > &emsp;&emsp;2: Alarm will sound at +29 seconds and +58 seconds
-> > &emsp;&emsp;3: Alarm will sound at +19, +38 seconds and +57 seconds
-> > &emsp;&emsp;4: Alarm will sound +14, +28, +42, and +56 seconds
+> > &emsp;&emsp;2: Alarm will sound at +29 seconds and +58 seconds  
+> > &emsp;&emsp;3: Alarm will sound at +19, +38 seconds and +57 seconds  
+> > &emsp;&emsp;4: Alarm will sound +14, +28, +42, and +56 seconds  
 > > &emsp;&emsp;5+: Use Algorithm: DELAY_TIME = ((60 / SNOOZE_COUNT_CONFIG) - 1)
 >
 > > **`MAX_SNOOZE_TIME`** - The time in seconds between the intial alarm and the snooze alarm when SNOOZE_COUNT_CONFIG = 1
