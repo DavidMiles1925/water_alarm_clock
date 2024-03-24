@@ -405,21 +405,21 @@ This version is a fully functional version of the software that has been tested 
 #### Version Release Notes:
 
 <details>
-    <summary style="font-size:32px">Click to see version notes:</summary>
+    <summary><h2>Click to see version notes:<h2></summary>
 
 ##### Version 1.1
 
-&emsp;- added better error handling
-&emsp;- README updates
-&emsp;- Primer made to be constant flow
-&emsp;- Switched hour and minute GPIO pins
+> &emsp;- added better error handling
+> &emsp;- README updates
+> &emsp;- Primer made to be constant flow
+> &emsp;- Switched hour and minute GPIO pins
 
 ##### Version 1.0
 
-&emsp;- created set_system_time() function  
-&emsp;- added set time logic  
-&emsp;- README:  
-&emsp;&emsp;- add set time instructions
+> &emsp;- created set_system_time() function  
+> &emsp;- added set time logic  
+> &emsp;- README:  
+> &emsp;&emsp;- add set time instructions
 
 ##### Version: 0.7
 
