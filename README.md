@@ -60,6 +60,8 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 > **Click here to see a video about the project in it's development state:**  
 > **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
 
+---
+
 #### Product Images
 
 <details><summary>Click to see the product through its evolution.</summary>
