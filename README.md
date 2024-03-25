@@ -55,14 +55,14 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 
 ### Project Showcase
 
-### [Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)
+> ### [Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)
+>
+> **Click here to see a video about the project in it's development state:**  
+> **[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
 
-**Click here to see a video about the project in it's development state:**  
-**[Video Overview](https://photos.app.goo.gl/3kBqhnxbUV3KdRak7)**
-
-#### Product Images
-
-<details><summary>Click to see the product through its evolution.</summary>
+> #### Product Images
+>
+> <details><summary>Click to see the product through its evolution.</summary>
 
 &emsp;**Some pictures of the clock after being mounted in the 3D printed box.**
 
