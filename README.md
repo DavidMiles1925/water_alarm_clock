@@ -66,6 +66,8 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 
 &emsp;**Some pictures of the clock inside the 3D printed box.**
 
+<img src="./media/printed_box_setup.jpg" width="500" alt="v1.0 assembled">
+
 <img src="./media/printed_version.jpg" width="500" alt="v1.0 assembled">
 
 <img src="./media/printed_version_top.jpg" width="500" alt="v1.0 assembled">
