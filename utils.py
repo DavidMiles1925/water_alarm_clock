@@ -63,8 +63,8 @@ LED_PIN = 27
 RELAY_PIN = 21
 SET_BUTTON_PIN = 13
 ALARM_BUTTON_PIN = 26
-HOUR_BUTTON_PIN = 5
-MINUTE_BUTTON_PIN = 6
+HOUR_BUTTON_PIN = 6
+MINUTE_BUTTON_PIN = 5
 
 # Set up pins for all components
 def setup_pins():
