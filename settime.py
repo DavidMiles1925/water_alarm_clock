@@ -1,28 +1,15 @@
-try:
-    import RPi.GPIO as GPIO
-    import subprocess
-except:
-    print("COULD NOT LOAD PYTHON RESOURCES: settime.py")
 
-try:
-    from lcd import lcd_init, lcd_text, LCD_LINE_1, LCD_LINE_2
-except:
-    print("COULD NOT LOAD LCD RESOURCES: settime.py")
+import RPi.GPIO as GPIO
 
-try:
-    from utils import print_error, restart_program, sleep, GET_TIME_ERROR, HOUR_BUTTON_PIN, MINUTE_BUTTON_PIN
-except:
-    print("COULD NOT LOAD UTILS: settime.py")
+import subprocess
 
-try:
-    from config import BYPASS_INSTRUCTIONS
-except:
-    print("COULD NOT LOAD CONFIG: settime.py")
+from lcd import lcd_init, lcd_text, LCD_LINE_1, LCD_LINE_2
 
-try:
-    from logger import console_and_log
-except:
-    print("COULD NOT LOAD LOGGER: settime.py")
+from utils import print_error, restart_program, sleep, GET_TIME_ERROR, HOUR_BUTTON_PIN, MINUTE_BUTTON_PIN
+
+from config import BYPASS_INSTRUCTIONS
+
+from logger import console_and_log
 
 
 def print_lcd_instructions():

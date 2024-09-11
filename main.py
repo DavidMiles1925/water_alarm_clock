@@ -1,37 +1,22 @@
-try:
-    import RPi.GPIO as GPIO
-except:
-    print("ERROR LOADING GPIO: main.py")
 
-try:
-    from config import BYPASS_SET_TIME
-except:
-    print("ERROR LOADING CONFIG: main.py")
+import RPi.GPIO as GPIO
 
-try:
-    from utils import \
-        DEFAULT_ERROR,\
-        EXIT_MESSAGE,\
-        get_current_time,\
-        get_os_info,\
-        lcd_error,\
-        print_error,\
-        run_clock,\
-        sleep,\
-        setup_pins
-except:
-    print("ERROR LOADING UTILITIES: main.py")
-    exit()
+from settime import set_system_time
 
-try:
-    from settime import set_system_time
-except:
-    print("ERROR LOADING SETTIME: main.py")
+from config import BYPASS_SET_TIME
 
-try:
-    from logger import write_to_log, console_and_log
-except:
-    print(("ERROR LOADING LOGGER: main.py"))
+from utils import \
+    DEFAULT_ERROR,\
+    EXIT_MESSAGE,\
+    get_current_time,\
+    get_os_info,\
+    lcd_error,\
+    print_error,\
+    run_clock,\
+    setup_pins
+
+from logger import console_and_log
+
 
 
 if __name__ == "__main__":
