@@ -2,45 +2,6 @@
 
 <img src="./media/printed_version.jpg" width="500" alt="v1.0 assembled">
 
-## Table of Contents
-
-<details><summary>Click to expand...</summary>
-
-**- [Project Description](#project-description-1)**  
-&emsp;- [About the Product](#about-the-product)  
-&emsp;- [Inspiration](#inspiration)  
-&emsp;- [Project Showcase](#project-showcase)  
-&emsp;&emsp;- [Video Overview](#video-overview)  
-&emsp;&emsp;- [Product Images](#product-images)  
-&emsp;&emsp;- [Debug Console](#debug-console)
-
-**- [Project Credits](#project-credits)**  
- &emsp;- [Jonathan Hoffman](#jonathan-hoffman---product-owner)  
- &emsp;- [Tom Ryan](#tom-ryan---consulting-engineer)  
- &emsp;- [David Miles](#david-miles---software-developer)
-
-**- [Documentation](#documentation-1)**  
- &emsp;- [Using Water Alarm](#using-water-alarm)  
- &emsp;&emsp;_- [Setting the Clock](#setting-the-clock)_  
- &emsp;&emsp;_- [Setting the Alarm](#setting-the-alarm)_  
- &emsp;&emsp;_- [Setting the Snooze](#setting-the-snooze)_  
- &emsp;&emsp;_- [Priming the Pump](#priming-the-pump)_  
- &emsp;- [Technical Notes](#technical-notes)  
- &emsp;&emsp;_- [Config Information](#config-information)_  
- &emsp;&emsp;_- [Installation (Raspberry Pi 4)](#install-on-raspberry-pi-4)_  
- &emsp;&emsp;_- [Installation (Raspberry Pi Zero W)]()_  
- &emsp;&emsp;_- [Run Program on Startup](#configure-to-run-on-startup)_  
- &emsp;- [Hardware and Design](#hardware-and-design)  
- &emsp;&emsp;_- [Parts List](#parts-list)_  
- &emsp;&emsp;_- [Design Schematic](#design-schematic)_  
- &emsp;- [Software](#software)  
- &emsp;&emsp;_- [Current Version](#current-version-12)_  
- &emsp;&emsp;_- [Version Release Notes](#version-release-notes)_
-
-</details>
-
----
-
 ## Project Description
 
 ### About the Product
@@ -117,10 +78,6 @@ This idea was conceived by Jonathan Hoffman, who has always thought outside of t
 ### Jonathan Hoffman - Product Owner
 
 > Jonathan, or "Jono" as his friends call him, is the one who initiated this project. He is largely responsible for the mechanical design, and has selected pump and circuit equipment to be used in product construction.
-
-### Tom Ryan - Consulting Engineer
-
-> Tom has been an instrumental part of product testing, solution design, and general consulting.
 
 ### David Miles - Software Developer
 
@@ -239,22 +196,6 @@ Example:
 > > **`LOGGING_ENABLED`** - Turn logging on/off (True/False)
 >
 > > **`CONSOLE_OUTPUT_ON`** - Turn console output on/off (True/False)
->
-> > **Pin assignments**  
-> > `LED_PIN` = 27  
-> > `RELAY_PIN` = 21  
-> > `SET_BUTTON_PIN` = 13  
-> > `ALARM_BUTTON_PIN` = 26  
-> > `HOUR_BUTTON_PIN` = 6  
-> > `MINUTE_BUTTON_PIN` = 5
->
-> > **These pin assignments are found in lcd.py**  
-> > `LCD_RS` = 7  
-> > `LCD_E` = 8  
-> > `LCD_D4` = 25  
-> > `LCD_D5` = 24  
-> > `LCD_D6` = 23  
-> > `LCD_D7` = 18
 >
 > > These two variables determine default alarm time.  
 > > **`ALARM_HOUR`** - Set to an integer between 0 and 23  
@@ -409,9 +350,47 @@ python main.py
 
 ---
 
+#### Pin Assignments
+
+**Hardware Pins**
+
+| Purpose                 | Name              | Pi Pin (BCM) |
+| ----------------------- | ----------------- | ------------ |
+| Power LED               | LED_PIN           | 27           |
+| Relay Activation        | RELAY_PIN         | 21           |
+| "Set Alarm Time" Button | SET_BUTTON_PIN    | 13           |
+| "Alarm On/Off" Button   | ALARM_BUTTON_PIN  | 26           |
+| "Hour" Button           | HOUR_BUTTTON_PIN  | 6            |
+| "Minute" Button         | MINUTE_BUTTON_PIN | 5            |
+
+**LCD Pins**
+
+| Name in Code | LCD Pin | Pi Pin (BCM) |
+| ------------ | ------- | ------------ |
+| \-           | GND     | GND          |
+| \-           | VDD     | 5V           |
+| \-           | VO      | Trim. Pot.   |
+| LCD_RS       | RS      | 7            |
+| \-           | RW      | GND          |
+| LCD_E        | E       | 8            |
+| LCD_D4       | D4      | 25           |
+| LCD_D5       | D5      | 24           |
+| LCD_D6       | D6      | 23           |
+| LCD_D7       | D7      | 18           |
+| \-           | BLA     | 5V           |
+| \-           | BLK     | GND          |
+
+# Device constants
+
+LCD_CHR = True # Character mode
+LCD_CMD = False # Command mode
+LCD_CHARS = 16 # Characters per line (16 max)
+LCD_LINE_1 = 0x80 # LCD memory location for 1st line
+LCD_LINE_2 = 0xC0 # LCD memory location 2nd line
+
 #### Design Schematic
 
-<img src="./media/water_alarm_schematic.png" width="600" alt="setup diagram">
+<img src="./media/Schematic_V2.png" width="600" alt="setup diagram">
 
 ---
 
