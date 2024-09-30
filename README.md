@@ -382,10 +382,10 @@ python main.py
 
 #### Device constants
 
-LCD_CHR = True # Character mode
-LCD_CMD = False # Command mode
-LCD_CHARS = 16 # Characters per line (16 max)
-LCD_LINE_1 = 0x80 # LCD memory location for 1st line
+LCD_CHR = True # Character mode  
+LCD_CMD = False # Command mode  
+LCD_CHARS = 16 # Characters per line (16 max)  
+LCD_LINE_1 = 0x80 # LCD memory location for 1st line  
 LCD_LINE_2 = 0xC0 # LCD memory location 2nd line
 
 #### Design Schematic
