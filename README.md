@@ -380,7 +380,7 @@ python main.py
 | \-           | BLA     | 5V           |
 | \-           | BLK     | GND          |
 
-# Device constants
+#### Device constants
 
 LCD_CHR = True # Character mode
 LCD_CMD = False # Command mode
