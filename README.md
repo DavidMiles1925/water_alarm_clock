@@ -402,6 +402,12 @@ LCD_LINE_2 = 0xC0 # LCD memory location 2nd line
 
 This version is a fully functional version of the software that has been tested with the hardware. It has a printed case, and is awaiting pump nozzel adjustments. The next step is to build a full prototype of the final Water Alarm product.
 
+##### Current Version Notes
+
+We are waiting on Jono to create a more stable frame for the clock. Work regarding re-design of the 3D printed box and the pump frame have been handed off to Jono.
+
+Problem/bug with snooze function: If the alarm is set and the snooze button are pressed multiple times in close proximity (i.e. alarm goes off and is reset for the very next minute) the snooze is not reset and continues to create timers that are going to spray additional water.
+
 ---
 
 #### Version Release Notes:
