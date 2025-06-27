@@ -6,6 +6,8 @@
 
 ### About the Product
 
+Testing
+
 This is a project in development to create an alarm clock that will spray you with water to help heavy sleepers get out of bed in the morning. It has undergone many transformations since its inception, but it continues to be fun and challenging project that pushes our team to try and learn new things.
 
 ### Inspiration
